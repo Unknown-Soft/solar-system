@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Solar system</title>
+    <link rel="stylesheet" href="assets/styles/index.css">
+</head>
+
+<body id="body">
+    <img id="logo-text" src="assets/images/logo-text.png" />
+    <button id="menu-toggle" class="menu-toggle"></button>
+    <nav>
+        <div class="menu">
+            <div class="column element">One</div>
+            <div class="column element">Two</div>
+            <div class="column element">Three</div>
+        </div>
+    </nav>
+    <script>
+        const button = document.getElementById('menu-toggle');
+        const body = document.getElementById('body');
+        button.addEventListener('click', () => {
+            body.classList.toggle('open');
+        }, false);
+    </script>
+
+    <section id="loading-screen">
+        <img id="logo" src="assets/images/logo.png" />
+        <div class="loader"></div>
+    </section>
+
+    <script async src="https://unpkg.com/es-module-shims@1.3.6/dist/es-module-shims.js"></script>
+    <script type="importmap">
+        {
+          "imports": {
+            "three": "https://unpkg.com/three@0.139.2/build/three.module.js"
+          }
+        }
+      </script>
+    <script type="module">
+
+        import * as THREE from 'three';
+        import { OrbitControls } from 'https://unpkg.com/three@0.139.2/examples/jsm/controls/OrbitControls.js';
+        import { GLTFLoader } from "https://unpkg.com/three@0.139.2/examples/jsm/loaders/GLTFLoader.js";
+
+        let clips,
+            action,
+            mixer,
+            clock,
+            scene,
+            camera,
+            renderer,
+            geometry,
+            controls,
+            gltfLoader,
+            pointLight,
+            ambientLight,
+            directionalLight,
+            envMap,
+            mouse,
+            raycaster,
+            brown,
+            orange,
+            blue,
+            green,
+            darkblue,
+            sun,
+            white,
+            black,
+            loadingManager,
+            loadingScreen
+
+
+        const init = () => {
+            //Animation
+            clock = new THREE.Clock();
+
+            //Scene
+            scene = new THREE.Scene();
+            camera = new THREE.PerspectiveCamera(50, 100 / 100, 0.5, 10000);
+            camera.position.x = 5000;
+            camera.position.z = -1000;
+            camera.position.y = -100;
+            scene.add(camera);
+
+            //Renderer
+            renderer = new THREE.WebGLRenderer({ antialias: true });
+            renderer.setSize(window.innerWidth, window.innerHeight);
+            document.body.appendChild(renderer.domElement);
+
+
+            //Controls
+            controls = new OrbitControls(camera, renderer.domElement);
+            controls.target.y = -100;
+            controls.enabled = false;
+
+            //Loading manager
+            loadingManager = new THREE.LoadingManager(() => {
+                loadingScreen = document.getElementById('loading-screen');
+                loadingScreen.classList.add('fade-out');
+                // optional: remove loader from DOM via event listener
+                loadingScreen.addEventListener('transitionend', onTransitionEnd);
+                document.getElementById('loader').remove();
+            });
+
+            gltfLoader = new GLTFLoader(loadingManager);
+            gltfLoader.load('./assets/model/planets/Planets_organized.gltf',
+                (gltf) => {
+                    scene.add(gltf.scene)
+                    brown = gltf.scene.children.find((child) => child.name === "brown");
+                    orange = gltf.scene.children.find((child) => child.name === "orange");
+                    blue = gltf.scene.children.find((child) => child.name === "blue");
+                    green = gltf.scene.children.find((child) => child.name === "green");
+                    darkblue = gltf.scene.children.find((child) => child.name === "darkblue");
+                    sun = gltf.scene.children.find((child) => child.name === "sun");
+                    white = gltf.scene.children.find((child) => child.name === "white");
+                    black = gltf.scene.children.find((child) => child.name === "black");
+
+                    mixer = new THREE.AnimationMixer(gltf.scene);
+                    clips = gltf.animations;
+                    clips.forEach(function (clip) {
+                        action = mixer.clipAction(clip);
+                        if (clip.name === "sunAction") {
+                            action.timeScale = 1 / 10;
+                        }
+                        else {
+                            action.timeScale = 1 / 70;
+                        }
+                        action.time = 100;
+                        action.play()
+                        console.log(action);
+
+                    });
+                },
+                () => { },
+                () => { }
+            );
+
+
+            //Lights
+            ambientLight = new THREE.AmbientLight(0xffffff, 1.5);
+            pointLight = new THREE.PointLight(
+                // 0xfc030f,
+                0xffffff,
+                0.1,
+                30
+
+            );
+            directionalLight = new THREE.DirectionalLight(
+                // 0xfc030f,
+                0xffffff,
+                0.5
+
+            );
+            pointLight.position.set(1, 10, 1)
+            //scene.add(directionalLight);
+            scene.add(ambientLight);
+
+            //Mouse coors
+            mouse = new THREE.Vector2();
+
+            //Raycaster
+            raycaster = new THREE.Raycaster();
+
+            //Env map
+            envMap = new THREE.CubeTextureLoader().load([
+                './assets/env/px.png',
+                './assets/env/nx.png',
+                './assets/env/py.png',
+                './assets/env/ny.png',
+                './assets/env/pz.png',
+                './assets/env/nz.png',
+            ])
+            scene.background = envMap;
+
+            animate();
+        }
+
+        //Remove loading
+        const onTransitionEnd = (event) => {
+            const element = event.target;
+            element.remove();
+        }
+    
+        //Events
+        const onClick = () => {
+            raycaster.setFromCamera(mouse, camera);
+            let intersects = raycaster.intersectObjects(scene.children);
+            if (intersects.length > 0) {
+                if (intersects[0].object.userData.name === 'Letrero.001') {
+                    window.location.href = "https://www.google.com/";
+                }
+                return;
+            }
+        }
+
+        //Hover planet
+        const onHover = () => {
+            raycaster.setFromCamera(mouse, camera);
+            let intersects = raycaster.intersectObjects(scene.children);
+            if (intersects.length > 0) {
+                for (let i = 0; i < intersects.length; i++) {
+                    switch (intersects[i].object.name) {
+
+                        case "brown":
+                            brown.scale.set(38, 38, 38);
+                            break;
+
+                        case "orangeMesh":
+                            orange.scale.set(26, 26, 26);
+                            break;
+
+                        case "orangeMesh_1":
+                            orange.scale.set(26, 26, 26);
+                            break;
+
+                        case "blueMesh":
+                            blue.scale.set(33, 33, 33);
+                            break;
+
+                        case "blueMesh_1":
+                            blue.scale.set(33, 33, 33);
+                            break;
+
+                        case "greenMesh":
+                            green.scale.set(30, 30, 30);
+                            break;
+
+                        case "greenMesh_1":
+                            green.scale.set(30, 30, 30);
+                            break;
+
+                        case "darkblueMesh":
+                            darkblue.scale.set(28, 28, 28);
+                            break;
+
+                        case "darkblueMesh_1":
+                            darkblue.scale.set(28, 28, 28);
+                            break;
+
+                        case "sun":
+                            sun.scale.set(83, 83, 83);
+                            break;
+
+                        case "whiteMesh":
+                            white.scale.set(43, 43, 43);
+                            break;
+
+                        case "whiteMesh_1":
+                            white.scale.set(43, 43, 43);
+                            break;
+
+                        case "black":
+                            black.scale.set(23, 23, 23);
+                            break;
+
+                        default:
+                            break;
+                    }
+                }
+            }
+        }
+        //Reset planet hover
+        const resetHover = () => {
+            if (brown)
+                brown.scale.set(35, 35, 35)
+
+            if (orange)
+                orange.scale.set(23, 23, 23)
+
+            if (blue)
+                blue.scale.set(30, 30, 30)
+
+
+            if (green)
+                green.scale.set(27, 27, 27);
+
+            if (darkblue)
+                darkblue.scale.set(25, 25, 25);
+
+            if (sun)
+                sun.scale.set(80, 80, 80);
+
+            if (white)
+                white.scale.set(40, 40, 40);
+
+            if (black)
+                black.scale.set(20, 20, 20);
+
+        }
+
+        //Viewport mouse movement 
+        const onMouseMove = (event) => {
+            mouse.x = (event.clientX / window.innerWidth) * 2 - 1;
+            mouse.y = -(event.clientY / window.innerHeight) * 2 + 1;
+        }
+
+        //Resize
+        const onResize = () => {
+            renderer.setSize(window.innerWidth, window.innerHeight);
+            camera.aspect = window.innerWidth / window.innerHeight;
+            camera.updateProjectionMatrix();
+        };
+
+        //Render the scene
+        const animate = () => {
+            //Clock
+            if (mixer)
+                mixer.update(clock.getDelta());
+            //Raycaster setup
+            raycaster.setFromCamera(mouse, camera);
+            //Reset hover new frame
+            resetHover();
+            //Hover new frame
+            onHover();
+            //Update controls
+            controls.update();
+            //Render scene
+            renderer.render(scene, camera);
+            //Request new frame
+            requestAnimationFrame(animate);
+        };
+
+        window.addEventListener("load", onResize, false);
+        window.addEventListener("resize", onResize, false);
+        window.addEventListener("click", onClick, false);
+        window.addEventListener("mousemove", onMouseMove, false);
+
+        init();
+
+    </script>
+</body>
+
+</html>
