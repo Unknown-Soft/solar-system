@@ -21,16 +21,16 @@ canvas {
 }
 
 #logo {
+  position: absolute;
   width: 300px;
   height: 300px;
-  position: absolute;
-  top: 15%;
+  top: 40%;
+  left: 50%;
+  margin-top: -150px; /* Half the height */
+  margin-left: -150px; /* Half the width */
 }
 
 #loading-screen {
-  display: flex;
-  justify-content: center;
-  align-items: center;
   position: absolute;
   z-index: 2;
   top: 0;
@@ -58,6 +58,11 @@ canvas {
   animation: load7 1.8s infinite ease-in-out;
 }
 .loader {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin-top: -5px; /* Half the height */
+  margin-left: -5px; /* Half the width */
   color: #d9b073;
   font-size: 10px;
   position: relative;
@@ -165,12 +170,6 @@ h3 {
   font-weight: normal;
   text-align: center;
   margin-bottom: 60px;
-}
-
-.element {
-  cursor: pointer;
-  padding: 6px 20px;
-  font-size: 48px;
 }
 
 button {
@@ -304,13 +303,24 @@ nav:before {
   perspective: 1000;
   color: white;
 }
+
+/* .element {
+  cursor: pointer;
+  padding: 6px 20px;
+  font-size: 48px;
+} */
+
+.element {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+
 .menu .element {
   opacity: 0;
   height: 80vh;
   width: 100%;
   transform: translate3d(0, 36px, 0);
-  align-self: center;
-  justify-self: center;
 }
 .menu .element:before {
   content: "";
@@ -321,7 +331,6 @@ nav:before {
   left: 0;
   margin: auto;
   left: auto;
-  background-color: white;
   height: 100%;
   width: 0;
   overflow: hidden;
@@ -433,9 +442,4 @@ nav:before {
     padding-bottom: 0;
     border-radius: 0;
   }
-}
-
-.column {
-  display: flex;
-  justify-content: center;
 }
