@@ -95,7 +95,8 @@
             //Controls
             controls = new OrbitControls(camera, renderer.domElement);
             controls.target.y = -100;
-            controls.enabled = false;
+            controls.enabled = true;
+            controls.autoRotateSpeed = 0.1;
 
             //Loading manager
             loadingManager = new THREE.LoadingManager(() => {
@@ -190,7 +191,7 @@
             raycaster.setFromCamera(mouse, camera);
             let intersects = raycaster.intersectObjects(scene.children);
             if (intersects.length > 0) {
-                if (intersects[0].object.userData.name === 'Letrero.001') {
+                if (intersects[0].object.userData.name === 'sun') {
                     window.location.href = "https://www.google.com/";
                 }
                 return;
@@ -202,6 +203,7 @@
             raycaster.setFromCamera(mouse, camera);
             let intersects = raycaster.intersectObjects(scene.children);
             if (intersects.length > 0) {
+                controls.autoRotate = false;
                 for (let i = 0; i < intersects.length; i++) {
                     switch (intersects[i].object.name) {
 
@@ -261,6 +263,8 @@
                             break;
                     }
                 }
+            }else{
+                controls.autoRotate = true;
             }
         }
         //Reset planet hover
