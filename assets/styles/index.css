@@ -24,17 +24,16 @@ canvas {
 
 #logo {
   position: absolute;
-  width: 300px;
-  height: 300px;
-  top: 40%;
+  width: 100px;
+  top: 46%;
   left: 50%;
-  margin-top: -150px; /* Half the height */
-  margin-left: -150px; /* Half the width */
+  margin-top: -40px; /* Half the height */
+  margin-left: -40px; /* Half the width */
 }
 
 #loading-screen {
   position: absolute;
-  z-index: 2;
+  z-index: 11;
   top: 0;
   left: 0;
   width: 100%;
