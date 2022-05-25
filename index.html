@@ -81,6 +81,7 @@
         import { OrbitControls } from 'https://unpkg.com/three@0.139.2/examples/jsm/controls/OrbitControls.js';
         import { GLTFLoader } from "https://unpkg.com/three@0.139.2/examples/jsm/loaders/GLTFLoader.js";
         import { CSS2DRenderer, CSS2DObject } from "https://unpkg.com/three@0.139.2/examples/jsm/renderers/CSS2DRenderer.js";
+        import { RGBELoader } from 'https://unpkg.com/three@0.139.2/examples/jsm/loaders/RGBELoader.js';
 
         let clips,
             action,
@@ -108,7 +109,8 @@
             black,
             loadingManager,
             loadingScreen,
-            labelRenderer
+            labelRenderer,
+            rgbeLoader
 
 
         const init = () => {
@@ -142,6 +144,11 @@
 
             //Renderer
             renderer = new THREE.WebGLRenderer({ antialias: true });
+            renderer.setPixelRatio( window.devicePixelRatio );
+			renderer.setSize( window.innerWidth, window.innerHeight );
+			renderer.toneMapping = THREE.ACESFilmicToneMapping;
+			renderer.toneMappingExposure = 1;
+			renderer.outputEncoding = THREE.sRGBEncoding;
             // renderer.setSize(window.innerWidth, window.innerHeight);
             document.body.appendChild(renderer.domElement);
 
@@ -150,7 +157,7 @@
             controls = new OrbitControls(camera, labelRenderer.domElement);
             controls.target.y = -100;
             controls.enabled = true;
-            controls.autoRotateSpeed = 0.1;
+            controls.autoRotateSpeed = 0.2;
 
             //Loading manager
             loadingManager = new THREE.LoadingManager(() => {
@@ -162,7 +169,55 @@
                     document.getElementById('loader').remove();
             });
 
-            gltfLoader = new GLTFLoader(loadingManager);
+            //RGBE loader
+            rgbeLoader  = new RGBELoader()
+                .setPath('assets/hdr-s/')
+                .load('nebula.hdr', function (texture) {
+
+                    texture.mapping = THREE.EquirectangularReflectionMapping;
+
+                    scene.background = texture;
+                    scene.environment = texture;
+
+                    renderer.render(scene, camera);
+
+                    // model
+
+                    gltfLoader = new GLTFLoader(loadingManager);
+                    gltfLoader.load('./assets/model/planets/Planets_organized.gltf',
+                        (gltf) => {
+                            scene.add(gltf.scene)
+                            renderer.render(scene, camera);
+                            brown = gltf.scene.children.find((child) => child.name === "brown");
+                            orange = gltf.scene.children.find((child) => child.name === "orange");
+                            blue = gltf.scene.children.find((child) => child.name === "blue");
+                            green = gltf.scene.children.find((child) => child.name === "green");
+                            darkblue = gltf.scene.children.find((child) => child.name === "darkblue");
+                            sun = gltf.scene.children.find((child) => child.name === "sun");
+                            white = gltf.scene.children.find((child) => child.name === "white");
+                            black = gltf.scene.children.find((child) => child.name === "black");
+
+                            mixer = new THREE.AnimationMixer(gltf.scene);
+                            clips = gltf.animations;
+                            clips.forEach(function (clip) {
+                                action = mixer.clipAction(clip);
+                                if (clip.name === "sunAction") {
+                                    action.timeScale = 1 / 10;
+                                }
+                                else {
+                                    action.timeScale = 1 / 70;
+                                }
+                                action.time = 100;
+                                action.play()
+                            });
+                        },
+                        () => { },
+                        () => { }
+                    );
+
+                });
+
+            /* gltfLoader = new GLTFLoader(loadingManager);
             gltfLoader.load('./assets/model/planets/Planets_organized.gltf',
                 (gltf) => {
                     scene.add(gltf.scene)
@@ -191,7 +246,7 @@
                 },
                 () => { },
                 () => { }
-            );
+            ); */
 
 
             //Lights
@@ -364,6 +419,7 @@
             camera.aspect = window.innerWidth / window.innerHeight;
             camera.updateProjectionMatrix();
             labelRenderer.setSize(window.innerWidth, window.innerHeight);
+            renderer.render(scene, camera);
         };
 
         //Render the scene
