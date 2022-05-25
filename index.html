@@ -96,7 +96,6 @@
             pointLight,
             ambientLight,
             directionalLight,
-            envMap,
             mouse,
             raycaster,
             brown,
@@ -175,14 +174,11 @@
                 .load('nebula.hdr', function (texture) {
 
                     texture.mapping = THREE.EquirectangularReflectionMapping;
-
                     scene.background = texture;
                     scene.environment = texture;
-
                     renderer.render(scene, camera);
 
                     // model
-
                     gltfLoader = new GLTFLoader(loadingManager);
                     gltfLoader.load('./assets/model/planets/Planets_organized.gltf',
                         (gltf) => {
@@ -217,38 +213,6 @@
 
                 });
 
-            /* gltfLoader = new GLTFLoader(loadingManager);
-            gltfLoader.load('./assets/model/planets/Planets_organized.gltf',
-                (gltf) => {
-                    scene.add(gltf.scene)
-                    brown = gltf.scene.children.find((child) => child.name === "brown");
-                    orange = gltf.scene.children.find((child) => child.name === "orange");
-                    blue = gltf.scene.children.find((child) => child.name === "blue");
-                    green = gltf.scene.children.find((child) => child.name === "green");
-                    darkblue = gltf.scene.children.find((child) => child.name === "darkblue");
-                    sun = gltf.scene.children.find((child) => child.name === "sun");
-                    white = gltf.scene.children.find((child) => child.name === "white");
-                    black = gltf.scene.children.find((child) => child.name === "black");
-
-                    mixer = new THREE.AnimationMixer(gltf.scene);
-                    clips = gltf.animations;
-                    clips.forEach(function (clip) {
-                        action = mixer.clipAction(clip);
-                        if (clip.name === "sunAction") {
-                            action.timeScale = 1 / 10;
-                        }
-                        else {
-                            action.timeScale = 1 / 70;
-                        }
-                        action.time = 100;
-                        action.play()
-                    });
-                },
-                () => { },
-                () => { }
-            ); */
-
-
             //Lights
             ambientLight = new THREE.AmbientLight(0xffffff, 1.5);
             pointLight = new THREE.PointLight(
@@ -273,20 +237,6 @@
 
             //Raycaster
             raycaster = new THREE.Raycaster();
-
-            //Env map
-            envMap = new THREE.CubeTextureLoader().load([
-                './assets/env/px.png',
-                './assets/env/nx.png',
-                './assets/env/py.png',
-                './assets/env/ny.png',
-                './assets/env/pz.png',
-                './assets/env/nz.png',
-            ])
-            scene.background = envMap;
-
-
-
 
             animate();
         }
