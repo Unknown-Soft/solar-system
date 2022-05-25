@@ -15,7 +15,6 @@
     <nav>
         <div class="menu">
             <div class="element">
-<<<<<<< HEAD
                 <div class="ml-80">
                     <h2>Soluciones de negocio</h2>
                     <span>Sol: Axon</span>
@@ -36,19 +35,6 @@
                         <h4>Min Pay</h4>
                     </div>
                 </div>
-
-=======
-                <h2>Soluciones de negocio</h2>
-                <span>Sol: Axon</span>
-                <h3>Mind Club</h3> <img src="./" alt="" />
-                <h4>Min app</h4>
-                <h4>Min card</h4>
-                <h3>Mind Solutions</h3> <img src="./" alt="" />
-                <h4>Min Pos</h4>
-                <h4>Min Orders</h4>
-                <h4>Min Shops</h4>
-                <h4>Min Pay</h4>
->>>>>>> b55355b49ead8eaf5a80f74294c809f4484a5654
             </div>
             <div class="element">
                 <div class="ml-60">
@@ -101,7 +87,6 @@
                         <h4>Facebook</h4>
                         <h4>Discord</h4>
                     </div>
-
                 </div>
             </div>
         </div>
@@ -195,11 +180,11 @@
 
             //Renderer
             renderer = new THREE.WebGLRenderer({ antialias: true });
-            renderer.setPixelRatio( window.devicePixelRatio );
-			renderer.setSize( window.innerWidth, window.innerHeight );
-			renderer.toneMapping = THREE.ACESFilmicToneMapping;
-			renderer.toneMappingExposure = 1;
-			renderer.outputEncoding = THREE.sRGBEncoding;
+            renderer.setPixelRatio(window.devicePixelRatio);
+            renderer.setSize(window.innerWidth, window.innerHeight);
+            renderer.toneMapping = THREE.ACESFilmicToneMapping;
+            renderer.toneMappingExposure = 1;
+            renderer.outputEncoding = THREE.sRGBEncoding;
             // renderer.setSize(window.innerWidth, window.innerHeight);
             document.body.appendChild(renderer.domElement);
 
@@ -221,7 +206,7 @@
             });
 
             //RGBE loader
-            rgbeLoader  = new RGBELoader()
+            rgbeLoader = new RGBELoader()
                 .setPath('assets/hdr-s/')
                 .load('nebula.hdr', function (texture) {
 
