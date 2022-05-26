@@ -153,20 +153,68 @@
             loadingManager,
             loadingScreen,
             labelRenderer,
-            rgbeLoader,
-            sol
+            rgbeLoader
 
 
         const init = () => {
 
             //Test Css2d Renderer
 
-            const earthDiv = document.createElement('div');
-            earthDiv.className = 'label';
-            earthDiv.textContent = 'Sun';
-            earthDiv.style.marginTop = '-1em';
-            const earthLabel = new CSS2DObject(earthDiv);
-            earthLabel.position.set(0, 0, 0);
+            const brownDiv = document.createElement('div');
+            brownDiv.className = 'label';
+            brownDiv.textContent = 'brown';
+            brownDiv.style.marginTop = '-1em';
+            const brownLabel = new CSS2DObject(brownDiv);
+            brownLabel.position.set(0, 0, 0);
+
+            const orangeDiv = document.createElement('div');
+            orangeDiv.className = 'label';
+            orangeDiv.textContent = 'orange';
+            orangeDiv.style.marginTop = '-1em';
+            const orangeLabel = new CSS2DObject(orangeDiv);
+            orangeLabel.position.set(0, 0, 0);
+
+            const blueDiv = document.createElement('div');
+            blueDiv.className = 'label';
+            blueDiv.textContent = 'blue';
+            blueDiv.style.marginTop = '-1em';
+            const blueLabel = new CSS2DObject(blueDiv);
+            blueLabel.position.set(0, 0, 0);
+
+            const greenDiv = document.createElement('div');
+            greenDiv.className = 'label';
+            greenDiv.textContent = 'green';
+            greenDiv.style.marginTop = '-1em';
+            const greenLabel = new CSS2DObject(greenDiv);
+            greenLabel.position.set(0, 0, 0);
+
+            const darkblueDiv = document.createElement('div');
+            darkblueDiv.className = 'label';
+            darkblueDiv.textContent = 'darkblue';
+            darkblueDiv.style.marginTop = '-1em';
+            const darkblueLabel = new CSS2DObject(darkblueDiv);
+            darkblueLabel.position.set(0, 0, 0);
+
+            const sunDiv = document.createElement('div');
+            sunDiv.className = 'label';
+            sunDiv.textContent = 'Sun';
+            sunDiv.style.marginTop = '-1em';
+            const sunLabel = new CSS2DObject(sunDiv);
+            sunLabel.position.set(12, 12, 0);
+
+            const whiteDiv = document.createElement('div');
+            whiteDiv.className = 'label';
+            whiteDiv.textContent = 'white';
+            whiteDiv.style.marginTop = '-1em';
+            const whiteLabel = new CSS2DObject(whiteDiv);
+            whiteLabel.position.set(0, 0, 0);
+
+            const blackDiv = document.createElement('div');
+            blackDiv.className = 'label';
+            blackDiv.textContent = 'black';
+            blackDiv.style.marginTop = '-1em';
+            const blackLabel = new CSS2DObject(blackDiv);
+            blackLabel.position.set(0, 0, 0);
 
             labelRenderer = new CSS2DRenderer();
             labelRenderer.setSize(window.innerWidth, window.innerHeight);
@@ -251,8 +299,22 @@
                                 action.play()
                             });
 
+                            brown.layers.enableAll();
+                            brown.add(brownLabel);
+                            orange.layers.enableAll();
+                            orange.add(orangeLabel);
+                            blue.layers.enableAll();
+                            blue.add(blueLabel);
+                            green.layers.enableAll();
+                            green.add(greenLabel);
+                            darkblue.layers.enableAll();
+                            darkblue.add(darkblueLabel);
                             sun.layers.enableAll();
-                            sun.add(earthLabel);
+                            sun.add(sunLabel);
+                            white.layers.enableAll();
+                            white.add(whiteLabel);
+                            black.layers.enableAll();
+                            black.add(blackLabel);
                             labelRenderer.render(scene, camera);
                             renderer.render(scene, camera);
 
@@ -368,7 +430,7 @@
 
                         case "black":
                             black.scale.set(23, 23, 23);
-                            break; 
+                            break;
 
                         default:
                             break;
