@@ -218,7 +218,7 @@
 
             labelRenderer = new CSS2DRenderer();
             labelRenderer.setSize(window.innerWidth, window.innerHeight);
-            labelRenderer.domElement.style.position = 'absolute';
+            labelRenderer.domElement.style.position = 'fixed';
             labelRenderer.domElement.style.top = '0px';
             document.body.appendChild(labelRenderer.domElement);
 
@@ -267,7 +267,7 @@
 
                     texture.mapping = THREE.EquirectangularReflectionMapping;
                     scene.background = texture;
-                    scene.environment = texture;
+                    //scene.environment = texture;
                     renderer.render(scene, camera);
 
                     // model
