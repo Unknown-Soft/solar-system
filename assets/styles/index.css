@@ -508,8 +508,17 @@ h4 {
 }
 
 .label {
-  color: rgb(11, 10, 10);
   font-family: "Orbitron";
-  padding: 2px;
-  background: rgba(196, 193, 193, 0.6);
+  letter-spacing: 0.025rem;
+  text-transform: capitalize;
+  font-style: normal;
+  color: #000000;
+  background-color: #c7c7c7;
+  border-radius: 0.625rem;
+  -webkit-border-radius: 0.625rem;
+  -moz-border-radius: 0.625rem;
+  padding: 0.0525rem 1rem;
+  border-style: solid;
+  border-width: 0.125rem;
+  border-color: #030303;
 }
