@@ -170,6 +170,7 @@ p span:after {
 }
 
 button {
+  cursor : pointer;
   position: absolute;
   opacity: 0.6;
   background-color: transparent;
