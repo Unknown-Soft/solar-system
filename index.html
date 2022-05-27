@@ -248,7 +248,14 @@
             controls = new OrbitControls(camera, labelRenderer.domElement);
             controls.target.y = -1;
             controls.enabled = true;
-            controls.autoRotateSpeed = 0.2;
+            controls.enableDamping = true;
+            controls.dampingFactor = 0.01;
+            controls.autoRotateSpeed = 1;
+            controls.maxPolarAngle = Math.PI / 2;
+            controls.minPolarAngle = Math.PI / 2;
+            controls.minDistance = 0;
+            controls.maxDistance = 5000;
+
 
             //Loading manager
             loadingManager = new THREE.LoadingManager(() => {
