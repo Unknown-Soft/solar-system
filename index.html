@@ -17,6 +17,7 @@
     <meta name="theme-color" content="#000000">
 
 <body id="body">
+    <div id="container"></div>
     <img id="logo-text" src="assets/images/logo-text.png" />
     <button id="menu-toggle" class="menu-toggle"></button>
     <nav>
@@ -126,37 +127,45 @@
         import { GLTFLoader } from "https://unpkg.com/three@0.139.2/examples/jsm/loaders/GLTFLoader.js";
         import { CSS2DRenderer, CSS2DObject } from "https://unpkg.com/three@0.139.2/examples/jsm/renderers/CSS2DRenderer.js";
         import { RGBELoader } from 'https://unpkg.com/three@0.139.2/examples/jsm/loaders/RGBELoader.js';
+        import Stats from 'https://unpkg.com/three@0.139.2/examples/jsm/libs/stats.module.js';
 
-        let clips,
-            action,
-            mixer,
-            clock,
-            scene,
-            camera,
-            renderer,
-            geometry,
-            controls,
-            gltfLoader,
-            pointLight,
+        let action,
             ambientLight,
-            directionalLight,
-            mouse,
-            raycaster,
-            brown,
-            orange,
-            blue,
-            green,
-            darkblue,
-            sun,
-            white,
             black,
+            blue,
+            brown,
+            camera,
+            container,
+            clips,
+            clock,
+            controls,
+            darkblue,
+            directionalLight,
+            geometry,
+            gltfLoader,
+            green,
+            labelRenderer,
             loadingManager,
             loadingScreen,
-            labelRenderer,
-            rgbeLoader
-
+            mixer,
+            mouse,
+            orange,
+            pointLight,
+            pmremGenerator,
+            raycaster,
+            renderer,
+            rgbeLoader,
+            scene,
+            stats,
+            sun,
+            white
 
         const init = () => {
+
+            //stats 
+            container = document.getElementById( 'container' );
+            stats = new Stats();
+			container.appendChild( stats.dom );
 
             //Test Css2d Renderer
 
@@ -165,56 +174,56 @@
             brownDiv.textContent = 'brown';
             brownDiv.style.marginTop = '-1em';
             const brownLabel = new CSS2DObject(brownDiv);
-            brownLabel.position.set(13, 16, 0);
+            brownLabel.position.set(0, 0, 0);
 
             const orangeDiv = document.createElement('div');
             orangeDiv.className = 'label';
             orangeDiv.textContent = 'orange';
             orangeDiv.style.marginTop = '-1em';
             const orangeLabel = new CSS2DObject(orangeDiv);
-            orangeLabel.position.set(16, 10.5, 0);
+            orangeLabel.position.set(0, 0, 0);
 
             const blueDiv = document.createElement('div');
             blueDiv.className = 'label';
             blueDiv.textContent = 'blue';
             blueDiv.style.marginTop = '-1em';
             const blueLabel = new CSS2DObject(blueDiv);
-            blueLabel.position.set(14, 11, 0);
+            blueLabel.position.set(0, 0, 0);
 
             const greenDiv = document.createElement('div');
             greenDiv.className = 'label';
             greenDiv.textContent = 'green';
             greenDiv.style.marginTop = '-1em';
             const greenLabel = new CSS2DObject(greenDiv);
-            greenLabel.position.set(15, 13, 0);
+            greenLabel.position.set(0, 0, 0);
 
             const darkblueDiv = document.createElement('div');
             darkblueDiv.className = 'label';
             darkblueDiv.textContent = 'darkblue';
             darkblueDiv.style.marginTop = '-1em';
             const darkblueLabel = new CSS2DObject(darkblueDiv);
-            darkblueLabel.position.set(14, 14, 0);
+            darkblueLabel.position.set(0, 0, 0);
 
             const sunDiv = document.createElement('div');
             sunDiv.className = 'label';
             sunDiv.textContent = 'Sun';
             sunDiv.style.marginTop = '-1em';
             const sunLabel = new CSS2DObject(sunDiv);
-            sunLabel.position.set(13, 11, 0);
+            sunLabel.position.set(12, 12, 0);
 
             const whiteDiv = document.createElement('div');
             whiteDiv.className = 'label';
             whiteDiv.textContent = 'white';
             whiteDiv.style.marginTop = '-1em';
             const whiteLabel = new CSS2DObject(whiteDiv);
-            whiteLabel.position.set(-12, 10, 0);
+            whiteLabel.position.set(0, 0, 0);
 
             const blackDiv = document.createElement('div');
             blackDiv.className = 'label';
             blackDiv.textContent = 'black';
             blackDiv.style.marginTop = '-1em';
             const blackLabel = new CSS2DObject(blackDiv);
-            blackLabel.position.set(11, 11, 0);
+            blackLabel.position.set(0, 0, 0);
 
             labelRenderer = new CSS2DRenderer();
             labelRenderer.setSize(window.innerWidth, window.innerHeight);
@@ -227,7 +236,7 @@
 
             //Scene
             scene = new THREE.Scene();
-            camera = new THREE.PerspectiveCamera(55, window.innerWidth / window.innerHeight, 0.5, 10000);
+            camera = new THREE.PerspectiveCamera(50, window.innerWidth / window.innerHeight, 0.5, 10000);
             camera.position.x = 5000;
             camera.position.z = -1000;
             camera.position.y = -100;
@@ -253,7 +262,7 @@
             controls.autoRotateSpeed = 1;
             controls.maxPolarAngle = Math.PI / 2;
             controls.minPolarAngle = Math.PI / 2;
-            controls.minDistance = 5000;
+            controls.minDistance = 0;
             controls.maxDistance = 5000;
 
 
@@ -275,14 +284,14 @@
                     texture.mapping = THREE.EquirectangularReflectionMapping;
                     scene.background = texture;
                     //scene.environment = texture;
-                    renderer.render(scene, camera);
+                    render();
 
                     // model
                     gltfLoader = new GLTFLoader(loadingManager);
                     gltfLoader.load('./assets/model/Planets/Planets_organized.gltf',
                         (gltf) => {
                             scene.add(gltf.scene)
-                            renderer.render(scene, camera);
+                            render();
                             brown = gltf.scene.children.find((child) => child.name === "brown");
                             orange = gltf.scene.children.find((child) => child.name === "orange");
                             blue = gltf.scene.children.find((child) => child.name === "blue");
@@ -303,7 +312,7 @@
                                     action.timeScale = 1 / 70;
                                 }
                                 action.time = 100;
-                                // action.play()
+                                action.play()
                             });
 
                             brown.layers.enableAll();
@@ -323,7 +332,7 @@
                             black.layers.enableAll();
                             black.add(blackLabel);
                             labelRenderer.render(scene, camera);
-                            renderer.render(scene, camera);
+                            render();
 
                         },
                         () => { },
@@ -372,7 +381,7 @@
             let intersects = raycaster.intersectObjects(scene.children);
             if (intersects.length > 0) {
                 if (intersects[0].object.userData.name === 'sun') {
-                    //window.location.href = "https://www.google.com/";
+                    window.location.href = "https://www.google.com/";
                 }
                 return;
             }
@@ -384,7 +393,7 @@
             let intersects = raycaster.intersectObjects(scene.children);
             if (intersects.length > 0) {
                 controls.autoRotate = false;
-                document.getElementById("body").style.cursor = "pointer";
+                controls.enableDamping = false;
                 for (let i = 0; i < intersects.length; i++) {
                     switch (intersects[i].object.name) {
 
@@ -445,7 +454,8 @@
                     }
                 }
             } else {
-                //controls.autoRotate = true;
+                controls.autoRotate = true;
+                controls.enableDamping = true;
             }
         }
         //Reset planet hover
@@ -475,7 +485,6 @@
             if (black)
                 black.scale.set(20, 20, 20);
 
-            document.getElementById("body").style.cursor = "grab";
         }
 
         //Viewport mouse movement 
@@ -490,7 +499,7 @@
             camera.aspect = window.innerWidth / window.innerHeight;
             camera.updateProjectionMatrix();
             labelRenderer.setSize(window.innerWidth, window.innerHeight);
-            renderer.render(scene, camera);
+            render();
         };
 
         //Render the scene
@@ -507,11 +516,17 @@
             //Update controls
             controls.update();
             //Render scene
-            renderer.render(scene, camera);
+            render();
             //Request new frame
             requestAnimationFrame(animate);
             labelRenderer.render(scene, camera);
+            //Stats update 
+            stats.update()
         };
+
+        const render = () => {
+            renderer.render(scene, camera);
+        }
 
         window.addEventListener("load", onResize, false);
         window.addEventListener("resize", onResize, false);
