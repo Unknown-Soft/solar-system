@@ -21,17 +21,6 @@
     ],
     "nodes" : [
         {
-            "extras" : {
-                "mr displacement use global settings" : 1,
-                "mr displacement view dependent" : 1,
-                "mr displacement method" : 6,
-                "mr displacement smoothing on" : 1,
-                "mr displacement edge length" : 2.0,
-                "mr displacement max displace" : 20.0,
-                "mr displacement parametric subdivision level" : 5,
-                "MapChannel:1" : "UVChannel_1",
-                "MaxHandle" : 15
-            },
             "mesh" : 0,
             "name" : "orange",
             "scale" : [
@@ -46,17 +35,6 @@
             ]
         },
         {
-            "extras" : {
-                "mr displacement use global settings" : 1,
-                "mr displacement view dependent" : 1,
-                "mr displacement method" : 6,
-                "mr displacement smoothing on" : 1,
-                "mr displacement edge length" : 2.0,
-                "mr displacement max displace" : 20.0,
-                "mr displacement parametric subdivision level" : 5,
-                "MapChannel:1" : "UVChannel_1",
-                "MaxHandle" : 15
-            },
             "mesh" : 1,
             "name" : "green",
             "scale" : [
@@ -71,17 +49,6 @@
             ]
         },
         {
-            "extras" : {
-                "mr displacement use global settings" : 1,
-                "mr displacement view dependent" : 1,
-                "mr displacement method" : 6,
-                "mr displacement smoothing on" : 1,
-                "mr displacement edge length" : 2.0,
-                "mr displacement max displace" : 20.0,
-                "mr displacement parametric subdivision level" : 5,
-                "MapChannel:1" : "UVChannel_1",
-                "MaxHandle" : 15
-            },
             "mesh" : 2,
             "name" : "blue",
             "scale" : [
@@ -96,17 +63,6 @@
             ]
         },
         {
-            "extras" : {
-                "mr displacement use global settings" : 1,
-                "mr displacement view dependent" : 1,
-                "mr displacement method" : 6,
-                "mr displacement smoothing on" : 1,
-                "mr displacement edge length" : 2.0,
-                "mr displacement max displace" : 20.0,
-                "mr displacement parametric subdivision level" : 5,
-                "MapChannel:1" : "UVChannel_1",
-                "MaxHandle" : 15
-            },
             "mesh" : 3,
             "name" : "white",
             "scale" : [
@@ -121,17 +77,6 @@
             ]
         },
         {
-            "extras" : {
-                "mr displacement use global settings" : 1,
-                "mr displacement view dependent" : 1,
-                "mr displacement method" : 6,
-                "mr displacement smoothing on" : 1,
-                "mr displacement edge length" : 2.0,
-                "mr displacement max displace" : 20.0,
-                "mr displacement parametric subdivision level" : 5,
-                "MapChannel:1" : "UVChannel_1",
-                "MaxHandle" : 11
-            },
             "mesh" : 4,
             "name" : "brown",
             "scale" : [
@@ -146,17 +91,6 @@
             ]
         },
         {
-            "extras" : {
-                "mr displacement use global settings" : 1,
-                "mr displacement view dependent" : 1,
-                "mr displacement method" : 6,
-                "mr displacement smoothing on" : 1,
-                "mr displacement edge length" : 2.0,
-                "mr displacement max displace" : 20.0,
-                "mr displacement parametric subdivision level" : 5,
-                "MapChannel:1" : "UVChannel_1",
-                "MaxHandle" : 11
-            },
             "mesh" : 5,
             "name" : "black",
             "scale" : [
@@ -171,17 +105,6 @@
             ]
         },
         {
-            "extras" : {
-                "mr displacement use global settings" : 1,
-                "mr displacement view dependent" : 1,
-                "mr displacement method" : 6,
-                "mr displacement smoothing on" : 1,
-                "mr displacement edge length" : 2.0,
-                "mr displacement max displace" : 20.0,
-                "mr displacement parametric subdivision level" : 5,
-                "MapChannel:1" : "UVChannel_1",
-                "MaxHandle" : 11
-            },
             "mesh" : 6,
             "name" : "sun",
             "scale" : [
@@ -196,17 +119,6 @@
             ]
         },
         {
-            "extras" : {
-                "mr displacement use global settings" : 1,
-                "mr displacement view dependent" : 1,
-                "mr displacement method" : 6,
-                "mr displacement smoothing on" : 1,
-                "mr displacement edge length" : 2.0,
-                "mr displacement max displace" : 20.0,
-                "mr displacement parametric subdivision level" : 5,
-                "MapChannel:1" : "UVChannel_1",
-                "MaxHandle" : 15
-            },
             "mesh" : 7,
             "name" : "darkblue",
             "rotation" : [
@@ -986,49 +898,49 @@
             "uri" : "Clouds_02.png"
         },
         {
-            "mimeType" : "image/png",
+            "mimeType" : "image/jpeg",
             "name" : "StarthF54_Normal",
-            "uri" : "StarthF54_Normal.png"
+            "uri" : "StarthF54_Normal.jpg"
         },
         {
-            "mimeType" : "image/png",
+            "mimeType" : "image/jpeg",
             "name" : "StarthF54_BaseColor",
-            "uri" : "StarthF54_BaseColor.png"
+            "uri" : "StarthF54_BaseColor.jpg"
         },
         {
-            "mimeType" : "image/png",
+            "mimeType" : "image/jpeg",
             "name" : "StarthF54_Metallic-StarthF54_Roughness",
-            "uri" : "StarthF54_Metallic-StarthF54_Roughness.png"
+            "uri" : "StarthF54_Metallic-StarthF54_Roughness.jpg"
         },
         {
-            "mimeType" : "image/png",
+            "mimeType" : "image/jpeg",
             "name" : "Vuoturn_Normal",
-            "uri" : "Vuoturn_Normal.png"
+            "uri" : "Vuoturn_Normal.jpg"
         },
         {
-            "mimeType" : "image/png",
+            "mimeType" : "image/jpeg",
             "name" : "Vuoturn_BaseColor",
-            "uri" : "Vuoturn_BaseColor.png"
+            "uri" : "Vuoturn_BaseColor.jpg"
         },
         {
-            "mimeType" : "image/png",
+            "mimeType" : "image/jpeg",
             "name" : "Vuoturn_Metallic-Vuoturn_Roughness",
-            "uri" : "Vuoturn_Metallic-Vuoturn_Roughness.png"
+            "uri" : "Vuoturn_Metallic-Vuoturn_Roughness.jpg"
         },
         {
-            "mimeType" : "image/png",
+            "mimeType" : "image/jpeg",
             "name" : "Ochomia_Normal",
-            "uri" : "Ochomia_Normal.png"
+            "uri" : "Ochomia_Normal.jpg"
         },
         {
-            "mimeType" : "image/png",
+            "mimeType" : "image/jpeg",
             "name" : "Ochomia_BaseColor",
-            "uri" : "Ochomia_BaseColor.png"
+            "uri" : "Ochomia_BaseColor.jpg"
         },
         {
-            "mimeType" : "image/png",
+            "mimeType" : "image/jpeg",
             "name" : "Ochomia_Metallic-Ochomia_Roughness",
-            "uri" : "Ochomia_Metallic-Ochomia_Roughness.png"
+            "uri" : "Ochomia_Metallic-Ochomia_Roughness.jpg"
         },
         {
             "mimeType" : "image/png",
@@ -1036,69 +948,69 @@
             "uri" : "Clouds_01.png"
         },
         {
-            "mimeType" : "image/png",
+            "mimeType" : "image/jpeg",
             "name" : "Deyclite_Normal",
-            "uri" : "Deyclite_Normal.png"
+            "uri" : "Deyclite_Normal.jpg"
         },
         {
-            "mimeType" : "image/png",
+            "mimeType" : "image/jpeg",
             "name" : "Deyclite_BaseColor",
-            "uri" : "Deyclite_BaseColor.png"
+            "uri" : "Deyclite_BaseColor.jpg"
         },
         {
-            "mimeType" : "image/png",
+            "mimeType" : "image/jpeg",
             "name" : "Deyclite_Metallic-Deyclite_Roughness",
-            "uri" : "Deyclite_Metallic-Deyclite_Roughness.png"
+            "uri" : "Deyclite_Metallic-Deyclite_Roughness.jpg"
         },
         {
-            "mimeType" : "image/png",
+            "mimeType" : "image/jpeg",
             "name" : "Echoth_Normal",
-            "uri" : "Echoth_Normal.png"
+            "uri" : "Echoth_Normal.jpg"
         },
         {
-            "mimeType" : "image/png",
+            "mimeType" : "image/jpeg",
             "name" : "Echoth_BaseColor",
-            "uri" : "Echoth_BaseColor.png"
+            "uri" : "Echoth_BaseColor.jpg"
         },
         {
-            "mimeType" : "image/png",
+            "mimeType" : "image/jpeg",
             "name" : "Bulvars_Normal",
-            "uri" : "Bulvars_Normal.png"
+            "uri" : "Bulvars_Normal.jpg"
         },
         {
-            "mimeType" : "image/png",
+            "mimeType" : "image/jpeg",
             "name" : "Bulvars_BaseColor",
-            "uri" : "Bulvars_BaseColor.png"
+            "uri" : "Bulvars_BaseColor.jpg"
         },
         {
-            "mimeType" : "image/png",
+            "mimeType" : "image/jpeg",
             "name" : "Larus_Emissive",
-            "uri" : "Larus_Emissive.png"
+            "uri" : "Larus_Emissive.jpg"
         },
         {
-            "mimeType" : "image/png",
+            "mimeType" : "image/jpeg",
             "name" : "Larus_Normal",
-            "uri" : "Larus_Normal.png"
+            "uri" : "Larus_Normal.jpg"
         },
         {
-            "mimeType" : "image/png",
+            "mimeType" : "image/jpeg",
             "name" : "Larus_BaseColor",
-            "uri" : "Larus_BaseColor.png"
+            "uri" : "Larus_BaseColor.jpg"
         },
         {
-            "mimeType" : "image/png",
+            "mimeType" : "image/jpeg",
             "name" : "Idrion_Normal",
-            "uri" : "Idrion_Normal.png"
+            "uri" : "Idrion_Normal.jpg"
         },
         {
-            "mimeType" : "image/png",
+            "mimeType" : "image/jpeg",
             "name" : "Idrion_BaseColor",
-            "uri" : "Idrion_BaseColor.png"
+            "uri" : "Idrion_BaseColor.jpg"
         },
         {
-            "mimeType" : "image/png",
+            "mimeType" : "image/jpeg",
             "name" : "Idrion_Metallic-Idrion_Roughness",
-            "uri" : "Idrion_Metallic-Idrion_Roughness.png"
+            "uri" : "Idrion_Metallic-Idrion_Roughness.jpg"
         }
     ],
     "accessors" : [
