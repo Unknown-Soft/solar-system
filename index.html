@@ -258,7 +258,6 @@
             controls.target.y = -1;
             controls.enabled = true;
             controls.enableDamping = true;
-            controls.dampingFactor = 0.01;
             controls.autoRotateSpeed = 1;
             controls.maxPolarAngle = Math.PI / 2;
             controls.minPolarAngle = Math.PI / 2;
@@ -393,7 +392,7 @@
             let intersects = raycaster.intersectObjects(scene.children);
             if (intersects.length > 0) {
                 controls.autoRotate = false;
-                controls.enableDamping = false;
+                controls.dampingFactor = 0.01;
                 for (let i = 0; i < intersects.length; i++) {
                     switch (intersects[i].object.name) {
 
@@ -455,7 +454,7 @@
                 }
             } else {
                 controls.autoRotate = true;
-                controls.enableDamping = true;
+                controls.dampingFactor = 0.095;
             }
         }
         //Reset planet hover
