@@ -129,6 +129,8 @@
         import { RGBELoader } from 'https://unpkg.com/three@0.139.2/examples/jsm/loaders/RGBELoader.js';
         import Stats from 'https://unpkg.com/three@0.139.2/examples/jsm/libs/stats.module.js';
 
+        THREE.Cache.enabled = true;
+
         let action,
             ambientLight,
             black,
@@ -334,8 +336,12 @@
                             render();
 
                         },
-                        () => { },
-                        () => { }
+                        (xhr) => { 
+                            console.log((xhr.loaded / xhr.total * 100) + '% loaded'); 
+                        },
+                        (error) => { 
+                            console.log('An error happened'); 
+                        }
                     );
 
                 });
