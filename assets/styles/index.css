@@ -98,7 +98,6 @@ canvas {
 }
 
 @-webkit-keyframes load7 {
-
   0%,
   80%,
   100% {
@@ -111,7 +110,6 @@ canvas {
 }
 
 @keyframes load7 {
-
   0%,
   80%,
   100% {
@@ -170,7 +168,7 @@ p span:after {
 }
 
 button {
-  cursor : pointer;
+  cursor: pointer;
   position: absolute;
   opacity: 0.6;
   background-color: transparent;
@@ -195,17 +193,19 @@ button:before {
   margin: auto;
   right: auto;
   width: 100%;
-  background: linear-gradient(to bottom,
-      #d9b073,
-      #d9b073 20%,
-      transparent 20%,
-      transparent 40%,
-      #d9b073 40%,
-      #d9b073 60%,
-      transparent 60%,
-      transparent 80%,
-      #d9b073 80%,
-      #d9b073 100%);
+  background: linear-gradient(
+    to bottom,
+    #d9b073,
+    #d9b073 20%,
+    transparent 20%,
+    transparent 40%,
+    #d9b073 40%,
+    #d9b073 60%,
+    transparent 60%,
+    transparent 80%,
+    #d9b073 80%,
+    #d9b073 100%
+  );
   transition: opacity 0.2s ease-out, width 0.2s 0.2s ease-out;
 }
 
@@ -268,13 +268,9 @@ nav:before {
   margin: auto;
   background: #000000 70%;
   /* fallback for old browsers */
-  background: -webkit-linear-gradient(to right,
-      #000000,
-      #1a1a1a 70%);
+  background: -webkit-linear-gradient(to right, #000000, #1a1a1a 70%);
   /* Chrome 10-25, Safari 5.1-6 */
-  background: linear-gradient(to right,
-      #000000,
-      #1a1a1a 70%);
+  background: linear-gradient(to right, #000000, #1a1a1a 70%);
   /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
   width: 100%;
   height: 0;
@@ -293,34 +289,129 @@ nav:before {
   animation: menu-animation 0.8s ease-out forwards;
 }
 
+/* Slide transitions */
+.slideUp {
+  -webkit-transform: translateY(-100px);
+  transform: translateY(-100px);
+  transition: transform 0.5s ease-out;
+}
+
+.slideDown {
+  -webkit-transform: translateY(0);
+  transform: translateY(0);
+  transition: transform 0.4s ease-out;
+}
+
 .menu {
+  margin-top: 40px;
   font-family: "Poppins";
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  grid-gap: 1px;
-  grid-auto-rows: minmax(100px, auto);
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: space-around;
   width: 100%;
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  transform: translate3d(-50%, -50%, 0);
   -webkit-backface-visibility: hidden;
   backface-visibility: hidden;
   perspective: 1000;
   color: white;
+  cursor: auto;
 }
 
-.ml-80 {
+@media screen and (max-width: 768px) {
+  .m-15 {
+    margin-bottom: 15px;
+    margin-top: 15px;
+  }
+
+  #column-one {
+    margin-left: 80px !important;
+    margin-top: 100px !important;
+  }
+
+  #column-two {
+    margin-left: 80px !important;
+  }
+
+  #column-three {
+    margin-left: 80px !important;
+  }
+
+  h2 {
+    font-size: 20px !important;
+  }
+
+  span {
+    font-size: 16px !important;
+  }
+
+  h3 {
+    font-size: 16px !important;
+  }
+
+  .plus {
+    width: 12px !important;
+  }
+
+  h4 {
+    font-size: 16px !important;
+  }
+  .menu {
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    overflow-y: scroll;
+    height: 100% !important;
+  }
+}
+
+@media screen and (min-width: 1800px) {
+
+  .menu {
+    margin-top: 60px;
+  }
+  .m-15 {
+    margin-bottom: 30px !important;
+    margin-top: 30px !important;
+  }
+
+  h2 {
+    font-size: 32px !important;
+  }
+
+  span {
+    font-size: 28px !important;
+    margin-bottom: 24px !important;
+  }
+
+  h3 {
+    font-size: 28px !important;
+  }
+
+  h4 {
+    font-size: 28px !important;
+  }
+
+  .plus {
+    margin-left: 10px !important;
+    width: 20px !important;
+  }
+}
+
+#column-one {
   margin-left: 80px;
+  margin-top: 50px;
 }
 
-.m-15 {
-  margin-bottom: 15px;
-  margin-top: 15px;
+#column-two {
+  margin-left: 40px;
+}
+
+#column-three {
+  margin-left: 40px;
 }
 
 .ml-60 {
-  margin-left: 40px;
+  margin-left: 60px;
 }
 
 .element {
@@ -329,21 +420,21 @@ nav:before {
 
 h2 {
   font-weight: 700;
-  font-size: 28px;
+  font-size: 26px;
   margin: 0;
-  margin-bottom: 30px;
+  margin-bottom: 25px;
 }
 
 span {
   font-weight: 700;
-  font-size: 24px;
-  margin-bottom: 20px;
+  font-size: 22px;
+  margin-bottom: 15px;
 }
 
 h3 {
   font-weight: 700;
   display: inline-block;
-  font-size: 24px;
+  font-size: 22px;
   margin: 0;
 }
 
@@ -352,7 +443,7 @@ h4 {
   text-decoration-thickness: 3px;
   font-weight: 300;
   margin: 0;
-  font-size: 24px;
+  font-size: 22px;
 }
 
 .plus {
@@ -378,7 +469,6 @@ h4 {
   left: auto;
   height: 100%;
   width: 0;
-  overflow: hidden;
   transition: width 0.14s ease-out;
 }
 
@@ -392,7 +482,6 @@ h4 {
   left: 0;
   margin: auto;
   color: #98b296;
-  overflow: hidden;
   transform: translate(-24px, 6px);
   transition: transform 0.1s ease-out, opacity 0.1s ease-out;
 }
