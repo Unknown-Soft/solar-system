@@ -325,7 +325,7 @@ nav:before {
 
   #column-one {
     margin-left: 80px !important;
-    margin-top: 100px !important;
+    margin-top: 80px !important;
   }
 
   #column-two {
@@ -420,21 +420,21 @@ nav:before {
 
 h2 {
   font-weight: 700;
-  font-size: 26px;
+  font-size: 22px;
   margin: 0;
-  margin-bottom: 25px;
+  margin-bottom: 22px;
 }
 
 span {
   font-weight: 700;
-  font-size: 22px;
-  margin-bottom: 15px;
+  font-size: 18px;
+  margin-bottom: 10px;
 }
 
 h3 {
   font-weight: 700;
   display: inline-block;
-  font-size: 22px;
+  font-size: 18px;
   margin: 0;
 }
 
@@ -443,7 +443,7 @@ h4 {
   text-decoration-thickness: 3px;
   font-weight: 300;
   margin: 0;
-  font-size: 22px;
+  font-size: 18px;
 }
 
 .plus {
