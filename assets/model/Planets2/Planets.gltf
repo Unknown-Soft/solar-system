@@ -21,22 +21,44 @@
     ],
     "nodes" : [
         {
+            "extras" : {
+                "mr displacement use global settings" : 1,
+                "mr displacement view dependent" : 1,
+                "mr displacement method" : 6,
+                "mr displacement smoothing on" : 1,
+                "mr displacement edge length" : 2.0,
+                "mr displacement max displace" : 20.0,
+                "mr displacement parametric subdivision level" : 5,
+                "MapChannel:1" : "UVChannel_1",
+                "MaxHandle" : 11
+            },
             "mesh" : 0,
-            "name" : "Planet.022",
+            "name" : "purple",
             "scale" : [
                 30,
                 30,
                 30
             ],
             "translation" : [
-                1532.278564453125,
-                -565.211669921875,
-                2590.91552734375
+                1205.9459228515625,
+                -533.6649169921875,
+                2708.4326171875
             ]
         },
         {
+            "extras" : {
+                "mr displacement use global settings" : 1,
+                "mr displacement view dependent" : 1,
+                "mr displacement method" : 6,
+                "mr displacement smoothing on" : 1,
+                "mr displacement edge length" : 2.0,
+                "mr displacement max displace" : 20.0,
+                "mr displacement parametric subdivision level" : 5,
+                "MapChannel:1" : "UVChannel_1",
+                "MaxHandle" : 11
+            },
             "mesh" : 1,
-            "name" : "Planet.024",
+            "name" : "sun",
             "rotation" : [
                 0.062076497822999954,
                 -0.7129583358764648,
@@ -55,8 +77,19 @@
             ]
         },
         {
+            "extras" : {
+                "mr displacement use global settings" : 1,
+                "mr displacement view dependent" : 1,
+                "mr displacement method" : 6,
+                "mr displacement smoothing on" : 1,
+                "mr displacement edge length" : 2.0,
+                "mr displacement max displace" : 20.0,
+                "mr displacement parametric subdivision level" : 5,
+                "MapChannel:1" : "UVChannel_1",
+                "MaxHandle" : 11
+            },
             "mesh" : 2,
-            "name" : "Planet.014",
+            "name" : "green",
             "rotation" : [
                 -0.2594783902168274,
                 0.56730717420578,
@@ -75,8 +108,19 @@
             ]
         },
         {
+            "extras" : {
+                "mr displacement use global settings" : 1,
+                "mr displacement view dependent" : 1,
+                "mr displacement method" : 6,
+                "mr displacement smoothing on" : 1,
+                "mr displacement edge length" : 2.0,
+                "mr displacement max displace" : 20.0,
+                "mr displacement parametric subdivision level" : 5,
+                "MapChannel:1" : "UVChannel_1",
+                "MaxHandle" : 11
+            },
             "mesh" : 3,
-            "name" : "Planet.004",
+            "name" : "pink",
             "scale" : [
                 50,
                 50,
@@ -89,22 +133,44 @@
             ]
         },
         {
+            "extras" : {
+                "mr displacement use global settings" : 1,
+                "mr displacement view dependent" : 1,
+                "mr displacement method" : 6,
+                "mr displacement smoothing on" : 1,
+                "mr displacement edge length" : 2.0,
+                "mr displacement max displace" : 20.0,
+                "mr displacement parametric subdivision level" : 5,
+                "MapChannel:1" : "UVChannel_1",
+                "MaxHandle" : 11
+            },
             "mesh" : 4,
-            "name" : "Planet.021",
+            "name" : "darkBlue",
             "scale" : [
                 45,
                 45,
                 45
             ],
             "translation" : [
-                -1550.554931640625,
-                153.9101104736328,
-                -3085.663330078125
+                -1041.8199462890625,
+                1825.47998046875,
+                -1550.2900390625
             ]
         },
         {
+            "extras" : {
+                "mr displacement use global settings" : 1,
+                "mr displacement view dependent" : 1,
+                "mr displacement method" : 6,
+                "mr displacement smoothing on" : 1,
+                "mr displacement edge length" : 2.0,
+                "mr displacement max displace" : 20.0,
+                "mr displacement parametric subdivision level" : 5,
+                "MapChannel:1" : "UVChannel_1",
+                "MaxHandle" : 11
+            },
             "mesh" : 5,
-            "name" : "Planet.025",
+            "name" : "lightBlue",
             "scale" : [
                 25,
                 25,
@@ -117,30 +183,52 @@
             ]
         },
         {
+            "extras" : {
+                "mr displacement use global settings" : 1,
+                "mr displacement view dependent" : 1,
+                "mr displacement method" : 6,
+                "mr displacement smoothing on" : 1,
+                "mr displacement edge length" : 2.0,
+                "mr displacement max displace" : 20.0,
+                "mr displacement parametric subdivision level" : 5,
+                "MapChannel:1" : "UVChannel_1",
+                "MaxHandle" : 11
+            },
             "mesh" : 6,
-            "name" : "Planet.026",
+            "name" : "brown",
+            "scale" : [
+                25,
+                25,
+                25
+            ],
+            "translation" : [
+                -1550.550048828125,
+                370.6673889160156,
+                -3085.659912109375
+            ]
+        },
+        {
+            "extras" : {
+                "mr displacement use global settings" : 1,
+                "mr displacement view dependent" : 1,
+                "mr displacement method" : 6,
+                "mr displacement smoothing on" : 1,
+                "mr displacement edge length" : 2.0,
+                "mr displacement max displace" : 20.0,
+                "mr displacement parametric subdivision level" : 5,
+                "MapChannel:1" : "UVChannel_1",
+                "MaxHandle" : 11
+            },
+            "mesh" : 7,
+            "name" : "darkRed",
             "scale" : [
                 35,
                 35,
                 35
             ],
             "translation" : [
-                -1041.817138671875,
-                1825.47802734375,
-                -1550.2861328125
-            ]
-        },
-        {
-            "mesh" : 7,
-            "name" : "Planet.027",
-            "scale" : [
-                40,
-                40,
-                40
-            ],
-            "translation" : [
-                2959.039306640625,
-                -245.92774963378906,
+                2712.43212890625,
+                -780.1566162109375,
                 -636.7705688476562
             ]
         }
