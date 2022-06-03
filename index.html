@@ -121,6 +121,7 @@
         import { GLTFLoader } from "./js/GLTFLoader.js";
         import { CSS2DRenderer, CSS2DObject } from "./js/CSS2DRenderer.js";
         import { RGBELoader } from './js/RGBELoader.js';
+        import { EXRLoader } from './js/EXRLoader.js';
         import Stats from './js/stats.module.js';
 
         THREE.Cache.enabled = true;
@@ -159,9 +160,9 @@
         const init = () => {
 
             //stats 
-            container = document.getElementById( 'container' );
+            container = document.getElementById('container');
             stats = new Stats();
-			container.appendChild( stats.dom );
+            container.appendChild(stats.dom);
 
             //Test Css2d Renderer
 
@@ -264,80 +265,68 @@
             loadingManager = new THREE.LoadingManager(() => {
                 loadingScreen = document.getElementById('loading-screen');
                 loadingScreen.classList.add('fade-out');
-                // optional: remove loader from DOM via event listener
+                // Remove loader from DOM via event listener
                 loadingScreen.addEventListener('transitionend', onTransitionEnd);
                 if (document.getElementById('loader'))
                     document.getElementById('loader').remove();
             });
 
-            //RGBE loader
-            rgbeLoader = new RGBELoader()
-                .setPath('assets/hdr-s/')
-                .load('nebula.hdr', function (texture) {
+            // GLTFLoader
+            gltfLoader = new GLTFLoader(loadingManager);
+            gltfLoader.load('./assets/model/Planets/Planets_organized.gltf',
+                (gltf) => {
+                    scene.add(gltf.scene)
+                    render();
+                    brown = gltf.scene.children.find((child) => child.name === "brown");
+                    orange = gltf.scene.children.find((child) => child.name === "orange");
+                    blue = gltf.scene.children.find((child) => child.name === "blue");
+                    green = gltf.scene.children.find((child) => child.name === "green");
+                    darkblue = gltf.scene.children.find((child) => child.name === "darkblue");
+                    sun = gltf.scene.children.find((child) => child.name === "sun");
+                    white = gltf.scene.children.find((child) => child.name === "white");
+                    black = gltf.scene.children.find((child) => child.name === "black");
 
-                    texture.mapping = THREE.EquirectangularReflectionMapping;
-                    scene.background = texture;
-                    //scene.environment = texture;
+                    mixer = new THREE.AnimationMixer(gltf.scene);
+                    clips = gltf.animations;
+                    clips.forEach(function (clip) {
+                        action = mixer.clipAction(clip);
+                        if (clip.name === "sunAction") {
+                            action.timeScale = 1 / 10;
+                        }
+                        else {
+                            action.timeScale = 1 / 70;
+                        }
+                        action.time = 100;
+                        action.play()
+                    });
+
+                    brown.layers.enableAll();
+                    brown.add(brownLabel);
+                    orange.layers.enableAll();
+                    orange.add(orangeLabel);
+                    blue.layers.enableAll();
+                    blue.add(blueLabel);
+                    green.layers.enableAll();
+                    green.add(greenLabel);
+                    darkblue.layers.enableAll();
+                    darkblue.add(darkblueLabel);
+                    sun.layers.enableAll();
+                    sun.add(sunLabel);
+                    white.layers.enableAll();
+                    white.add(whiteLabel);
+                    black.layers.enableAll();
+                    black.add(blackLabel);
+                    labelRenderer.render(scene, camera);
                     render();
 
-                    // model
-                    gltfLoader = new GLTFLoader(loadingManager);
-                    gltfLoader.load('./assets/model/Planets/Planets_organized.gltf',
-                        (gltf) => {
-                            scene.add(gltf.scene)
-                            render();
-                            brown = gltf.scene.children.find((child) => child.name === "brown");
-                            orange = gltf.scene.children.find((child) => child.name === "orange");
-                            blue = gltf.scene.children.find((child) => child.name === "blue");
-                            green = gltf.scene.children.find((child) => child.name === "green");
-                            darkblue = gltf.scene.children.find((child) => child.name === "darkblue");
-                            sun = gltf.scene.children.find((child) => child.name === "sun");
-                            white = gltf.scene.children.find((child) => child.name === "white");
-                            black = gltf.scene.children.find((child) => child.name === "black");
-
-                            mixer = new THREE.AnimationMixer(gltf.scene);
-                            clips = gltf.animations;
-                            clips.forEach(function (clip) {
-                                action = mixer.clipAction(clip);
-                                if (clip.name === "sunAction") {
-                                    action.timeScale = 1 / 10;
-                                }
-                                else {
-                                    action.timeScale = 1 / 70;
-                                }
-                                action.time = 100;
-                                action.play()
-                            });
-
-                            brown.layers.enableAll();
-                            brown.add(brownLabel);
-                            orange.layers.enableAll();
-                            orange.add(orangeLabel);
-                            blue.layers.enableAll();
-                            blue.add(blueLabel);
-                            green.layers.enableAll();
-                            green.add(greenLabel);
-                            darkblue.layers.enableAll();
-                            darkblue.add(darkblueLabel);
-                            sun.layers.enableAll();
-                            sun.add(sunLabel);
-                            white.layers.enableAll();
-                            white.add(whiteLabel);
-                            black.layers.enableAll();
-                            black.add(blackLabel);
-                            labelRenderer.render(scene, camera);
-                            render();
-
-                        },
-                        (xhr) => { 
-                            console.log((xhr.loaded / xhr.total * 100) + '% loaded'); 
-                        },
-                        (error) => { 
-                            console.log('An error happened'); 
-                        }
-                    );
-
-                });
+                },
+                (xhr) => {
+                    console.log((xhr.loaded / xhr.total * 100) + '% loaded');
+                },
+                (error) => {
+                    console.log('An error happened');
+                }
+            );
 
             //Lights
             ambientLight = new THREE.AmbientLight(0xffffff, 1.5);
