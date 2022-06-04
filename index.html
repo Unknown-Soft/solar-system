@@ -296,15 +296,16 @@
             gltfLoader = new GLTFLoader(loadingManager);
             gltfLoader.load('./assets/model/Planets/Planets_organized.gltf',
                 (gltf) => {
-                    scene.add(gltf.scene)
-                    brown = gltf.scene.children.find((child) => child.name === "brown");
-                    orange = gltf.scene.children.find((child) => child.name === "orange");
-                    blue = gltf.scene.children.find((child) => child.name === "blue");
-                    green = gltf.scene.children.find((child) => child.name === "green");
-                    darkblue = gltf.scene.children.find((child) => child.name === "darkblue");
-                    sun = gltf.scene.children.find((child) => child.name === "sun");
-                    white = gltf.scene.children.find((child) => child.name === "white");
-                    black = gltf.scene.children.find((child) => child.name === "black");
+                    scene.add(gltf.scene);
+
+                    sun = gltf.scene.getObjectByName( 'sun' );
+                    brown = gltf.scene.getObjectByName( 'brown' );
+                    orange = gltf.scene.getObjectByName( 'orange' );
+                    blue = gltf.scene.getObjectByName( 'blue' );
+                    green = gltf.scene.getObjectByName( 'green' );
+                    darkblue = gltf.scene.getObjectByName( 'darkblue' );
+                    white = gltf.scene.getObjectByName( 'white' );
+                    black = gltf.scene.getObjectByName( 'black' );
 
                     mixer = new THREE.AnimationMixer(gltf.scene);
                     clips = gltf.animations;
