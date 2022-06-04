@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Solar system</title>
+    <title>Mind</title>
     <link rel="stylesheet" href="assets/styles/index.css">
 
     <link rel="apple-touch-icon" sizes="152x152" href="./assets/images/favicon/apple-touch-icon.png">
@@ -17,6 +17,11 @@
     <meta name="theme-color" content="#000000">
 
 <body id="body">
+    <section id="loading-screen">
+        <img id="logo" src="assets/images/logo-text.png" />
+        <div class="loader"></div>
+    </section>
+
     <div id="container"></div>
     <img id="logo-text" src="assets/images/logo-text.png" />
     <button id="menu-toggle" class="menu-toggle"></button>
@@ -101,7 +106,7 @@
             body.classList.toggle('open');
         }, false);
 
-        //manage scroll on mobile devices
+        //Menu: manage scroll on mobile devices
         var last_scroll_position, new_scroll_position = 0;
         const logo = document.getElementById("logo-text");
 
@@ -111,35 +116,25 @@
         menuContainer.addEventListener('scroll', function (e) {
             last_scroll_position = menuContainer.scrollTop;
 
-            // Scrolling down
+            // Scrolling down icons
             if (new_scroll_position < last_scroll_position && last_scroll_position > 60) {
                 logo.classList.remove("slideDown");
                 logo.classList.add("slideUp");
                 menu.classList.remove("slideDown");
                 menu.classList.add("slideUp");
 
-                // Scrolling up
+                // Scrolling up icons
             } else if (new_scroll_position > last_scroll_position) {
-                // header.removeClass('slideUp').addClass('slideDown');
                 logo.classList.remove("slideUp");
                 logo.classList.add("slideDown");
                 menu.classList.remove("slideUp");
                 menu.classList.add("slideDown");
             }
-
             new_scroll_position = last_scroll_position;
         });
     </script>
 
-    <section id="loading-screen">
-        <img id="logo" src="assets/images/logo-text.png" />
-        <div class="loader"></div>
-    </section>
-
-    <script async src="https://unpkg.com/es-module-shims@1.3.6/dist/es-module-shims.js"></script>
-
     <script type="module">
-
         import * as THREE from './js/three.module.js';
         import { OrbitControls } from './js/OrbitControls.js';
         import { GLTFLoader } from "./js/GLTFLoader.js";
@@ -497,7 +492,7 @@
         const onResize = () => {
             renderer.setSize(window.innerWidth, window.innerHeight);
             camera.aspect = window.innerWidth / window.innerHeight;
-            if(detectMobile()) {
+            if (detectMobile()) {
                 camera.fov = 100;
                 camera.near = 0.6
             } else {
@@ -541,8 +536,9 @@
         window.addEventListener("mousemove", onMouseMove, false);
 
         init();
-
     </script>
+
+    <script async src="https://unpkg.com/es-module-shims@1.3.6/dist/es-module-shims.js"></script>
 </body>
 
 </html>
