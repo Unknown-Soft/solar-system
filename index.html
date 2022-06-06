@@ -438,9 +438,8 @@
             raycaster.setFromCamera(mouse, camera);
             let intersects = raycaster.intersectObjects(scene.children);
             if (intersects.length > 0) {
-                console.log(intersects[0].object);
-                if (intersects[0].object.userData.name === 'points') {
-                    //window.location.href = "https://www.google.com/";
+                if (intersects[0].object.name === 'points') {
+                    window.location.href = "./index2.html";
                 }
                 return;
             }
