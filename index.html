@@ -27,6 +27,7 @@
     <button id="menu-toggle" class="menu-toggle"></button>
     <nav>
         <div class="menu">
+            
             <div id="column-one" class="element">
                 <h2>Soluciones de negocio</h2>
                 <span>Sol: Axon</span>
@@ -293,14 +294,14 @@
                 (gltf) => {
                     scene.add(gltf.scene);
 
-                    sun = gltf.scene.getObjectByName( 'sun' );
-                    brown = gltf.scene.getObjectByName( 'brown' );
-                    orange = gltf.scene.getObjectByName( 'orange' );
-                    blue = gltf.scene.getObjectByName( 'blue' );
-                    green = gltf.scene.getObjectByName( 'green' );
-                    darkblue = gltf.scene.getObjectByName( 'darkblue' );
-                    white = gltf.scene.getObjectByName( 'white' );
-                    black = gltf.scene.getObjectByName( 'black' );
+                    sun = gltf.scene.getObjectByName('sun');
+                    brown = gltf.scene.getObjectByName('brown');
+                    orange = gltf.scene.getObjectByName('orange');
+                    blue = gltf.scene.getObjectByName('blue');
+                    green = gltf.scene.getObjectByName('green');
+                    darkblue = gltf.scene.getObjectByName('darkblue');
+                    white = gltf.scene.getObjectByName('white');
+                    black = gltf.scene.getObjectByName('black');
 
                     mixer = new THREE.AnimationMixer(gltf.scene);
                     clips = gltf.animations;
@@ -335,18 +336,6 @@
 
             //Lights
             ambientLight = new THREE.AmbientLight(0xffffff, 1.5);
-            pointLight = new THREE.PointLight(
-                0xffffff,
-                0.1,
-                30
-
-            );
-            directionalLight = new THREE.DirectionalLight(
-                0xffffff,
-                0.5
-
-            );
-            pointLight.position.set(1, 10, 1);
             scene.add(ambientLight);
 
             //Mouse coors
@@ -355,6 +344,14 @@
             //Raycaster
             raycaster = new THREE.Raycaster();
 
+            //stars
+            const boxWidth = 3000, boxHeight = 3000, boxDepth = 3000;
+            const geometry = new THREE.BoxGeometry(boxWidth, boxHeight, boxDepth);
+            const material = new THREE.PointsMaterial({
+                size: 15,
+            });
+            const cube = new THREE.Points(geometry, material);
+            scene.add(cube);
             animate();
         }
 
