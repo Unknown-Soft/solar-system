@@ -18,7 +18,8 @@
                 7,
                 8,
                 9,
-                10
+                10,
+                11
             ]
         }
     ],
@@ -296,9 +297,34 @@
                 "mr displacement max displace" : 20.0,
                 "mr displacement parametric subdivision level" : 5,
                 "MapChannel:1" : "UVChannel_1",
-                "MaxHandle" : 11
+                "MaxHandle" : 15
             },
             "mesh" : 10,
+            "name" : "Clouds.020",
+            "scale" : [
+                8,
+                8,
+                8
+            ],
+            "translation" : [
+                803.8729248046875,
+                192.3628692626953,
+                755.9899291992188
+            ]
+        },
+        {
+            "extras" : {
+                "mr displacement use global settings" : 1,
+                "mr displacement view dependent" : 1,
+                "mr displacement method" : 6,
+                "mr displacement smoothing on" : 1,
+                "mr displacement edge length" : 2.0,
+                "mr displacement max displace" : 20.0,
+                "mr displacement parametric subdivision level" : 5,
+                "MapChannel:1" : "UVChannel_1",
+                "MaxHandle" : 11
+            },
+            "mesh" : 11,
             "name" : "Planet.037",
             "scale" : [
                 3,
@@ -477,6 +503,21 @@
                     "index" : 22
                 }
             }
+        },
+        {
+            "doubleSided" : true,
+            "name" : "Vuoturn",
+            "normalTexture" : {
+                "index" : 23
+            },
+            "pbrMetallicRoughness" : {
+                "baseColorTexture" : {
+                    "index" : 24
+                },
+                "metallicRoughnessTexture" : {
+                    "index" : 25
+                }
+            }
         }
     ],
     "meshes" : [
@@ -639,7 +680,7 @@
             ]
         },
         {
-            "name" : "Mesh.086",
+            "name" : "Mesh.080",
             "primitives" : [
                 {
                     "attributes" : {
@@ -647,14 +688,37 @@
                         "NORMAL" : 39,
                         "TEXCOORD_0" : 40
                     },
-                    "indices" : 3,
-                    "material" : 5
+                    "indices" : 25,
+                    "material" : 9
                 },
                 {
                     "attributes" : {
                         "POSITION" : 41,
                         "NORMAL" : 42,
                         "TEXCOORD_0" : 43
+                    },
+                    "indices" : 3,
+                    "material" : 11
+                }
+            ]
+        },
+        {
+            "name" : "Mesh.086",
+            "primitives" : [
+                {
+                    "attributes" : {
+                        "POSITION" : 44,
+                        "NORMAL" : 45,
+                        "TEXCOORD_0" : 46
+                    },
+                    "indices" : 3,
+                    "material" : 5
+                },
+                {
+                    "attributes" : {
+                        "POSITION" : 47,
+                        "NORMAL" : 48,
+                        "TEXCOORD_0" : 49
                     },
                     "indices" : 25,
                     "material" : 9
@@ -754,6 +818,18 @@
         {
             "sampler" : 0,
             "source" : 22
+        },
+        {
+            "sampler" : 0,
+            "source" : 23
+        },
+        {
+            "sampler" : 0,
+            "source" : 24
+        },
+        {
+            "sampler" : 0,
+            "source" : 25
         }
     ],
     "images" : [
@@ -871,6 +947,21 @@
             "mimeType" : "image/jpeg",
             "name" : "Chiri_Metallic-Chiri_Roughness",
             "uri" : "Chiri_Metallic-Chiri_Roughness.jpg"
+        },
+        {
+            "mimeType" : "image/jpeg",
+            "name" : "Vuoturn_Normal",
+            "uri" : "Vuoturn_Normal.jpg"
+        },
+        {
+            "mimeType" : "image/jpeg",
+            "name" : "Vuoturn_BaseColor",
+            "uri" : "Vuoturn_BaseColor.jpg"
+        },
+        {
+            "mimeType" : "image/jpeg",
+            "name" : "Vuoturn_Metallic-Vuoturn_Roughness",
+            "uri" : "Vuoturn_Metallic-Vuoturn_Roughness.jpg"
         }
     ],
     "accessors" : [
@@ -1227,14 +1318,14 @@
             "componentType" : 5126,
             "count" : 11904,
             "max" : [
-                12.441537857055664,
-                12.441537857055664,
-                12.441537857055664
+                12.549202919006348,
+                12.549202919006348,
+                12.549202919006348
             ],
             "min" : [
-                -12.441537857055664,
-                -12.441537857055664,
-                -12.441537857055664
+                -12.549202919006348,
+                -12.549202919006348,
+                -12.549202919006348
             ],
             "type" : "VEC3"
         },
@@ -1255,6 +1346,62 @@
             "componentType" : 5126,
             "count" : 11904,
             "max" : [
+                12.441537857055664,
+                12.441537857055664,
+                12.441537857055664
+            ],
+            "min" : [
+                -12.441537857055664,
+                -12.441537857055664,
+                -12.441537857055664
+            ],
+            "type" : "VEC3"
+        },
+        {
+            "bufferView" : 42,
+            "componentType" : 5126,
+            "count" : 11904,
+            "type" : "VEC3"
+        },
+        {
+            "bufferView" : 43,
+            "componentType" : 5126,
+            "count" : 11904,
+            "type" : "VEC2"
+        },
+        {
+            "bufferView" : 44,
+            "componentType" : 5126,
+            "count" : 11904,
+            "max" : [
+                12.441537857055664,
+                12.441537857055664,
+                12.441537857055664
+            ],
+            "min" : [
+                -12.441537857055664,
+                -12.441537857055664,
+                -12.441537857055664
+            ],
+            "type" : "VEC3"
+        },
+        {
+            "bufferView" : 45,
+            "componentType" : 5126,
+            "count" : 11904,
+            "type" : "VEC3"
+        },
+        {
+            "bufferView" : 46,
+            "componentType" : 5126,
+            "count" : 11904,
+            "type" : "VEC2"
+        },
+        {
+            "bufferView" : 47,
+            "componentType" : 5126,
+            "count" : 11904,
+            "max" : [
                 12.549202919006348,
                 12.549202919006348,
                 12.549202919006348
@@ -1267,13 +1414,13 @@
             "type" : "VEC3"
         },
         {
-            "bufferView" : 42,
+            "bufferView" : 48,
             "componentType" : 5126,
             "count" : 11904,
             "type" : "VEC3"
         },
         {
-            "bufferView" : 43,
+            "bufferView" : 49,
             "componentType" : 5126,
             "count" : 11904,
             "type" : "VEC2"
@@ -1499,6 +1646,36 @@
             "buffer" : 0,
             "byteLength" : 95232,
             "byteOffset" : 5285376
+        },
+        {
+            "buffer" : 0,
+            "byteLength" : 142848,
+            "byteOffset" : 5380608
+        },
+        {
+            "buffer" : 0,
+            "byteLength" : 142848,
+            "byteOffset" : 5523456
+        },
+        {
+            "buffer" : 0,
+            "byteLength" : 95232,
+            "byteOffset" : 5666304
+        },
+        {
+            "buffer" : 0,
+            "byteLength" : 142848,
+            "byteOffset" : 5761536
+        },
+        {
+            "buffer" : 0,
+            "byteLength" : 142848,
+            "byteOffset" : 5904384
+        },
+        {
+            "buffer" : 0,
+            "byteLength" : 95232,
+            "byteOffset" : 6047232
         }
     ],
     "samplers" : [
@@ -1509,7 +1686,7 @@
     ],
     "buffers" : [
         {
-            "byteLength" : 5380608,
+            "byteLength" : 6142464,
             "uri" : "Planets.bin"
         }
     ]
