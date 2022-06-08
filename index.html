@@ -35,8 +35,8 @@
                     <h3>Mind Club</h3> <img class="plus" src="./assets/images/plus.svg" alt="plus image" />
                 </div>
                 <div class="ml-60">
-                    <h4>Min app</h4>
-                    <h4>Min card</h4>
+                    <h4>Mind app</h4>
+                    <h4>Mind card</h4>
                 </div>
                 <div class="m-15">
                     <h3>Mind Solutions</h3> <img class="plus" src="./assets/images/plus.svg" alt="plus image" />
@@ -55,9 +55,9 @@
                     <h3>Mind Franchises</h3> <img class="plus" src="./assets/images/plus.svg" alt="plus image" />
                 </div>
                 <div class="ml-60">
-                    <h4>Express</h4>
-                    <h4>Classic</h4>
-                    <h4>Work</h4>
+                    <h4><a href="https://mindworld.io/mind-franquicias/">Express</a></h4>
+                    <h4><a href="https://mindworld.io/mind-franquicias/">Classic</a></h4>
+                    <h4><a href="https://mindworld.io/mind-franquicias/">Work</a></h4>
                 </div>
 
                 <div class="m-15">
@@ -73,7 +73,7 @@
                     <h4>Mind Beer</h4>
                     <h4>Mind Caffe</h4>
                     <h4>Mind Draft</h4>
-                    <h4>Min K1</h4>
+                    <h4>Mind K1</h4>
                 </div>
             </div>
             <div id="column-three" class="element ml-20">
@@ -162,17 +162,24 @@
             labelRenderer,
             loadingManager,
             loadingScreen,
+            material,
             mixer,
             mouse,
             orange,
+            particles,
             pointLight,
             pmremGenerator,
             raycaster,
             renderer,
             scene,
             stats,
+            sprite,
             sun,
-            white
+            vertices,
+            white,
+            x,
+            y,
+            z
 
         const init = () => {
 
@@ -258,6 +265,7 @@
 
             //Renderer
             renderer = new THREE.WebGLRenderer({ antialias: true });
+            renderer.domElement.id = "canva";
             renderer.setPixelRatio(window.devicePixelRatio);
             renderer.setSize(window.innerWidth, window.innerHeight);
             renderer.toneMapping = THREE.ACESFilmicToneMapping;
@@ -271,7 +279,7 @@
             controls.target.y = -1;
             controls.enabled = true;
             controls.enableDamping = true;
-            controls.autoRotateSpeed = 1;
+            controls.autoRotateSpeed = 0.5;
             controls.maxPolarAngle = Math.PI / 2;
             controls.minPolarAngle = Math.PI / 2;
             controls.minDistance = 0;
@@ -346,13 +354,30 @@
             raycaster = new THREE.Raycaster();
 
             //stars
-            const boxWidth = 3000, boxHeight = 3000, boxDepth = 3000;
-            const geometry = new THREE.BoxGeometry(boxWidth, boxHeight, boxDepth);
-            const material = new THREE.PointsMaterial({
-                size: 15,
-            });
-            const cube = new THREE.Points(geometry, material);
-            scene.add(cube);
+
+            geometry = new THREE.BufferGeometry();
+            vertices = [];
+
+            sprite = new THREE.TextureLoader().load('assets/images/disc.png');
+
+            for (let i = 0; i < 10000; i++) {
+
+                x = 30000 * Math.random() - 15000;
+                y = 20000 * Math.random() - 10000;
+                z = 30000 * Math.random() - 15000;
+
+                vertices.push(x, y, z);
+
+            }
+
+            geometry.setAttribute('position', new THREE.Float32BufferAttribute(vertices, 3));
+
+            material = new THREE.PointsMaterial({ color: 0xDBD81A, size: 35, sizeAttenuation: true, map: sprite, alphaTest: 0.5, transparent: true });
+
+            particles = new THREE.Points(geometry, material);
+
+            scene.add(particles);
+
             animate();
         }
 
@@ -535,10 +560,7 @@
         window.addEventListener("mousemove", onMouseMove, false);
 
         init();
-        generateGalaxy();
-
     </script>
-
     <script async src="https://unpkg.com/es-module-shims@1.3.6/dist/es-module-shims.js"></script>
 </body>
 
