@@ -163,18 +163,25 @@
             lightBlue,
             loadingManager,
             loadingScreen,
+            material,
             mixer,
             mouse,
+            particles,
             pointLight,
             pink,
             purple,
             pmremGenerator,
+            sprite,
             raycaster,
             renderer,
             rgbeLoader,
             scene,
             stats,
-            sun
+            sun,
+            vertices,
+            x,
+            y,
+            z
 
         const init = () => {
 
@@ -357,6 +364,31 @@
 
             //Raycaster
             raycaster = new THREE.Raycaster();
+
+            //stars
+
+            geometry = new THREE.BufferGeometry();
+            vertices = [];
+
+            sprite = new THREE.TextureLoader().load('assets/images/disc.png');
+
+            for (let i = 0; i < 10000; i++) {
+
+                x = 30000 * Math.random() - 15000;
+                y = 20000 * Math.random() - 10000;
+                z = 30000 * Math.random() - 15000;
+
+                vertices.push(x, y, z);
+
+            }
+
+            geometry.setAttribute('position', new THREE.Float32BufferAttribute(vertices, 3));
+
+            material = new THREE.PointsMaterial({ color: 0xDBD81A, size: 35, sizeAttenuation: true, map: sprite, alphaTest: 0.5, transparent: true });
+
+            particles = new THREE.Points(geometry, material);
+
+            scene.add(particles);
 
             animate();
         }
