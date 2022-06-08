@@ -162,17 +162,24 @@
             labelRenderer,
             loadingManager,
             loadingScreen,
+            material,
             mixer,
             mouse,
             orange,
+            particles,
             pointLight,
             pmremGenerator,
             raycaster,
             renderer,
             scene,
             stats,
+            sprite,
             sun,
-            white
+            vertices,
+            white,
+            x,
+            y,
+            z
 
         const init = () => {
 
@@ -271,7 +278,7 @@
             controls.target.y = -1;
             controls.enabled = true;
             controls.enableDamping = true;
-            controls.autoRotateSpeed = 1;
+            controls.autoRotateSpeed = 0.5;
             controls.maxPolarAngle = Math.PI / 2;
             controls.minPolarAngle = Math.PI / 2;
             controls.minDistance = 0;
@@ -346,13 +353,30 @@
             raycaster = new THREE.Raycaster();
 
             //stars
-            const boxWidth = 3000, boxHeight = 3000, boxDepth = 3000;
-            const geometry = new THREE.BoxGeometry(boxWidth, boxHeight, boxDepth);
-            const material = new THREE.PointsMaterial({
-                size: 15,
-            });
-            const cube = new THREE.Points(geometry, material);
-            scene.add(cube);
+
+            geometry = new THREE.BufferGeometry();
+            vertices = [];
+
+            sprite = new THREE.TextureLoader().load('assets/images/disc.png');
+
+            for (let i = 0; i < 10000; i++) {
+
+                x = 30000 * Math.random() - 15000;
+                y = 20000 * Math.random() - 10000;
+                z = +30000 * Math.random() - 15000;
+
+                vertices.push(x, y, z);
+
+            }
+
+            geometry.setAttribute('position', new THREE.Float32BufferAttribute(vertices, 3));
+
+            material = new THREE.PointsMaterial({ color: 0xDBD81A, size: 35, sizeAttenuation: true, map: sprite, alphaTest: 0.5, transparent: true });
+
+            particles = new THREE.Points(geometry, material);
+
+            scene.add(particles);
+
             animate();
         }
 
@@ -535,7 +559,6 @@
         window.addEventListener("mousemove", onMouseMove, false);
 
         init();
-        generateGalaxy();
 
     </script>
 
