@@ -197,8 +197,6 @@
             whiteDiv,
             blackDiv
 
-
-
         const init = () => {
 
             //stats 
@@ -284,9 +282,11 @@
             //Scene
             scene = new THREE.Scene();
             camera = new THREE.PerspectiveCamera(55, window.innerWidth / window.innerHeight, 0.5, 10000);
-            camera.position.x = 5000;
-            camera.position.z = -1000;
-            camera.position.y = -100;
+            /*        camera.position.x = 5000;
+                   camera.position.z = -1000;
+                   camera.position.y = -100; */
+            camera.position.x = 650;
+            camera.position.z = -2200;
             scene.add(camera);
 
             //Renderer
@@ -327,16 +327,16 @@
             gltfLoader.load('./assets/model/Planets/Planets_organized.gltf',
                 (gltf) => {
                     scene.add(gltf.scene);
-
-                    sun = gltf.scene.getObjectByName('sun');
-                    brown = gltf.scene.getObjectByName('brown');
-                    orange = gltf.scene.getObjectByName('orange');
-                    blue = gltf.scene.getObjectByName('blue');
-                    green = gltf.scene.getObjectByName('green');
-                    darkblue = gltf.scene.getObjectByName('darkblue');
-                    white = gltf.scene.getObjectByName('white');
-                    black = gltf.scene.getObjectByName('black');
-
+                    console.log(gltf.scene.children);
+                    /*      sun = gltf.scene.getObjectByName('sun');
+                         brown = gltf.scene.getObjectByName('brown');
+                         orange = gltf.scene.getObjectByName('orange');
+                         blue = gltf.scene.getObjectByName('blue');
+                         green = gltf.scene.getObjectByName('green');
+                         darkblue = gltf.scene.getObjectByName('darkblue');
+                         white = gltf.scene.getObjectByName('white');
+                         black = gltf.scene.getObjectByName('black');
+      */
                     mixer = new THREE.AnimationMixer(gltf.scene);
                     clips = gltf.animations;
                     clips.forEach(function (clip) {
@@ -350,15 +350,15 @@
                         action.time = 100;
                         action.play();
                     });
-
-                    brown.add(brownLabel);
-                    orange.add(orangeLabel);
-                    blue.add(blueLabel);
-                    green.add(greenLabel);
-                    darkblue.add(darkblueLabel);
-                    sun.add(sunLabel);
-                    white.add(whiteLabel);
-                    black.add(blackLabel);
+                    /* 
+                                        brown.add(brownLabel);
+                                        orange.add(orangeLabel);
+                                        blue.add(blueLabel);
+                                        green.add(greenLabel);
+                                        darkblue.add(darkblueLabel);
+                                        sun.add(sunLabel);
+                                        white.add(whiteLabel);
+                                        black.add(blackLabel); */
                 },
                 (xhr) => {
                     console.log((xhr.loaded / xhr.total * 100) + '% loaded');
@@ -602,9 +602,9 @@
             //Raycaster setup
             raycaster.setFromCamera(mouse, camera);
             //Reset hover new frame
-            resetHover();
+            //resetHover();
             //Hover new frame
-            onHover();
+            //onHover();
             //Update controls
             controls.update();
             //Render scene
