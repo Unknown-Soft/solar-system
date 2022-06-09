@@ -261,7 +261,7 @@
             scene = new THREE.Scene();
             camera = new THREE.PerspectiveCamera(55, window.innerWidth / window.innerHeight, 0.5, 10000);
             camera.position.x = 650;
-            camera.position.z = -1800;
+            camera.position.z = -2200;
 
             scene.add(camera);
 
@@ -536,9 +536,9 @@
             //Raycaster setup
             raycaster.setFromCamera(mouse, camera);
             //Reset hover new frame
-            resetHover();
+            //resetHover();
             //Hover new frame
-            onHover();
+            //onHover();
             //Update controls
             controls.update();
             //Render scene
