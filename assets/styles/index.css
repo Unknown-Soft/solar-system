@@ -98,7 +98,6 @@ canvas {
 }
 
 @-webkit-keyframes load7 {
-
   0%,
   80%,
   100% {
@@ -111,7 +110,6 @@ canvas {
 }
 
 @keyframes load7 {
-
   0%,
   80%,
   100% {
@@ -195,17 +193,19 @@ button:before {
   margin: auto;
   right: auto;
   width: 100%;
-  background: linear-gradient(to bottom,
-      #d9b073,
-      #d9b073 20%,
-      transparent 20%,
-      transparent 40%,
-      #d9b073 40%,
-      #d9b073 60%,
-      transparent 60%,
-      transparent 80%,
-      #d9b073 80%,
-      #d9b073 100%);
+  background: linear-gradient(
+    to bottom,
+    #d9b073,
+    #d9b073 20%,
+    transparent 20%,
+    transparent 40%,
+    #d9b073 40%,
+    #d9b073 60%,
+    transparent 60%,
+    transparent 80%,
+    #d9b073 80%,
+    #d9b073 100%
+  );
   transition: opacity 0.2s ease-out, width 0.2s 0.2s ease-out;
 }
 
@@ -344,8 +344,16 @@ nav:before {
     font-size: 16px !important;
   }
 
+  span:hover {
+    font-size: 17px !important;
+  }
+
   h3 {
     font-size: 16px !important;
+  }
+
+  h3:hover {
+    font-size: 17px !important;
   }
 
   .plus {
@@ -354,6 +362,10 @@ nav:before {
 
   h4 {
     font-size: 16px !important;
+  }
+
+  h4:hover {
+    font-size: 17px !important;
   }
 
   .menu {
@@ -384,12 +396,24 @@ nav:before {
     margin-bottom: 24px !important;
   }
 
+  span:hover {
+    font-size: 29px !important;
+  }
+
   h3 {
     font-size: 28px !important;
   }
 
+  h3:hover {
+    font-size: 29px !important;
+  }
+
   h4 {
     font-size: 28px !important;
+  }
+
+  h4:hover {
+    font-size: 29px !important;
   }
 
   .plus {
