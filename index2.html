@@ -138,10 +138,9 @@
     <script type="module">
 
         import * as THREE from './js/three.module.js';
-        import { OrbitControls } from './js/OrbitControls.js';
-        import { GLTFLoader } from "./js/GLTFLoader.js";
-        import { CSS2DRenderer, CSS2DObject } from "./js/CSS2DRenderer.js";
-        import Stats from './js/stats.module.js';
+        import { OrbitControls } from './js/OrbitControls.min.js';
+        import { GLTFLoader } from "./js/GLTFLoader.min.js";
+        import { CSS2DRenderer, CSS2DObject } from "./js/CSS2DRenderer.min.js";
 
         THREE.Cache.enabled = true;
 
@@ -176,7 +175,6 @@
             renderer,
             rgbeLoader,
             scene,
-            stats,
             sun,
             vertices,
             x,
@@ -184,12 +182,6 @@
             z
 
         const init = () => {
-
-            //stats 
-            container = document.getElementById('container');
-            stats = new Stats();
-            container.appendChild(stats.dom);
-
             //Test Css2d Renderer
 
             const lightBlueDiv = document.createElement('div');
@@ -546,8 +538,6 @@
             //Request new frame
             requestAnimationFrame(animate);
             labelRenderer.render(scene, camera);
-            //Stats update 
-            stats.update()
         };
 
         const render = () => {
@@ -560,7 +550,6 @@
         window.addEventListener("mousemove", onMouseMove, false);
 
         init();
-
     </script>
 
     <script async src="https://unpkg.com/es-module-shims@1.3.6/dist/es-module-shims.js"></script>
