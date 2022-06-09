@@ -34,17 +34,17 @@
                     <h3>Mind Club</h3> <img class="plus" src="./assets/images/plus.svg" alt="plus image" />
                 </div>
                 <div class="ml-60">
-                    <h4><a href="https://mindworld.io/">Mind app</a></h4>
-                    <h4><a href="https://mindworld.io/">Mind card</a></h4>
+                    <h4><a href="https://mindworld.io/" target="_blank">Mind app</a></h4>
+                    <h4><a href="https://mindworld.io/" target="_blank">Mind card</a></h4>
                 </div>
                 <div class="m-15">
                     <h3>Mind Solutions</h3> <img class="plus" src="./assets/images/plus.svg" alt="plus image" />
                 </div>
                 <div class="ml-60">
-                    <h4><a href="https://mindworld.io/finalizar-compra/">Mind Pos</a></h4>
-                    <h4><a href="https://mindworld.io/finalizar-compra/">Mind Orders</a></h4>
-                    <h4><a href="https://mindworld.io/mind-store/">Mind Store</a></h4>
-                    <h4><a href="https://mindworld.io/mindpagos-crypto-store/">Mind Pay</a></h4>
+                    <h4><a href="https://mindworld.io/finalizar-compra/" target="_blank">Mind Pos</a></h4>
+                    <h4><a href="https://mindworld.io/finalizar-compra/" target="_blank">Mind Orders</a></h4>
+                    <h4><a href="https://mindworld.io/mind-store/" target="_blank">Mind Store</a></h4>
+                    <h4><a href="https://mindworld.io/mindpagos-crypto-store/" target="_blank">Mind Pay</a></h4>
                 </div>
             </div>
             <div id="column-two" class="element">
@@ -54,9 +54,9 @@
                     <h3>Mind Franchises</h3> <img class="plus" src="./assets/images/plus.svg" alt="plus image" />
                 </div>
                 <div class="ml-60">
-                    <h4><a href="https://mindworld.io/mind-franquicias/">Express</a></h4>
-                    <h4><a href="https://mindworld.io/mind-franquicias/">Classic</a></h4>
-                    <h4><a href="https://mindworld.io/mind-franquicias/">Work</a></h4>
+                    <h4><a href="https://mindworld.io/mind-franquicias/" target="_blank">Express</a></h4>
+                    <h4><a href="https://mindworld.io/mind-franquicias/" target="_blank">Classic</a></h4>
+                    <h4><a href="https://mindworld.io/mind-franquicias/" target="_blank">Work</a></h4>
                 </div>
 
                 <div class="m-15">
@@ -69,10 +69,10 @@
                     <h3>Mind Productos</h3> <img class="plus" src="./assets/images/plus.svg" alt="plus image" />
                 </div>
                 <div class="ml-60">
-                    <h4><a href="https://mindworld.io/mind-beer/">Mind Beer</a></h4>
-                    <h4><a href="https://mindworld.io/mind-coffee/">Mind Coffee</a></h4>
-                    <h4><a href="https://mindworld.io/mind-draft/">Mind Draft</a></h4>
-                    <h4><a href="https://mindworld.io/">Mind K1</a></h4>
+                    <h4><a href="https://mindworld.io/mind-beer/" target="_blank">Mind Beer</a></h4>
+                    <h4><a href="https://mindworld.io/mind-coffee/" target="_blank">Mind Coffee</a></h4>
+                    <h4><a href="https://mindworld.io/mind-draft/" target="_blank">Mind Draft</a></h4>
+                    <h4><a href="https://mindworld.io/" target="_blank">Mind K1</a></h4>
                 </div>
             </div>
             <div id="column-three" class="element ml-20">
@@ -81,20 +81,21 @@
                     <h3>Visión</h3> <img class="plus" src="./assets/images/plus.svg" alt="plus image" />
                 </div>
                 <div class="m-15">
-                    <h3><a href="https://mindworld.io/mind-team/">Equipo</a></h3> <img class="plus"
+                    <h3><a href="https://mindworld.io/mind-team/" target="_blank">Equipo</a></h3> <img class="plus"
                         src="./assets/images/plus.svg" alt="plus image" />
                 </div>
                 <div class="ml-60">
-                    <h4><a href="https://mindworld.io/mind-team/">Carrers</a></h4>
+                    <h4><a href="https://mindworld.io/mind-team/" target="_blank">Carrers</a></h4>
                 </div>
                 <div class="m-15">
                     <h3>Contactos</h3> <img class="plus" src="./assets/images/plus.svg" alt="plus image" />
                 </div>
                 <div class="ml-60">
-                    <h4><a href="https://twitter.com/MindEcosystem">Twitter</a></h4>
-                    <h4><a href="https://www.instagram.com/mind.ecosystem">Instagram</a></h4>
-                    <h4><a href="https://www.facebook.com/MindEcosystem/">Facebook</a></h4>
-                    <h4><a href="https://www.youtube.com/channel/UCX0fu6Pcikjqi6RGg1Frjog">Youtube</a></h4>
+                    <h4><a href="https://twitter.com/MindEcosystem" target="_blank">Twitter</a></h4>
+                    <h4><a href="https://www.instagram.com/mind.ecosystem" target="_blank">Instagram</a></h4>
+                    <h4><a href="https://www.facebook.com/MindEcosystem/" target="_blank">Facebook</a></h4>
+                    <h4><a href="https://www.youtube.com/channel/UCX0fu6Pcikjqi6RGg1Frjog" target="_blank">Youtube</a>
+                    </h4>
                 </div>
             </div>
         </div>
@@ -179,7 +180,17 @@
             white,
             x,
             y,
-            z
+            z,
+            brownDiv,
+            orangeDiv,
+            blueDiv,
+            greenDiv,
+            darkblueDiv,
+            sunDiv,
+            whiteDiv,
+            blackDiv
+
+
 
         const init = () => {
 
@@ -190,57 +201,65 @@
 
             //Test Css2d Renderer
 
-            const brownDiv = document.createElement('div');
+            brownDiv = document.createElement('div');
             brownDiv.className = 'label';
+            brownDiv.classList.add('hidden');
             brownDiv.textContent = 'brown';
             brownDiv.style.marginTop = '-1em';
             const brownLabel = new CSS2DObject(brownDiv);
             brownLabel.position.set(13, 16, 0);
 
-            const orangeDiv = document.createElement('div');
+            orangeDiv = document.createElement('div');
             orangeDiv.className = 'label';
+            orangeDiv.classList.add('hidden');
             orangeDiv.textContent = 'orange';
             orangeDiv.style.marginTop = '-1em';
             const orangeLabel = new CSS2DObject(orangeDiv);
             orangeLabel.position.set(16, 10.5, 0);
 
-            const blueDiv = document.createElement('div');
+            blueDiv = document.createElement('div');
             blueDiv.className = 'label';
+            blueDiv.classList.add('hidden');
             blueDiv.textContent = 'blue';
             blueDiv.style.marginTop = '-1em';
             const blueLabel = new CSS2DObject(blueDiv);
             blueLabel.position.set(11, 11, 0);
 
-            const greenDiv = document.createElement('div');
+            greenDiv = document.createElement('div');
             greenDiv.className = 'label';
+            greenDiv.classList.add('hidden');
             greenDiv.textContent = 'green';
             greenDiv.style.marginTop = '-1em';
             const greenLabel = new CSS2DObject(greenDiv);
             greenLabel.position.set(12, 13, 0);
 
-            const darkblueDiv = document.createElement('div');
+            darkblueDiv = document.createElement('div');
             darkblueDiv.className = 'label';
+            darkblueDiv.classList.add('hidden');
             darkblueDiv.textContent = 'darkblue';
             darkblueDiv.style.marginTop = '-1em';
             const darkblueLabel = new CSS2DObject(darkblueDiv);
             darkblueLabel.position.set(14, 12, 0);
 
-            const sunDiv = document.createElement('div');
+            sunDiv = document.createElement('div');
             sunDiv.className = 'label';
+            sunDiv.classList.add('hidden');
             sunDiv.textContent = 'Sun';
             sunDiv.style.marginTop = '-1em';
             const sunLabel = new CSS2DObject(sunDiv);
             sunLabel.position.set(9, 11, 0);
 
-            const whiteDiv = document.createElement('div');
+            whiteDiv = document.createElement('div');
             whiteDiv.className = 'label';
+            whiteDiv.classList.add('hidden');
             whiteDiv.textContent = 'white';
             whiteDiv.style.marginTop = '-1em';
             const whiteLabel = new CSS2DObject(whiteDiv);
             whiteLabel.position.set(-12, 10, 0);
 
-            const blackDiv = document.createElement('div');
+            blackDiv = document.createElement('div');
             blackDiv.className = 'label';
+            blackDiv.classList.add('hidden');
             blackDiv.textContent = 'black';
             blackDiv.style.marginTop = '-1em';
             const blackLabel = new CSS2DObject(blackDiv);
@@ -419,54 +438,67 @@
 
                         case "brown":
                             brown.scale.set(38, 38, 38);
+                            brownDiv.classList.remove('hidden');
                             break;
 
                         case "orangeMesh":
                             orange.scale.set(26, 26, 26);
+                            orangeDiv.classList.remove('hidden');
                             break;
 
                         case "orangeMesh_1":
                             orange.scale.set(26, 26, 26);
+                            orangeDiv.classList.remove('hidden');
                             break;
 
                         case "blueMesh":
                             blue.scale.set(33, 33, 33);
+                            blueDiv.classList.remove('hidden');
                             break;
 
                         case "blueMesh_1":
                             blue.scale.set(33, 33, 33);
+                            blueDiv.classList.remove('hidden');
                             break;
 
                         case "greenMesh":
                             green.scale.set(30, 30, 30);
+                            greenDiv.classList.remove('hidden');
                             break;
 
                         case "greenMesh_1":
                             green.scale.set(30, 30, 30);
+                            greenDiv.classList.remove('hidden');
                             break;
 
                         case "darkblueMesh":
                             darkblue.scale.set(28, 28, 28);
+                            darkblueDiv.classList.remove('hidden');
                             break;
 
                         case "darkblueMesh_1":
                             darkblue.scale.set(28, 28, 28);
+                            darkblueDiv.classList.remove('hidden');
                             break;
 
                         case "sun":
                             sun.scale.set(83, 83, 83);
+                            sunDiv.classList.remove('hidden');
                             break;
 
                         case "whiteMesh":
                             white.scale.set(43, 43, 43);
+                            whiteDiv.classList.remove('hidden');
                             break;
 
                         case "whiteMesh_1":
                             white.scale.set(43, 43, 43);
+                            whiteDiv.classList.remove('hidden');
                             break;
 
                         case "black":
                             black.scale.set(23, 23, 23);
+                            blackDiv.classList.remove('hidden');
                             break;
 
                         default:
@@ -482,27 +514,35 @@
         const resetHover = () => {
             if (brown)
                 brown.scale.set(35, 35, 35)
+            brownDiv.classList.add('hidden');
 
             if (orange)
                 orange.scale.set(23, 23, 23)
+            orangeDiv.classList.add('hidden');
 
             if (blue)
                 blue.scale.set(30, 30, 30)
+            blueDiv.classList.add('hidden');
 
             if (green)
                 green.scale.set(27, 27, 27);
+            greenDiv.classList.add('hidden');
 
             if (darkblue)
                 darkblue.scale.set(25, 25, 25);
+            darkblueDiv.classList.add('hidden');
 
             if (sun)
                 sun.scale.set(80, 80, 80);
+            sunDiv.classList.add('hidden');
 
             if (white)
                 white.scale.set(40, 40, 40);
+            whiteDiv.classList.add('hidden');
 
             if (black)
                 black.scale.set(20, 20, 20);
+            blackDiv.classList.add('hidden');
 
         }
 
