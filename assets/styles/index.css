@@ -431,12 +431,26 @@ span {
   font-size: 18px;
   margin-bottom: 10px;
 }
+span:hover {
+  font-weight: 800;
+  font-size: 19px;
+  text-decoration: underline;
+  text-decoration-thickness: 3px;
+}
 
 h3 {
   font-weight: 700;
   display: inline-block;
   font-size: 18px;
   margin: 0;
+}
+
+h3:hover {
+  font-size: 19px;
+  font-weight: 800;
+  text-decoration: underline;
+  text-decoration-thickness: 3px;
+  cursor: pointer;
 }
 
 h4 {
@@ -597,6 +611,10 @@ h4:hover {
   border-style: solid;
   border-width: 0.125rem;
   border-color: #d9b073;
+}
+
+.label:hover {
+  cursor: grab;
 }
 
 a {
