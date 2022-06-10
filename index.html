@@ -206,7 +206,7 @@
             brownDiv = document.createElement('div');
             brownDiv.className = 'label';
             brownDiv.classList.add('hidden');
-            brownDiv.textContent = 'brown';
+            brownDiv.textContent = 'Mind Pos';
             brownDiv.style.marginTop = '-1em';
             const brownLabel = new CSS2DObject(brownDiv);
             brownLabel.position.set(13, 16, 0);
@@ -214,7 +214,7 @@
             orangeDiv = document.createElement('div');
             orangeDiv.className = 'label';
             orangeDiv.classList.add('hidden');
-            orangeDiv.textContent = 'orange';
+            orangeDiv.textContent = 'Mind Solutions';
             orangeDiv.style.marginTop = '-1em';
             const orangeLabel = new CSS2DObject(orangeDiv);
             orangeLabel.position.set(16, 10.5, 0);
@@ -222,7 +222,7 @@
             redDiv = document.createElement('div');
             redDiv.className = 'label';
             redDiv.classList.add('hidden');
-            redDiv.textContent = 'redDiv';
+            redDiv.textContent = 'Mind Club';
             redDiv.style.marginTop = '-1em';
             const redDLabel = new CSS2DObject(redDiv);
             redDLabel.position.set(12, 13, 0);
@@ -230,7 +230,7 @@
             darkBlueDiv = document.createElement('div');
             darkBlueDiv.className = 'label';
             darkBlueDiv.classList.add('hidden');
-            darkBlueDiv.textContent = 'darkblue';
+            darkBlueDiv.textContent = 'Mind Orders';
             darkBlueDiv.style.marginTop = '-1em';
             const darkblueLabel = new CSS2DObject(darkBlueDiv);
             darkblueLabel.position.set(14, 12, 0);
@@ -238,7 +238,7 @@
             darkBrownDiv = document.createElement('div');
             darkBrownDiv.className = 'label';
             darkBrownDiv.classList.add('hidden');
-            darkBrownDiv.textContent = 'darkBrown';
+            darkBrownDiv.textContent = 'Mind Card';
             darkBrownDiv.style.marginTop = '-1em';
             const darkBrownLabel = new CSS2DObject(darkBrownDiv);
             darkBrownLabel.position.set(14, 12, 0);
@@ -246,7 +246,7 @@
             sunDiv = document.createElement('div');
             sunDiv.className = 'label';
             sunDiv.classList.add('hidden');
-            sunDiv.textContent = 'Sun';
+            sunDiv.textContent = 'Axon';
             sunDiv.style.marginTop = '-1em';
             const sunLabel = new CSS2DObject(sunDiv);
             sunLabel.position.set(9, 11, 0);
@@ -254,7 +254,7 @@
             whiteBlueDiv = document.createElement('div');
             whiteBlueDiv.className = 'label';
             whiteBlueDiv.classList.add('hidden');
-            whiteBlueDiv.textContent = 'whiteBlue';
+            whiteBlueDiv.textContent = 'Mind App';
             whiteBlueDiv.style.marginTop = '-1em';
             const whiteBlueLabel = new CSS2DObject(whiteBlueDiv);
             whiteBlueLabel.position.set(-12, 10, 0);
@@ -262,7 +262,7 @@
             blackWhiteDiv = document.createElement('div');
             blackWhiteDiv.className = 'label';
             blackWhiteDiv.classList.add('hidden');
-            blackWhiteDiv.textContent = 'blackWhite';
+            blackWhiteDiv.textContent = 'Mind Store';
             blackWhiteDiv.style.marginTop = '-1em';
             const blackWhiteLabel = new CSS2DObject(blackWhiteDiv);
             blackWhiteLabel.position.set(11, 11, 0);
@@ -270,7 +270,7 @@
             lightBlueDiv = document.createElement('div');
             lightBlueDiv.className = 'label';
             lightBlueDiv.classList.add('hidden');
-            lightBlueDiv.textContent = 'lightBlue';
+            lightBlueDiv.textContent = 'Mind Pay';
             lightBlueDiv.style.marginTop = '-1em';
             const lightBlueLabel = new CSS2DObject(lightBlueDiv);
             lightBlueLabel.position.set(11, 11, 0);
@@ -446,6 +446,62 @@
         const onClick = () => {
             raycaster.setFromCamera(mouse, camera);
             let intersects = raycaster.intersectObjects(scene.children);
+            if (intersects.length > 0) {
+                for (let i = 0; i < intersects.length; i++) {
+                    switch (intersects[i].object.name) {
+                        case "brown":
+                            window.location.href = "https://mindworld.io/";
+                            break;
+
+                        case "orangeMesh":
+                            window.location.href = "https://cdepaz.com/mindsolutions/";
+                            break;
+
+                        case "orangeMesh_1":
+                            window.location.href = "https://cdepaz.com/mindsolutions/";
+                            break;
+
+                        case "whiteBlue":
+                            window.location.href = "https://cdepaz.com/mindsolutions/soluciones-integrales/";
+                            break;
+
+                        case "darkBlue":
+                            window.location.href = "https://cdepaz.com/mindsolutions/ecommerce/";
+                            break;
+
+                        case "sun":
+                            window.location.href = "https://mindworld.io/axon-tokenomics/";
+                            break;
+
+                        case "lightBlue":
+                            window.location.href = "https://mindworld.io/mindpagos-crypto-store/";
+                            break;
+
+                        case "darkBrown":
+                            window.location.href = "https://mindworld.io/mind-card/";
+                            break;
+
+                        case "redMesh":
+                            window.location.href = "https://cdepaz.com/mindsolutions/fidelizacion/";
+                            break;
+
+                        case "redMesh_1":
+                            window.location.href = "https://cdepaz.com/mindsolutions/fidelizacion/";
+                            break;
+
+                        case "blackWhiteMesh":
+                            window.location.href = "https://mindworld.io/mind-store/";
+                            break;
+
+                        case "blackWhiteMesh_1":
+                            window.location.href = "https://mindworld.io/mind-store/";
+                            break;
+
+                        default:
+                            break;
+                    }
+                }
+            }
             if (intersects.length > 0) {
                 if (intersects[0].object.name === 'points') {
                     window.location.href = "./index2.html";
