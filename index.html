@@ -215,15 +215,50 @@
 
             //Controls
             controls = new OrbitControls(camera, labelRenderer.domElement);
+            controls.maxDistance = 5500;
+            controls.listenToKeyEvents(document.body)
+            controls.keys = {
+                LEFT: "ArrowLeft", //left arrow
+                UP: "ArrowUp", // up arrow
+                RIGHT: "ArrowRight", // right arrow
+                BOTTOM: "ArrowDown" // down arrow
+            }
+            controls.mouseButtons = {
+                LEFT: THREE.MOUSE.ROTATE,
+                MIDDLE: THREE.MOUSE.DOLLY,
+                RIGHT: THREE.MOUSE.PAN
+            }
+            controls.touches = {
+                ONE: THREE.TOUCH.ROTATE,
+                TWO: THREE.TOUCH.DOLLY_PAN
+
+            }
+
             controls.target.y = -1;
             controls.enabled = true;
+            controls.enableDamping = true;
+            controls.autoRotateSpeed = 1;
+            controls.maxPolarAngle = Math.PI / 1;
+            controls.minPolarAngle = Math.PI / 1;
+            controls.minDistance = 1000;
+            controls.maxDistance = 4000;
             controls.enableDamping = true;
 
 
             //Lights
             ambientLight = new THREE.AmbientLight(0xffffff, 1.5);
-
             scene.add(ambientLight);
+
+            //Pointlight purple diffuse
+            const pointLight = new THREE.PointLight(0x8f2bed, 1, 0);
+            pointLight.position.set(0, 250, 0);
+            pointLight.castShadow = true;
+            pointLight.shadow.mapSize.width = 2048;
+            pointLight.shadow.mapSize.height = 2048;
+            pointLight.shadow.camera.near = 0.5;
+            pointLight.shadow.camera.far = 1000;
+            scene.add(pointLight);
+
 
             //Mouse coors
             mouse = new THREE.Vector2();
