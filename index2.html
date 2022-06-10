@@ -309,7 +309,7 @@
 
 
             //Controls 
-            
+
             controls = new OrbitControls(camera, labelRenderer.domElement);
             controls.listenToKeyEvents(document.body)
             controls.keys = {
@@ -317,17 +317,17 @@
                 UP: "ArrowUp", // up arrow
                 RIGHT: "ArrowRight", // right arrow
                 BOTTOM: "ArrowDown" // down arrow
-        }
+            }
             controls.mouseButtons = {
                 LEFT: THREE.MOUSE.ROTATE,
                 MIDDLE: THREE.MOUSE.DOLLY,
                 RIGHT: THREE.MOUSE.PAN
-        }
+            }
             controls.touches = {
                 ONE: THREE.TOUCH.ROTATE,
                 TWO: THREE.TOUCH.DOLLY_PAN
-                
-        }
+
+            }
             controls.target.y = -1;
             controls.enabled = true;
             controls.enableDamping = true;
@@ -335,7 +335,7 @@
             controls.maxPolarAngle = Math.PI / 1;
             controls.minPolarAngle = Math.PI / 1;
             controls.minDistance = 1500;
-            controls.maxDistance = 5500; 
+            controls.maxDistance = 5500;
 
 
             //Loading manager
@@ -353,7 +353,6 @@
             gltfLoader = new GLTFLoader(loadingManager);
             gltfLoader.load('./assets/model/Planets2/Planets.gltf',
                 (gltf) => {
-                    console.log(gltf.scene);
                     scene.add(gltf.scene);
                     pink = gltf.scene.getObjectByName("pink");
                     sun = gltf.scene.getObjectByName("sun");
@@ -484,78 +483,77 @@
                             divSun.classList.remove('hidden');
                             break;
                         case "pink":
-                            pink.scale.set(5.2, 5.2, 5.2);
+                            pink.scale.set(20.3, 20.3, 20.3);
                             document.body.style.cursor = "grab";
                             divPink.classList.remove('hidden');
                             break;
                         case "purpleBack":
-                            purpleBack.scale.set(5.2, 5.2, 5.2);
+                            purpleBack.scale.set(20.3, 20.3, 20.3);
                             document.body.style.cursor = "grab";
                             divPurpleBack.classList.remove('hidden');
                             break;
                         case "greenGrayMesh":
-                            greenGray.scale.set(10.3, 10.3, 10.3);
+                            greenGray.scale.set(40.3, 40.3, 40.3);
                             document.body.style.cursor = "grab";
                             divGreenGray.classList.remove('hidden');
                             break;
                         case "greenGrayMesh_1":
-                            greenGray.scale.set(10.3, 10.3, 10.3);
+                            greenGray.scale.set(40.3, 40.3, 40.3);
                             document.body.style.cursor = "grab";
                             divGreenGray.classList.remove('hidden');
                             break;
                         case "darkGreenMesh":
-                            darkGreen.scale.set(10.3, 10.3, 10.3);
+                            darkGreen.scale.set(40.3, 40.3, 40.3);
                             document.body.style.cursor = "grab";
                             divDarkGreen.classList.remove('hidden');
                             break;
                         case "darkGreenMesh_1":
-                            darkGreen.scale.set(10.3, 10.3, 10.3);
+                            darkGreen.scale.set(40.3, 40.3, 40.3);
                             document.body.style.cursor = "grab";
                             divDarkGreen.classList.remove('hidden');
                             break;
                         case "green":
-                            green.scale.set(5.2, 5.2, 5.2);
+                            green.scale.set(20.3, 20.3, 20.3);
                             document.body.style.cursor = "grab";
                             divGreen.classList.remove('hidden');
                             break;
                         case "brownBlack":
-                            brownBlack.scale.set(10.3, 10.3, 10.3);
+                            brownBlack.scale.set(40.3, 40.3, 40.3);
                             document.body.style.cursor = "grab";
                             divBrownBlack.classList.remove('hidden');
                             break;
                         case "gray":
-                            gray.scale.set(5.2, 5.2, 5.2);
+                            gray.scale.set(20.3, 20.3, 20.3);
                             document.body.style.cursor = "grab";
                             divGray.classList.remove('hidden');
                             break;
                         case "purple":
-                            purple.scale.set(5.2, 5.2, 5.2);
+                            purple.scale.set(20.3, 20.3, 20.3);
                             document.body.style.cursor = "grab";
                             divPurple.classList.remove('hidden');
                             break;
                         case "brown":
-                            brown.scale.set(5.2, 5.2, 5.2);
+                            brown.scale.set(20.3, 20.3, 20.3);
                             document.body.style.cursor = "grab";
                             divBrown.classList.remove('hidden');
                             break;
                         case "brownWhiteMesh":
-                            brownWhite.scale.set(5.2, 5.2, 5.2);
+                            brownWhite.scale.set(20.3, 20.3, 20.3);
                             document.body.style.cursor = "grab";
                             divBrownWhite.classList.remove('hidden');
                             break;
                         case "brownWhiteMesh_1":
-                            brownWhite.scale.set(5.2, 5.2, 5.2);
+                            brownWhite.scale.set(20.3, 20.3, 20.3);
                             document.body.style.cursor = "grab";
                             divBrownWhite.classList.remove('hidden');
-                            break;
-                        case "darkBlueMesh":
-                            darkBlue.scale.set(10.3, 10.3, 10.3);
+                            break; case "darkBlueMesh":
+                            darkBlue.scale.set(40.3, 40.3, 40.3);
                             document.body.style.cursor = "grab";
                             divDarkBlue.classList.remove('hidden');
                             break;
                         case "darkBlueMesh_1":
                             document.body.style.cursor = "grab";
-                            darkBlue.scale.set(10.3, 10.3, 10.3);
+                            darkBlue.scale.set(40.3, 40.3, 40.3);
                             divDarkBlue.classList.remove('hidden');
                             break;
 
@@ -576,47 +574,47 @@
             document.body.style.cursor = "default";
             divSun.classList.add('hidden');
             if (pink)
-                pink.scale.set(5, 5, 5);
+                pink.scale.set(20, 20, 20);
             document.body.style.cursor = "default";
             divPink.classList.add('hidden');
             if (purpleBack)
-                purpleBack.scale.set(5, 5, 5);
+                purpleBack.scale.set(20, 20, 20);
             document.body.style.cursor = "default";
             divPurpleBack.classList.add('hidden');
             if (greenGray)
-                greenGray.scale.set(10, 10, 10);
+                greenGray.scale.set(40, 40, 40);
             document.body.style.cursor = "default";
             divGreenGray.classList.add('hidden');
             if (darkGreen)
-                darkGreen.scale.set(10, 10, 10);
+                darkGreen.scale.set(40, 40, 40);
             document.body.style.cursor = "default";
             divDarkGreen.classList.add('hidden');
             if (green)
-                green.scale.set(5, 5, 5);
+                green.scale.set(20, 20, 20);
             document.body.style.cursor = "default";
             divGreen.classList.add('hidden');
             if (brownBlack)
-                brownBlack.scale.set(10, 10, 10);
+                brownBlack.scale.set(40, 40, 40);
             document.body.style.cursor = "default";
             divBrownBlack.classList.add('hidden');
             if (gray)
-                gray.scale.set(5, 5, 5);
+                gray.scale.set(20, 20, 20);
             document.body.style.cursor = "default";
             divGray.classList.add('hidden');
             if (purple)
-                purple.scale.set(5, 5, 5);
+                purple.scale.set(20, 20, 20);
             document.body.style.cursor = "default";
             divPurple.classList.add('hidden');
             if (brown)
-                brown.scale.set(5, 5, 5);
+                brown.scale.set(20, 20, 20);
             document.body.style.cursor = "default";
             divBrown.classList.add('hidden');
             if (brownWhite)
-                brownWhite.scale.set(5, 5, 5);
+                brownWhite.scale.set(20, 20, 20);
             document.body.style.cursor = "default";
             divBrownWhite.classList.add('hidden');
             if (darkBlue)
-                darkBlue.scale.set(10, 10, 10);
+                darkBlue.scale.set(40, 40, 40);
             document.body.style.cursor = "default";
             divDarkBlue.classList.add('hidden');
         }
@@ -651,9 +649,9 @@
             //Raycaster setup
             raycaster.setFromCamera(mouse, camera);
             //Reset hover new frame
-            //resetHover();
+            resetHover();
             //Hover new frame
-            //onHover();
+            onHover();
             //Update controls
             controls.update();
             //Render scene
