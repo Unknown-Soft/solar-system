@@ -210,84 +210,84 @@
 
             divPink = document.createElement('div');
             divPink.className = 'label';
-            divPink.textContent = 'Pink';
+            divPink.textContent = 'Mind Draft';
             divPink.style.marginTop = '-1em';
             const pinkLabel = new CSS2DObject(divPink);
             pinkLabel.position.set(18, 11, 0);
 
             divSun = document.createElement('div');
             divSun.className = 'label';
-            divSun.textContent = 'Sun';
+            divSun.textContent = 'Mind Pool';
             divSun.style.marginTop = '-1em';
             const sunLabel = new CSS2DObject(divSun);
             sunLabel.position.set(18, 11, 0);
 
             divPurpleBack = document.createElement('div');
             divPurpleBack.className = 'label';
-            divPurpleBack.textContent = 'PurpleBlack';
+            divPurpleBack.textContent = 'Mind K1';
             divPurpleBack.style.marginTop = '-1em';
             const purpleBackLabel = new CSS2DObject(divPurpleBack);
             purpleBackLabel.position.set(13, 12, 0);
 
             divGreenGray = document.createElement('div');
             divGreenGray.className = 'label';
-            divGreenGray.textContent = 'GreenGray';
+            divGreenGray.textContent = 'Mind Verse';
             divGreenGray.style.marginTop = '-1em';
             const greenGrayLabel = new CSS2DObject(divGreenGray);
             greenGrayLabel.position.set(14, 9, 0);
 
             divDarkGreen = document.createElement('div');
             divDarkGreen.className = 'label';
-            divDarkGreen.textContent = 'DarkGreen';
+            divDarkGreen.textContent = "Mind Nft's";
             divDarkGreen.style.marginTop = '-1em';
             const darkGreenLabel = new CSS2DObject(divDarkGreen);
             darkGreenLabel.position.set(5, 20, 0);
 
             divGreen = document.createElement('div');
             divGreen.className = 'label';
-            divGreen.textContent = 'Green';
+            divGreen.textContent = 'Express';
             divGreen.style.marginTop = '-1em';
             const greenLabel = new CSS2DObject(divGreen);
             greenLabel.position.set(13, 11, 0);
 
             divBrownBlack = document.createElement('div');
             divBrownBlack.className = 'label';
-            divBrownBlack.textContent = 'BrownBlack';
+            divBrownBlack.textContent = 'Mind Franchises';
             divBrownBlack.style.marginTop = '-1em';
             const brownBlackLabel = new CSS2DObject(divBrownBlack);
             brownBlackLabel.position.set(-12, 10, 0);
 
             divGray = document.createElement('div');
             divGray.className = 'label';
-            divGray.textContent = 'Gray';
+            divGray.textContent = 'Mind Coffee';
             divGray.style.marginTop = '-1em';
             const grayLabel = new CSS2DObject(divGray);
-            pinkLabel.position.set(11, 11, 0);
+            grayLabel.position.set(11, 11, 0);
 
             divPurple = document.createElement('div');
             divPurple.className = 'label';
-            divPurple.textContent = 'Purple';
+            divPurple.textContent = 'Classic';
             divPurple.style.marginTop = '-1em';
             const purpleLabel = new CSS2DObject(divPurple);
             purpleLabel.position.set(11, 11, 0);
 
             divBrown = document.createElement('div');
             divBrown.className = 'label';
-            divBrown.textContent = 'Brown';
+            divBrown.textContent = 'Work';
             divBrown.style.marginTop = '-1em';
             const brownLabel = new CSS2DObject(divBrown);
             brownLabel.position.set(11, 11, 0);
 
             divBrownWhite = document.createElement('div');
             divBrownWhite.className = 'label';
-            divBrownWhite.textContent = 'BrownWhite';
+            divBrownWhite.textContent = 'Mind Beer';
             divBrownWhite.style.marginTop = '-1em';
             const brownWhiteLabel = new CSS2DObject(divBrownWhite);
             brownWhiteLabel.position.set(11, 11, 0);
 
             divDarkBlue = document.createElement('div');
             divDarkBlue.className = 'label';
-            divDarkBlue.textContent = 'DarkBlue';
+            divDarkBlue.textContent = 'Mind Productos';
             divDarkBlue.style.marginTop = '-1em';
             const darkBlueLabel = new CSS2DObject(divDarkBlue);
             darkBlueLabel.position.set(11, 11, 0);
@@ -470,10 +470,61 @@
             raycaster.setFromCamera(mouse, camera);
             let intersects = raycaster.intersectObjects(scene.children);
             if (intersects.length > 0) {
-                if (intersects[0].object.name === 'points') {
-                    window.location.href = "./index.html";
+                for (let i = 0; i < intersects.length; i++) {
+                    switch (intersects[i].object.name) {
+                        case "sun":
+                            window.location.href = "https://mindworld.io/mind-pool";
+                            break;
+                        case "pink":
+                            window.location.href = "https://mindworld.io/mind-draft/";
+                            break;
+                        case "purpleBack":
+                            window.location.href = "https://mindworld.io/mind-cajero-monedas/";
+                            break;
+                        case "greenGrayMesh":
+                            window.location.href = "https://mindworld.io/mind-verse/";
+                            break;
+                        case "greenGrayMesh_1":
+                            window.location.href = "https://mindworld.io/mind-verse/";
+                            break;
+                        case "darkGreenMesh":
+                            window.location.href = "https://mindworld.io/";
+                            break;
+                        case "darkGreenMesh_1":
+                            window.location.href = "https://mindworld.io/";
+                            break;
+                        case "green":
+                            window.location.href = "https://mindworld.io/mind-franquicias/";
+                            break;
+                        case "brownBlack":
+                            window.location.href = "https://mindworld.io/mind-franquicias/";
+                            break;
+                        case "gray":
+                            window.location.href = "https://mindworld.io/mind-coffee/";
+                            break;
+                        case "purple":
+                            window.location.href = "https://mindworld.io/mind-franquicias/";
+                            break;
+                        case "brown":
+                            window.location.href = "https://mindworld.io/mind-franquicias/";
+                            break;
+                        case "brownWhiteMesh":
+                            window.location.href = "https://mindworld.io/mind-beer/";
+                            break;
+                        case "brownWhiteMesh_1":
+                            window.location.href = "https://mindworld.io/mind-beer/";
+                            break;
+                        case "darkBlueMesh":
+                            window.location.href = "https://mindworld.io/mindworld-pagos-debito-credito/";
+                            break;
+                        case "darkBlueMesh_1":
+                            window.location.href = "https://mindworld.io/mindworld-pagos-debito-credito/";
+                            break;
+
+                        default:
+                            break;
+                    }
                 }
-                return;
             }
         }
 
