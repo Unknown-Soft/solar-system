@@ -349,26 +349,6 @@
             element.remove();
         }
 
-        //Events
-        const onClick = () => {
-            raycaster.setFromCamera(mouse, camera);
-            let intersects = raycaster.intersectObjects(scene.children);
-            if (intersects.length > 0) {
-
-                //console.log(intersects[0].object.children);
-                // if (intersects[0].object.name === 'points') {
-                //      window.location.href = "./index2.html";
-                // }
-            }
-        }
-
-        const redirectG1 = () => {
-
-            console.log("intersects[i].object");
-            // if (intersects[0].object.name === 'points') {
-
-        }
-
         //Viewport mouse movement 
         const onMouseMove = (event) => {
             mouse.x = (event.clientX / window.innerWidth) * 2 - 1;
