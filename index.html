@@ -151,6 +151,7 @@
             pointsMaterial,
             raycaster,
             renderer,
+            sunLight,
             scene,
             sprite,
             galaxy2Div,
@@ -257,7 +258,7 @@
             ambientLight = new THREE.AmbientLight(0xffffff, 1.5);
             scene.add(ambientLight);
 
-            //Pointlight purple diffuse
+            //Pointlight
             const pointLight = new THREE.PointLight(0x8f2bed, 1, 0);
             pointLight.position.set(0, 250, 0);
             pointLight.castShadow = true;
@@ -266,6 +267,16 @@
             pointLight.shadow.camera.near = 0.5;
             pointLight.shadow.camera.far = 1000;
             scene.add(pointLight);
+
+            //sunlight
+            sunLight = new THREE.PointLight(0x8f2bed, 1, 0);
+            sunLight.position.set(300, -1900, -300);
+            sunLight.castShadow = true;
+            sunLight.shadow.mapSize.width = 2048;
+            sunLight.shadow.mapSize.height = 2048;
+            sunLight.shadow.camera.near = 0.5;
+            sunLight.shadow.camera.far = 1000;
+            scene.add(sunLight);
 
 
             //Mouse coors
@@ -278,7 +289,7 @@
             bufferGeometry = new THREE.BufferGeometry();
             vertices = [];
             sprite = new THREE.TextureLoader().load('assets/images/disc.png');
-            
+
             for (let i = 0; i < 10000; i++) {
 
                 x = 30000 * Math.random() - 15000;
