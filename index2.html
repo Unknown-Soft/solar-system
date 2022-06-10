@@ -478,7 +478,7 @@
                 for (let i = 0; i < intersects.length; i++) {
                     switch (intersects[i].object.name) {
                         case "sun":
-                            sun.scale.set(35.5, 35.5, 35.5);
+                            sun.scale.set(60.5, 60.5, 60.5);
                             document.body.style.cursor = "grab";
                             divSun.classList.remove('hidden');
                             break;
@@ -570,7 +570,7 @@
         //Reset planet hover
         const resetHover = () => {
             if (sun)
-                sun.scale.set(35, 35, 35);
+                sun.scale.set(60, 60, 60);
             document.body.style.cursor = "default";
             divSun.classList.add('hidden');
             if (pink)
