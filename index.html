@@ -221,7 +221,6 @@
             renderer.outputEncoding = THREE.sRGBEncoding;
             document.body.appendChild(renderer.domElement);
 
-
             //Controls
             controls = new OrbitControls(camera, labelRenderer.domElement);
             controls.maxDistance = 5500;
@@ -259,7 +258,7 @@
             scene.add(ambientLight);
 
             //Pointlight
-            const pointLight = new THREE.PointLight(0x8f2bed, 1, 0);
+            pointLight = new THREE.PointLight(0x8f2bed, 1, 0);
             pointLight.position.set(0, 250, 0);
             pointLight.castShadow = true;
             pointLight.shadow.mapSize.width = 2048;
@@ -277,7 +276,6 @@
             sunLight.shadow.camera.near = 0.5;
             sunLight.shadow.camera.far = 1000;
             scene.add(sunLight);
-
 
             //Mouse coors
             mouse = new THREE.Vector2();
