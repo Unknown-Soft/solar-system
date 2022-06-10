@@ -289,8 +289,6 @@
             scene = new THREE.Scene();
             camera = new THREE.PerspectiveCamera(55, window.innerWidth / window.innerHeight, 0.5, 10000);
             camera.position.set(300, -3900, -300);
-            camera.position.x = 650;
-            camera.position.z = -2200;
             scene.add(camera);
 
             //Renderer
@@ -324,6 +322,15 @@
                 TWO: THREE.TOUCH.DOLLY_PAN
 
             }
+
+            controls.target.y = -1;
+            controls.enabled = true;
+            controls.enableDamping = true;
+            controls.autoRotateSpeed = 1;
+            controls.maxPolarAngle = Math.PI / 1;
+            controls.minPolarAngle = Math.PI / 1;
+            controls.minDistance = 1500;
+            controls.maxDistance = 5500;
 
             //Loading manager
             loadingManager = new THREE.LoadingManager(() => {
