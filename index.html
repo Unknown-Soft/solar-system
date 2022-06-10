@@ -172,24 +172,22 @@
             galaxy2Div = document.createElement('div');
             galaxy2Div.className = 'label';
             galaxy2Div.id = 'galaxy1';
-            galaxy2Div.textContent = 'Galaxia 2';
+            galaxy2Div.textContent = 'Mind Pool';
             galaxy2Div.style.marginTop = '-1em';
             galaxy2Label = new CSS2DObject(galaxy2Div);
             galaxy2Div.addEventListener('pointerdown', () => {
-                window.location.href = "https://mindsystem.netlify.app/index3.html";
+                window.location.href = "./index3.html";
             });
-            galaxy2Label.position.set(-40, -23, -49);
+            galaxy2Label.position.set(-10, 3, -10);
 
             galaxy1Div = document.createElement('div');
             galaxy1Div.className = 'label';
-            galaxy1Div.textContent = 'Galaxia 1';
+            galaxy1Div.textContent = 'Axón';
             galaxy1Div.style.marginTop = '-1em';
             galaxy1Label = new CSS2DObject(galaxy1Div);
             galaxy1Div.addEventListener('pointerdown', () => {
-                window.location.href = 'https://mindsystem.netlify.app/index2.html';
+                window.location.href = './index2.html';
             });
-
-            //  galaxy1Label.onclick = redirectG1();
             galaxy1Label.position.set(10, 3, 10);
 
             labelRenderer = new CSS2DRenderer();
@@ -201,7 +199,8 @@
             //Scene
             scene = new THREE.Scene();
             camera = new THREE.PerspectiveCamera(55, window.innerWidth / window.innerHeight, 0.5, 10000);
-            camera.position.x = 2200;
+            // camera.position.x = 2200;
+            camera.position.set(300, -1900, -300);
             scene.add(camera);
 
             //Renderer
@@ -219,9 +218,6 @@
             controls.target.y = -1;
             controls.enabled = true;
             controls.enableDamping = true;
-
-            // controls.minDistance = 0;
-            // controls.maxDistance = 5000;
 
 
             //Lights
@@ -295,7 +291,7 @@
             // Points
             const points = new THREE.Points(geometry, material);
             points.name = "points";
-            points.rotation.z = 100;
+            //points.rotation.z = 100;
             points.scale.set(90, 90, 90);
             points.position.set(0, 250, 0);
 
