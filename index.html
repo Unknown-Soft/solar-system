@@ -140,19 +140,27 @@
 
         let
             ambientLight,
+            bufferGeometry,
             camera,
             container,
             controls,
             geometry,
             labelRenderer,
             mouse,
+            particles,
+            pointsMaterial,
             raycaster,
             renderer,
             scene,
+            sprite,
             galaxy2Div,
             galaxy2Label,
             galaxy1Div,
-            galaxy1Label
+            galaxy1Label,
+            vertices,
+            x,
+            y,
+            z
 
         const parameters = {};
         parameters.branches = 3;
@@ -265,6 +273,33 @@
 
             //Raycaster
             raycaster = new THREE.Raycaster();
+
+            //stars
+            bufferGeometry = new THREE.BufferGeometry();
+            vertices = [];
+            sprite = new THREE.TextureLoader().load('assets/images/disc.png');
+            
+            for (let i = 0; i < 10000; i++) {
+
+                x = 30000 * Math.random() - 15000;
+                y = 20000 * Math.random() - 10000;
+                z = 30000 * Math.random() - 15000;
+
+                vertices.push(x, y, z);
+            }
+
+            bufferGeometry.setAttribute('position', new THREE.Float32BufferAttribute(vertices, 3));
+            pointsMaterial = new THREE.PointsMaterial({ 
+                color: 0xDBD81A, 
+                size: 35, 
+                sizeAttenuation: true, 
+                map: sprite, 
+                alphaTest: 0.5, 
+                transparent: true 
+            });
+            particles = new THREE.Points(bufferGeometry, pointsMaterial);
+
+            scene.add(particles);
 
             animate();
         }
