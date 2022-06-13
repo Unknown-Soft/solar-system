@@ -205,6 +205,17 @@
             divBrownWhite,
             divDarkBlue
 
+        const parameters = {};
+        parameters.branches = 3;
+        parameters.count = 10000;
+        parameters.insideColor = "#cf6523"
+        parameters.outsideColor = "#f7340c";
+        parameters.radius = 15;
+        parameters.randomness = 0.2;
+        parameters.randomnessPower = 1;
+        parameters.size = 0.1;
+        parameters.spin = 2;
+
         const init = () => {
             //Test Css2d Renderer
 
@@ -303,8 +314,8 @@
 
             //Scene
             scene = new THREE.Scene();
-            camera = new THREE.PerspectiveCamera(55, window.innerWidth / window.innerHeight, 0.5, 10000);
-            camera.position.set(300, -3900, -300);
+            camera = new THREE.PerspectiveCamera(60, window.innerWidth / window.innerHeight, 0.5, 20000);
+            camera.position.set(300, -7900, -300);
             scene.add(camera);
 
             //Renderer
@@ -345,7 +356,7 @@
             // controls.maxPolarAngle = Math.PI / 1;
             // controls.minPolarAngle = Math.PI / 1;
             controls.minDistance = 1500;
-            controls.maxDistance = 5500;
+            controls.maxDistance = 8500;
 
 
             //Loading manager
@@ -418,7 +429,7 @@
             //Lights
 
             //PointLight sun
-            pointLight = new THREE.PointLight(0xe34119, 2, 0);
+            pointLight = new THREE.PointLight(0xe34119, 1.5, 0);
             if (sun)
                 pointLight.add(sun);
             pointLight.castShadow = true;
@@ -434,8 +445,8 @@
             hemiLight.position.set(0, 70, 0);
             scene.add(hemiLight);
 
-            const hemiLightDown = new THREE.HemisphereLight(0xffffff, 0xffffff, 0.3);
-            hemiLightDown.color.setHSL(0.3, 0.3, 0.3);
+            const hemiLightDown = new THREE.HemisphereLight(0xffffff, 0xffffff, 0.2);
+            hemiLightDown.color.setHSL(0.2, 0.2, 0.2);
             hemiLightDown.groundColor.setHSL(0.095, 1, 0.75);
             hemiLightDown.position.set(0, -70, 0);
             scene.add(hemiLightDown);
@@ -477,6 +488,69 @@
 
             animate();
         }
+
+        const generateGalaxy = () => {
+
+            const geometry = new THREE.BufferGeometry();
+            const positions = new Float32Array(parameters.count * 3);
+
+            const colors = new Float32Array(parameters.count * 3);
+            const colorInside = new THREE.Color(parameters.insideColor);
+            const colorOutside = new THREE.Color(parameters.outsideColor);
+
+            for (let i = 0; i < parameters.count; i++) {
+                const i3 = i * 3;
+                const radius = Math.random() * parameters.radius;
+                const spinAngle = radius * parameters.spin;
+                const branchAngle =
+                    ((i % parameters.branches) / parameters.branches) * Math.PI * 2;
+
+                const randomX =
+                    Math.pow(Math.random(), parameters.randomnessPower) *
+                    (Math.random() < 0.5 ? 1 : -1) *
+                    parameters.randomness *
+                    radius;
+                const randomY =
+                    Math.pow(Math.random(), parameters.randomnessPower) *
+                    (Math.random() < 0.5 ? 1 : -1) *
+                    parameters.randomness *
+                    radius;
+                const randomZ =
+                    Math.pow(Math.random(), parameters.randomnessPower) *
+                    (Math.random() < 0.5 ? 1 : -1) *
+                    parameters.randomness *
+                    radius;
+
+                positions[i3] = Math.cos(branchAngle + spinAngle) * radius + randomX;
+                positions[i3 + 1] = randomY;
+                positions[i3 + 2] = Math.sin(branchAngle + spinAngle) * radius + randomZ;
+
+                const mixedColor = colorInside.clone();
+                mixedColor.lerp(colorOutside, radius / parameters.radius);
+                colors[i3] = mixedColor.r;
+                colors[i3 + 1] = mixedColor.g;
+                colors[i3 + 2] = mixedColor.b;
+            }
+            geometry.setAttribute("position", new THREE.BufferAttribute(positions, 3));
+            geometry.setAttribute("color", new THREE.BufferAttribute(colors, 3));
+
+            // Material
+            const material = new THREE.PointsMaterial({
+                size: parameters.size,
+                sizeAttenuation: true,
+                depthWrite: false,
+                blending: THREE.AdditiveBlending,
+                vertexColors: true,
+            });
+
+            // Points
+            const points = new THREE.Points(geometry, material);
+            points.name = "points";
+            points.scale.set(90, 90, 90);
+            points.position.set(0, 0, 0);
+
+            scene.add(points);
+        };
 
         //Detecting mobile devices with Regex
         const detectMobile = () => {
@@ -757,6 +831,8 @@
         window.addEventListener("mousemove", onMouseMove, false);
 
         init();
+        generateGalaxy();
+
     </script>
 
     <script async src="https://unpkg.com/es-module-shims@1.3.6/dist/es-module-shims.js"></script>
