@@ -327,8 +327,8 @@
             controls.enabled = true;
             controls.enableDamping = true;
             controls.autoRotateSpeed = 1;
-            controls.maxPolarAngle = Math.PI / 1;
-            controls.minPolarAngle = Math.PI / 1;
+            // controls.maxPolarAngle = Math.PI / 1;
+            // controls.minPolarAngle = Math.PI / 1;
             controls.minDistance = 1500;
             controls.maxDistance = 5500;
 
@@ -393,15 +393,28 @@
             //Lights
 
             //PointLight
-            pointLight = new THREE.PointLight(0xffffff, 1, 0);
-            pointLight.add(sun);
-            pointLight.position.set(0, 250, 0);
+            pointLight = new THREE.PointLight(0xe34119, 05, 0);
+            if (sun)
+                pointLight.add(sun);
+            //pointLight.position.set(0, 250, 0);
             pointLight.castShadow = true;
             pointLight.shadow.mapSize.width = 2048;
             pointLight.shadow.mapSize.height = 2048;
             pointLight.shadow.camera.near = 0.5;
             pointLight.shadow.camera.far = 1000;
             scene.add(pointLight);
+
+            const hemiLight = new THREE.HemisphereLight(0xe34119, 0xe34119, 0.3);
+            hemiLight.color.setHSL(0.3, 0.3, 0.3);
+            hemiLight.groundColor.setHSL(0.095, 1, 0.75);
+            hemiLight.position.set(0, 70, 0);
+            scene.add(hemiLight);
+
+            const hemiLightDown = new THREE.HemisphereLight(0xe34119, 0xe34119, 0.3);
+            hemiLightDown.color.setHSL(0.3, 0.3, 0.3);
+            hemiLightDown.groundColor.setHSL(0.095, 1, 0.75);
+            hemiLightDown.position.set(0, -70, 0);
+            scene.add(hemiLightDown);
 
             //Mouse coors
             mouse = new THREE.Vector2();
