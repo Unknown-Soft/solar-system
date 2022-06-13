@@ -391,9 +391,17 @@
             );
 
             //Lights
-            ambientLight = new THREE.AmbientLight(0xffffff, 1.5);
 
-            scene.add(ambientLight);
+            //PointLight
+            pointLight = new THREE.PointLight(0xffffff, 1, 0);
+            pointLight.add(sun);
+            pointLight.position.set(0, 250, 0);
+            pointLight.castShadow = true;
+            pointLight.shadow.mapSize.width = 2048;
+            pointLight.shadow.mapSize.height = 2048;
+            pointLight.shadow.camera.near = 0.5;
+            pointLight.shadow.camera.far = 1000;
+            scene.add(pointLight);
 
             //Mouse coors
             mouse = new THREE.Vector2();
