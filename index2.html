@@ -147,6 +147,7 @@
         import { OrbitControls } from './js/OrbitControls.min.js';
         import { GLTFLoader } from "./js/GLTFLoader.min.js";
         import { CSS2DRenderer, CSS2DObject } from "./js/CSS2DRenderer.min.js";
+        import { Lensflare, LensflareElement } from "./js/Lensflare.min.js";
 
         THREE.Cache.enabled = true;
 
@@ -168,6 +169,8 @@
             directionalLight,
             geometry,
             gltfLoader,
+            hemiLightDown,
+            hemiLightUp,
             labelRenderer,
             lightBlue,
             lightBlueDiv,
@@ -201,7 +204,7 @@
 
         const parameters = {};
         parameters.branches = 3;
-        parameters.count = 10000;
+        parameters.count = 6000;
         parameters.insideColor = "#cf6523"
         parameters.outsideColor = "#f7340c";
         parameters.radius = 15;
@@ -412,16 +415,17 @@
             pointLight.shadow.mapSize.width = 2048;
             pointLight.shadow.mapSize.height = 2048;
             pointLight.shadow.camera.near = 0.5;
-            pointLight.shadow.camera.far = 1000;
+            pointLight.shadow.camera.far = 5000;
             scene.add(pointLight);
 
-            const hemiLight = new THREE.HemisphereLight(0xffffff, 0xffffff, 0.3);
-            hemiLight.color.setHSL(0.3, 0.3, 0.3);
-            hemiLight.groundColor.setHSL(0.095, 1, 0.75);
-            hemiLight.position.set(0, 70, 0);
-            scene.add(hemiLight);
+            hemiLightUp = new THREE.HemisphereLight(0xffffff, 0xffffff, 0.3);
+            hemiLightUp.color.setHSL(0.3, 0.3, 0.3);
+            hemiLightUp.groundColor.setHSL(0.095, 1, 0.75);
+            hemiLightUp.position.set(0, 70, 0);
+            hemiLightUp.castShadow = true;
+            scene.add(hemiLightUp);
 
-            const hemiLightDown = new THREE.HemisphereLight(0xffffff, 0xffffff, 0.3);
+            hemiLightDown = new THREE.HemisphereLight(0xffffff, 0xffffff, 0.3);
             hemiLightDown.color.setHSL(0.3, 0.3, 0.3);
             hemiLightDown.groundColor.setHSL(0.095, 1, 0.75);
             hemiLightDown.position.set(0, -70, 0);
@@ -458,6 +462,34 @@
             scene.add(particles);
 
             animate();
+
+            // lensflares
+            const textureLoader = new THREE.TextureLoader();
+
+            const textureFlare0 = textureLoader.load('assets/images/lensflare0.png');
+            const textureFlare3 = textureLoader.load('assets/images/lensflare3.png');
+
+            // addLight(0.55, 0.9, 0.5, 5000, 0, - 1000);
+            addLight(0.08, 0.8, 0.5, 0, -750, 0);
+            addLight(0.08, 0.8, 0.5, 0, 750, 0);
+
+
+            function addLight(h, s, l, x, y, z) {
+
+                const light = new THREE.PointLight(0xffffff, 1.5, 2000);
+                light.color.setHSL(h, s, l);
+                light.position.set(x, y, z);
+                scene.add(light);
+
+                const lensflare = new Lensflare();
+                lensflare.addElement(new LensflareElement(textureFlare0, 700, 0, light.color));
+                lensflare.addElement(new LensflareElement(textureFlare3, 60, 0.6));
+                lensflare.addElement(new LensflareElement(textureFlare3, 70, 0.7));
+                lensflare.addElement(new LensflareElement(textureFlare3, 120, 0.9));
+                lensflare.addElement(new LensflareElement(textureFlare3, 70, 1));
+                light.add(lensflare);
+
+            }
         }
 
         const generateGalaxy = () => {
@@ -517,7 +549,6 @@
             // Points
             const points = new THREE.Points(geometry, material);
             points.name = "points";
-            //points.rotation.z = 100;
             points.scale.set(90, 90, 90);
             points.position.set(0, 0, 0);
 
