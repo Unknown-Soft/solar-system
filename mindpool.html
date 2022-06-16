@@ -151,6 +151,7 @@
         import { FlyControls } from './js/FlyControls.js';
         import { GLTFLoader } from "./js/GLTFLoader.min.js";
         import { CSS2DRenderer, CSS2DObject } from "./js/CSS2DRenderer.min.js";
+        import { Lensflare, LensflareElement } from "./js/Lensflare.min.js";
 
         THREE.Cache.enabled = true;
 
@@ -163,6 +164,8 @@
             directionalLight,
             geometry,
             gltfLoader,
+            hemiLightDown,
+            hemiLightUp,
             labelRenderer,
             loadingManager,
             loadingScreen,
@@ -204,6 +207,17 @@
             divBrown,
             divBrownWhite,
             divDarkBlue
+
+        const parameters = {};
+        parameters.branches = 3;
+        parameters.count = 6000;
+        parameters.insideColor = "#cf6523"
+        parameters.outsideColor = "#f7340c";
+        parameters.radius = 15;
+        parameters.randomness = 0.2;
+        parameters.randomnessPower = 1;
+        parameters.size = 0.1;
+        parameters.spin = 2;
 
         const init = () => {
             //Test Css2d Renderer
@@ -303,8 +317,8 @@
 
             //Scene
             scene = new THREE.Scene();
-            camera = new THREE.PerspectiveCamera(55, window.innerWidth / window.innerHeight, 0.5, 10000);
-            camera.position.set(300, -3900, -300);
+            camera = new THREE.PerspectiveCamera(60, window.innerWidth / window.innerHeight, 0.5, 20000);
+            camera.position.set(300, -7900, -300);
             scene.add(camera);
 
             //Renderer
@@ -313,6 +327,7 @@
             renderer.setSize(window.innerWidth, window.innerHeight);
             renderer.toneMapping = THREE.ACESFilmicToneMapping;
             renderer.toneMappingExposure = 1;
+            renderer.shadowMap.enable = true;
             renderer.outputEncoding = THREE.sRGBEncoding;
             document.body.appendChild(renderer.domElement);
 
@@ -341,10 +356,10 @@
             controls.enabled = true;
             controls.enableDamping = true;
             controls.autoRotateSpeed = 1;
-            controls.maxPolarAngle = Math.PI / 1;
-            controls.minPolarAngle = Math.PI / 1;
+            // controls.maxPolarAngle = Math.PI / 1;
+            // controls.minPolarAngle = Math.PI / 1;
             controls.minDistance = 1500;
-            controls.maxDistance = 5500;
+            controls.maxDistance = 8500;
 
 
             //Loading manager
@@ -413,10 +428,36 @@
                 }
             );
 
-            //Lights
-            ambientLight = new THREE.AmbientLight(0xffffff, 1);
 
-            scene.add(ambientLight);
+            //Lights
+
+            //PointLight sun
+            pointLight = new THREE.PointLight(0xe34119, 1.5, 0);
+            if (sun)
+                pointLight.add(sun);
+            pointLight.castShadow = true;
+            pointLight.shadow.mapSize.width = 2048;
+            pointLight.shadow.mapSize.height = 2048;
+            pointLight.shadow.camera.near = 0.5;
+            pointLight.shadow.camera.far = 1000;
+            scene.add(pointLight);
+
+            hemiLightUp = new THREE.HemisphereLight(0xffffff, 0xffffff, 0.3);
+            hemiLightUp.color.setHSL(0.3, 0.3, 0.3);
+            hemiLightUp.groundColor.setHSL(0.095, 1, 0.75);
+            hemiLightUp.position.set(0, 70, 0);
+            hemiLightUp.castShadow = true;
+            scene.add(hemiLightUp);
+
+            hemiLightDown = new THREE.HemisphereLight(0xffffff, 0xffffff, 0.2);
+            hemiLightDown.color.setHSL(0.2, 0.2, 0.2);
+            hemiLightDown.groundColor.setHSL(0.095, 1, 0.75);
+            hemiLightDown.position.set(0, -70, 0);
+            scene.add(hemiLightDown);
+
+            let probeLight = new THREE.LightProbe();
+            probeLight.intensity = 1;
+            // scene.add(probeLight);
 
             //Mouse coors
             mouse = new THREE.Vector2();
@@ -450,7 +491,97 @@
             scene.add(particles);
 
             animate();
+
+            // lensflares
+            const textureLoader = new THREE.TextureLoader();
+
+            const textureFlare0 = textureLoader.load('assets/images/lensflare0.png');
+            const textureFlare3 = textureLoader.load('assets/images/lensflare3.png');
+
+            addLight(0.08, 0.8, 0.5, 0, -750, 0);
+            addLight(0.08, 0.8, 0.5, 0, 750, 0);
+
+
+            function addLight(h, s, l, x, y, z) {
+
+                const light = new THREE.PointLight(0xffffff, 1.5, 2000);
+                light.color.setHSL(h, s, l);
+                light.position.set(x, y, z);
+                scene.add(light);
+
+                const lensflare = new Lensflare();
+                lensflare.addElement(new LensflareElement(textureFlare0, 700, 0, light.color));
+                lensflare.addElement(new LensflareElement(textureFlare3, 60, 0.6));
+                lensflare.addElement(new LensflareElement(textureFlare3, 70, 0.7));
+                lensflare.addElement(new LensflareElement(textureFlare3, 120, 0.9));
+                lensflare.addElement(new LensflareElement(textureFlare3, 70, 1));
+                light.add(lensflare);
+
+            }
         }
+
+        const generateGalaxy = () => {
+
+            const geometry = new THREE.BufferGeometry();
+            const positions = new Float32Array(parameters.count * 3);
+
+            const colors = new Float32Array(parameters.count * 3);
+            const colorInside = new THREE.Color(parameters.insideColor);
+            const colorOutside = new THREE.Color(parameters.outsideColor);
+
+            for (let i = 0; i < parameters.count; i++) {
+                const i3 = i * 3;
+                const radius = Math.random() * parameters.radius;
+                const spinAngle = radius * parameters.spin;
+                const branchAngle =
+                    ((i % parameters.branches) / parameters.branches) * Math.PI * 2;
+
+                const randomX =
+                    Math.pow(Math.random(), parameters.randomnessPower) *
+                    (Math.random() < 0.5 ? 1 : -1) *
+                    parameters.randomness *
+                    radius;
+                const randomY =
+                    Math.pow(Math.random(), parameters.randomnessPower) *
+                    (Math.random() < 0.5 ? 1 : -1) *
+                    parameters.randomness *
+                    radius;
+                const randomZ =
+                    Math.pow(Math.random(), parameters.randomnessPower) *
+                    (Math.random() < 0.5 ? 1 : -1) *
+                    parameters.randomness *
+                    radius;
+
+                positions[i3] = Math.cos(branchAngle + spinAngle) * radius + randomX;
+                positions[i3 + 1] = randomY;
+                positions[i3 + 2] = Math.sin(branchAngle + spinAngle) * radius + randomZ;
+
+                const mixedColor = colorInside.clone();
+                mixedColor.lerp(colorOutside, radius / parameters.radius);
+                colors[i3] = mixedColor.r;
+                colors[i3 + 1] = mixedColor.g;
+                colors[i3 + 2] = mixedColor.b;
+            }
+            geometry.setAttribute("position", new THREE.BufferAttribute(positions, 3));
+            geometry.setAttribute("color", new THREE.BufferAttribute(colors, 3));
+
+            // Material
+            const material = new THREE.PointsMaterial({
+                size: parameters.size,
+                sizeAttenuation: true,
+                depthWrite: false,
+                blending: THREE.AdditiveBlending,
+                vertexColors: true,
+            });
+
+            // Points
+            const points = new THREE.Points(geometry, material);
+            points.name = "points";
+            points.scale.set(90, 90, 90);
+            points.position.set(0, 0, 0);
+
+            scene.add(points);
+        };
 
         //Detecting mobile devices with Regex
         const detectMobile = () => {
@@ -731,6 +862,8 @@
         window.addEventListener("mousemove", onMouseMove, false);
 
         init();
+        generateGalaxy();
+
     </script>
 
     <script async src="https://unpkg.com/es-module-shims@1.3.6/dist/es-module-shims.js"></script>
