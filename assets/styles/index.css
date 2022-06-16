@@ -125,6 +125,48 @@ canvas {
   }
 }
 
+#navigation {
+  width: 100%;
+  color: #D9B073;
+}
+
+.title {
+  font-family: "Cocogoose", Sans-serif;
+  font-size: 4rem;
+  text-transform: uppercase;
+  animation: glow 2s ease-in-out infinite alternate;
+}
+
+#axon {
+  position: absolute;
+  left: 35%;
+  top: 45%;
+  transform: translate(-50%, -50%);
+}
+#axon:hover {
+  font-size: 4.1rem;
+}
+
+#pool {
+  position: absolute;
+  left: 70%;
+  top: 45%;
+  transform: translate(-50%, -50%);
+}
+
+#pool:hover {
+  font-size: 4.1rem;
+}
+
+@keyframes glow {
+  from {
+    text-shadow: 0 0 20px #E6BA7A;
+  }
+  to {
+    text-shadow: 0 0 30px #d9b073, 0 0 10px #d9b073;
+  }
+}
+
 p {
   font-size: 20px;
   line-height: 28px;

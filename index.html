@@ -21,6 +21,10 @@
     <div id="container"></div>
     <img id="logo-text" src="assets/images/logo-text.png" />
     <button id="menu-toggle" class="menu-toggle"></button>
+    <div id="navigation">
+        <h1 id="axon" class="title">Axón</h1>
+        <h1 id="pool" class="title">Mind Pool</h1>
+    </div>
     <nav>
         <div class="menu">
             <div id="column-one" class="element">
@@ -176,35 +180,6 @@
 
         const init = () => {
 
-            // Css2d Renderer
-
-            galaxy2Div = document.createElement('div');
-            galaxy2Div.className = 'label';
-            galaxy2Div.id = 'galaxy1';
-            galaxy2Div.textContent = 'Mind Pool';
-            galaxy2Div.style.marginTop = '-1em';
-            galaxy2Label = new CSS2DObject(galaxy2Div);
-            galaxy2Div.addEventListener('pointerdown', () => {
-                window.location.href = "./index3.html";
-            });
-            galaxy2Label.position.set(-10, 3, -10);
-
-            galaxy1Div = document.createElement('div');
-            galaxy1Div.className = 'label';
-            galaxy1Div.textContent = 'Axón';
-            galaxy1Div.style.marginTop = '-1em';
-            galaxy1Label = new CSS2DObject(galaxy1Div);
-            galaxy1Div.addEventListener('pointerdown', () => {
-                window.location.href = './index2.html';
-            });
-            galaxy1Label.position.set(10, 3, 10);
-
-            labelRenderer = new CSS2DRenderer();
-            labelRenderer.setSize(window.innerWidth, window.innerHeight);
-            labelRenderer.domElement.style.position = 'fixed';
-            labelRenderer.domElement.style.top = '0px';
-            document.body.appendChild(labelRenderer.domElement);
-
             //Scene
             scene = new THREE.Scene();
             camera = new THREE.PerspectiveCamera(55, window.innerWidth / window.innerHeight, 0.5, 10000);
@@ -221,9 +196,23 @@
             renderer.outputEncoding = THREE.sRGBEncoding;
             document.body.appendChild(renderer.domElement);
 
+            let axon = document.getElementById("axon");
+            let mindPool = document.getElementById("pool");
+            axon.addEventListener('click', () => {
+                window.location.href = "./axon.html";
+            });
+            axon.addEventListener('mouseover', () => {
+                axon.style.cursor = "pointer";
+            });
+            mindPool.addEventListener('click', () => {
+                window.location.href = "./mindpool.html";
+            });
+            mindPool.addEventListener('mouseover', () => {
+                mindPool.style.cursor = "pointer";
+            });
 
             //Controls
-            controls = new OrbitControls(camera, labelRenderer.domElement);
+            controls = new OrbitControls(camera, renderer.domElement);
             controls.maxDistance = 5500;
             controls.listenToKeyEvents(document.body)
             controls.keys = {
@@ -413,7 +402,6 @@
                 camera.near = 0.5
             }
             camera.updateProjectionMatrix();
-            labelRenderer.setSize(window.innerWidth, window.innerHeight);
             render();
         };
 
@@ -428,7 +416,6 @@
             render();
             //Request new frame
             requestAnimationFrame(animate);
-            labelRenderer.render(scene, camera);
         };
 
         const render = () => {
