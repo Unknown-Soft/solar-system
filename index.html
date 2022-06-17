@@ -16,13 +16,17 @@
     <meta name="msapplication-TileColor" content="#000000">
     <meta name="theme-color" content="#000000">
 
-<body id="body">
+<body id="bodyGalaxy">
 
     <div id="container"></div>
     <img id="logo-text" src="assets/images/logo-text.png" />
     <button id="menu-toggle" class="menu-toggle"></button>
     <div id="navigation">
+
+        <div id='galaxy'></div>
+
         <h1 id="axon" class="title">Axón</h1>
+
         <h1 id="pool" class="title">Mind Pool</h1>
     </div>
     <nav>
@@ -98,10 +102,12 @@
             </div>
         </div>
     </nav>
+
+
     <script>
         //open and close menu
         const button = document.getElementById('menu-toggle');
-        const body = document.getElementById('body');
+        const body = document.getElementById('bodyGalaxy');
         button.addEventListener('click', () => {
             body.classList.toggle('open');
         }, false);
@@ -131,6 +137,21 @@
                 menu.classList.add("slideDown");
             }
             new_scroll_position = last_scroll_position;
+        });
+
+        let axon = document.getElementById("axon");
+        let mindPool = document.getElementById("pool");
+        axon.addEventListener('click', () => {
+            window.location.href = "./axon.html";
+        });
+        axon.addEventListener('mouseover', () => {
+            axon.style.cursor = "pointer";
+        });
+        mindPool.addEventListener('click', () => {
+            window.location.href = "./mindpool.html";
+        });
+        mindPool.addEventListener('mouseover', () => {
+            mindPool.style.cursor = "pointer";
         });
     </script>
 
@@ -197,21 +218,6 @@
             renderer.outputEncoding = THREE.sRGBEncoding;
             document.body.appendChild(renderer.domElement);
 
-            let axon = document.getElementById("axon");
-            let mindPool = document.getElementById("pool");
-            axon.addEventListener('click', () => {
-                window.location.href = "./axon.html";
-            });
-            axon.addEventListener('mouseover', () => {
-                axon.style.cursor = "pointer";
-            });
-            mindPool.addEventListener('click', () => {
-                window.location.href = "./mindpool.html";
-            });
-            mindPool.addEventListener('mouseover', () => {
-                mindPool.style.cursor = "pointer";
-            });
-
             //Controls
             controls = new OrbitControls(camera, renderer.domElement);
             controls.maxDistance = 5500;
@@ -233,20 +239,22 @@
 
             }
 
-            controls.target.y = -1;
-            controls.enabled = true;
+            // controls.target.y = -1;
+            // controls.enabled = true;
             controls.enableDamping = true;
             controls.autoRotateSpeed = 1;
-            controls.maxPolarAngle = Math.PI / 1;
-            controls.minPolarAngle = Math.PI / 1;
-            controls.minDistance = 1000;
-            controls.maxDistance = 4000;
-            controls.enableDamping = true;
+            controls.autoRotate = true;
+
+            // controls.maxPolarAngle = Math.PI / 1;
+            // controls.minPolarAngle = Math.PI / 1;
+            // controls.minDistance = 1000;
+            // controls.maxDistance = 4000;
+            // controls.enableDamping = true;
 
 
             //Lights
 
-            
+
             //Pointlight
             pointLight = new THREE.PointLight(0x8f2bed, 1, 0);
             pointLight.position.set(0, 250, 0);
@@ -288,13 +296,13 @@
             }
 
             bufferGeometry.setAttribute('position', new THREE.Float32BufferAttribute(vertices, 3));
-            pointsMaterial = new THREE.PointsMaterial({ 
-                color: 0xDBD81A, 
-                size: 35, 
-                sizeAttenuation: true, 
-                map: sprite, 
-                alphaTest: 0.5, 
-                transparent: true 
+            pointsMaterial = new THREE.PointsMaterial({
+                color: 0xDBD81A,
+                size: 35,
+                sizeAttenuation: true,
+                map: sprite,
+                alphaTest: 0.5,
+                transparent: true
             });
             particles = new THREE.Points(bufferGeometry, pointsMaterial);
 
@@ -302,73 +310,6 @@
 
             animate();
         }
-
-        const generateGalaxy = () => {
-
-            const geometry = new THREE.BufferGeometry();
-            const positions = new Float32Array(parameters.count * 3);
-
-            const colors = new Float32Array(parameters.count * 3);
-            const colorInside = new THREE.Color(parameters.insideColor);
-            const colorOutside = new THREE.Color(parameters.outsideColor);
-
-            for (let i = 0; i < parameters.count; i++) {
-                const i3 = i * 3;
-                const radius = Math.random() * parameters.radius;
-                const spinAngle = radius * parameters.spin;
-                const branchAngle =
-                    ((i % parameters.branches) / parameters.branches) * Math.PI * 2;
-
-                const randomX =
-                    Math.pow(Math.random(), parameters.randomnessPower) *
-                    (Math.random() < 0.5 ? 1 : -1) *
-                    parameters.randomness *
-                    radius;
-                const randomY =
-                    Math.pow(Math.random(), parameters.randomnessPower) *
-                    (Math.random() < 0.5 ? 1 : -1) *
-                    parameters.randomness *
-                    radius;
-                const randomZ =
-                    Math.pow(Math.random(), parameters.randomnessPower) *
-                    (Math.random() < 0.5 ? 1 : -1) *
-                    parameters.randomness *
-                    radius;
-
-                positions[i3] = Math.cos(branchAngle + spinAngle) * radius + randomX;
-                positions[i3 + 1] = randomY;
-                positions[i3 + 2] = Math.sin(branchAngle + spinAngle) * radius + randomZ;
-
-                const mixedColor = colorInside.clone();
-                mixedColor.lerp(colorOutside, radius / parameters.radius);
-                colors[i3] = mixedColor.r;
-                colors[i3 + 1] = mixedColor.g;
-                colors[i3 + 2] = mixedColor.b;
-            }
-            geometry.setAttribute("position", new THREE.BufferAttribute(positions, 3));
-            geometry.setAttribute("color", new THREE.BufferAttribute(colors, 3));
-
-            // Material
-            const material = new THREE.PointsMaterial({
-                size: parameters.size,
-                sizeAttenuation: true,
-                depthWrite: false,
-                blending: THREE.AdditiveBlending,
-                vertexColors: true,
-            });
-
-            // Points
-            const points = new THREE.Points(geometry, material);
-            points.name = "points";
-            //points.rotation.z = 100;
-            points.scale.set(90, 90, 90);
-            points.position.set(0, 250, 0);
-
-            points.add(galaxy2Label)
-            points.add(galaxy1Label);
-
-            scene.add(points);
-        };
 
         //Detecting mobile devices with Regex
         const detectMobile = () => {
@@ -426,7 +367,6 @@
         window.addEventListener("mousemove", onMouseMove, false);
 
         init();
-        generateGalaxy();
 
     </script>
 

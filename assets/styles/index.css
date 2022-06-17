@@ -102,6 +102,7 @@ canvas {
 }
 
 @-webkit-keyframes load7 {
+
   0%,
   80%,
   100% {
@@ -114,6 +115,7 @@ canvas {
 }
 
 @keyframes load7 {
+
   0%,
   80%,
   100% {
@@ -143,6 +145,7 @@ canvas {
   top: 45%;
   transform: translate(-50%, -50%);
 }
+
 #axon:hover {
   font-size: 4.1rem;
 }
@@ -162,6 +165,7 @@ canvas {
   from {
     text-shadow: 0 0 20px #E6BA7A;
   }
+
   to {
     text-shadow: 0 0 30px #d9b073, 0 0 10px #d9b073;
   }
@@ -239,19 +243,17 @@ button:before {
   margin: auto;
   right: auto;
   width: 100%;
-  background: linear-gradient(
-    to bottom,
-    #d9b073,
-    #d9b073 20%,
-    transparent 20%,
-    transparent 40%,
-    #d9b073 40%,
-    #d9b073 60%,
-    transparent 60%,
-    transparent 80%,
-    #d9b073 80%,
-    #d9b073 100%
-  );
+  background: linear-gradient(to bottom,
+      #d9b073,
+      #d9b073 20%,
+      transparent 20%,
+      transparent 40%,
+      #d9b073 40%,
+      #d9b073 60%,
+      transparent 60%,
+      transparent 80%,
+      #d9b073 80%,
+      #d9b073 100%);
   transition: opacity 0.2s ease-out, width 0.2s 0.2s ease-out;
 }
 
@@ -500,6 +502,7 @@ span {
   font-size: 18px;
   margin-bottom: 10px;
 }
+
 span:hover {
   font-weight: 800;
   font-size: 19px;
@@ -693,4 +696,43 @@ a {
 
 .hidden {
   display: none !important;
+}
+
+#galaxy {
+  position: absolute;
+  box-shadow: inset 0px 0px 20px 20px black;
+  top: 23%;
+  width: 670px;
+  height: 670px;
+  border-radius: 100%;
+  background-image: url(../images/1760.jpg);
+  left: 30%;
+  background-size: cover;
+  animation: spin 120s infinite linear;
+  pointer-events: none;
+}
+
+@media screen and (min-width: 400px) {
+  #galaxy {
+    width: 370px;
+    height: 370px;
+    right: 30%;
+  }
+}
+
+@media screen and (min-width: 800px) {
+  #galaxy {
+    width: 670px;
+    height: 670px;
+  }
+}
+
+@keyframes spin {
+  0% {
+    transform: rotateX(70deg) rotate(360deg)
+  }
+
+  100% {
+    transform: rotateX(70deg) rotate(0deg)
+  }
 }
