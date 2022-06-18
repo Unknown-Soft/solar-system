@@ -148,7 +148,6 @@
 
         import * as THREE from './js/three.module.js';
         import { OrbitControls } from './js/OrbitControls.min.js';
-        import { FlyControls } from './js/FlyControls.js';
         import { GLTFLoader } from "./js/GLTFLoader.min.js";
         import { CSS2DRenderer, CSS2DObject } from "./js/CSS2DRenderer.min.js";
         import { Lensflare, LensflareElement } from "./js/Lensflare.min.js";
@@ -318,7 +317,7 @@
             //Scene
             scene = new THREE.Scene();
             camera = new THREE.PerspectiveCamera(60, window.innerWidth / window.innerHeight, 0.5, 20000);
-            camera.position.set(300, -7900, -300);
+            camera.position.set(700, 8500, -5000);
             scene.add(camera);
 
             //Renderer
@@ -356,8 +355,6 @@
             controls.enabled = true;
             controls.enableDamping = true;
             controls.autoRotateSpeed = 1;
-            // controls.maxPolarAngle = Math.PI / 1;
-            // controls.minPolarAngle = Math.PI / 1;
             controls.minDistance = 1500;
             controls.maxDistance = 8500;
 
@@ -468,11 +465,12 @@
             //stars
 
             geometry = new THREE.BufferGeometry();
+            const particlesCount = 10000;
             vertices = [];
 
             sprite = new THREE.TextureLoader().load('assets/images/disc.png');
 
-            for (let i = 0; i < 10000; i++) {
+            for (let i = 0; i < particlesCount; i++) {
 
                 x = 30000 * Math.random() - 15000;
                 y = 20000 * Math.random() - 10000;
@@ -484,7 +482,7 @@
 
             geometry.setAttribute('position', new THREE.Float32BufferAttribute(vertices, 3));
 
-            material = new THREE.PointsMaterial({ color: 0xDBD81A, size: 35, sizeAttenuation: true, map: sprite, alphaTest: 0.5, transparent: true });
+            material = new THREE.PointsMaterial({ color: 0xDBD81A, size: 55, sizeAttenuation: true, map: sprite, alphaTest: 0.5, transparent: true });
 
             particles = new THREE.Points(geometry, material);
 

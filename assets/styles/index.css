@@ -102,7 +102,6 @@ canvas {
 }
 
 @-webkit-keyframes load7 {
-
   0%,
   80%,
   100% {
@@ -115,7 +114,6 @@ canvas {
 }
 
 @keyframes load7 {
-
   0%,
   80%,
   100% {
@@ -129,41 +127,53 @@ canvas {
 
 #navigation {
   width: 100%;
-  color: #D9B073;
+  color: #d9b073;
 }
 
 .title {
   font-family: "Cocogoose", Sans-serif;
-  font-size: 4rem;
+  font-size: 3.5rem;
   text-transform: uppercase;
-  animation: glow 2s ease-in-out infinite alternate;
+  letter-spacing: 2px;
+  animation: 3s anim-lineUp ease-out, glow 2s ease-in-out infinite alternate;
+}
+
+@keyframes anim-lineUp {
+  0% {
+    opacity: 0;
+  }
+  20% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 0.8;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+.title:hover {
+  font-size: 3.6rem;
 }
 
 #axon {
   position: absolute;
-  left: 35%;
+  left: 30%;
   top: 45%;
   transform: translate(-50%, -50%);
-}
-
-#axon:hover {
-  font-size: 4.1rem;
 }
 
 #pool {
   position: absolute;
-  left: 70%;
+  left: 71%;
   top: 45%;
   transform: translate(-50%, -50%);
 }
 
-#pool:hover {
-  font-size: 4.1rem;
-}
-
 @keyframes glow {
   from {
-    text-shadow: 0 0 20px #E6BA7A;
+    text-shadow: 0 0 20px #e6ba7a;
   }
 
   to {
@@ -243,17 +253,19 @@ button:before {
   margin: auto;
   right: auto;
   width: 100%;
-  background: linear-gradient(to bottom,
-      #d9b073,
-      #d9b073 20%,
-      transparent 20%,
-      transparent 40%,
-      #d9b073 40%,
-      #d9b073 60%,
-      transparent 60%,
-      transparent 80%,
-      #d9b073 80%,
-      #d9b073 100%);
+  background: linear-gradient(
+    to bottom,
+    #d9b073,
+    #d9b073 20%,
+    transparent 20%,
+    transparent 40%,
+    #d9b073 40%,
+    #d9b073 60%,
+    transparent 60%,
+    transparent 80%,
+    #d9b073 80%,
+    #d9b073 100%
+  );
   transition: opacity 0.2s ease-out, width 0.2s 0.2s ease-out;
 }
 
@@ -698,40 +710,29 @@ a {
 }
 
 #galaxy {
-  position: absolute;
   box-shadow: inset 0px 0px 20px 20px black;
-  top: 20%;
+  position: absolute;
+   margin: auto;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  text-align: center;
   width: 670px;
   height: 670px;
   border-radius: 100%;
   background-image: url(../images/1760.jpg);
-  left: 30%;
   background-size: cover;
   animation: spin 120s infinite linear;
   pointer-events: none;
 }
 
-@media screen and (min-width: 400px) {
-  #galaxy {
-    width: 370px;
-    height: 370px;
-    right: 38%;
-  }
-}
-
-@media screen and (min-width: 800px) {
-  #galaxy {
-    width: 670px;
-    height: 670px;
-  }
-}
-
 @keyframes spin {
   0% {
-    transform: rotateX(70deg) rotate(360deg)
+    transform: rotateX(70deg) rotate(360deg);
   }
 
   100% {
-    transform: rotateX(70deg) rotate(0deg)
+    transform: rotateX(70deg) rotate(0deg);
   }
 }
