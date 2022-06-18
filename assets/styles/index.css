@@ -701,7 +701,7 @@ a {
 #galaxy {
   position: absolute;
   box-shadow: inset 0px 0px 20px 20px black;
-  top: 23%;
+  top: 20%;
   width: 670px;
   height: 670px;
   border-radius: 100%;
@@ -716,7 +716,7 @@ a {
   #galaxy {
     width: 370px;
     height: 370px;
-    right: 30%;
+    right: 38%;
   }
 }
 
