@@ -155,7 +155,7 @@ canvas {
 }
 
 .title:hover {
-  font-size: 56rem;
+  font-size: 56px !important;
 }
 
 #axon {
@@ -380,8 +380,8 @@ nav:before {
 @media screen and (max-width: 300px) {
   #galaxy {
     top: 50% !important;
-    width: 350px !important;
-    height: 350px !important;
+    width: 330px !important;
+    height: 330px !important;
   }
   
   #axon {
@@ -461,8 +461,8 @@ nav:before {
   }
 
   #galaxy {
-    width: 400px !important;
-    height: 400px !important;
+    width: 350px !important;
+    height: 350px !important;
   }
   
   #axon {
@@ -481,8 +481,8 @@ nav:before {
 
 @media screen and (max-width: 1000px){
   #galaxy {
-    width: 450px !important;
-    height: 450px !important;
+    width: 400px !important;
+    height: 400px !important;
   }
   
   .title {
