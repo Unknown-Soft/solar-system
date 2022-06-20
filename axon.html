@@ -200,7 +200,8 @@
             sunDiv,
             whiteBlue,
             whiteBlueDiv,
-            blackDiv
+            blackDiv,
+            count = 0;
 
         const parameters = {};
         parameters.branches = 3;
@@ -216,7 +217,6 @@
         const init = () => {
 
             // Css2d Renderer
-
             brownDiv = document.createElement('div');
             brownDiv.className = 'label';
             brownDiv.textContent = 'Mind Pos';
@@ -632,73 +632,85 @@
                         case "brown":
                             brown.scale.set(20.3, 20.3, 20.3);
                             document.body.style.cursor = "grab";
-                            brownDiv.style.backgroundColor = "black"
+                            brownDiv.classList.remove('hidden');
+                            brownDiv.style.animation = "anim-lineUp 2s";
                             break;
 
                         case "orangeMesh":
                             orange.scale.set(40.3, 40.3, 40.3);
                             document.body.style.cursor = "grab";
-                            orangeDiv.style.backgroundColor = "black"
+                            orangeDiv.classList.remove('hidden');
+                            orangeDiv.style.animation = "anim-lineUp 2s";
                             break;
 
                         case "orangeMesh_1":
                             orange.scale.set(40.3, 40.3, 40.3);
                             document.body.style.cursor = "grab";
-                            orangeDiv.style.backgroundColor = "black"
+                            orangeDiv.classList.remove('hidden');
+                            orangeDiv.style.animation = "anim-lineUp 2s";
                             break;
 
                         case "whiteBlue":
                             whiteBlue.scale.set(20.3, 20.3, 20.3);
                             document.body.style.cursor = "grab";
-                            whiteBlueDiv.style.backgroundColor = "black"
+                            whiteBlueDiv.classList.remove('hidden');
+                            whiteBlueDiv.style.animation = "anim-lineUp 2s";
                             break;
 
                         case "darkBlue":
                             darkBlue.scale.set(20.3, 20.3, 20.3);
                             document.body.style.cursor = "grab";
-                            darkBlueDiv.style.backgroundColor = "black"
+                            darkBlueDiv.classList.remove('hidden');
+                            darkBlueDiv.style.animation = "anim-lineUp 2s";
                             break;
 
                         case "sun":
                             sun.scale.set(60.3, 60.3, 60.3);
                             document.body.style.cursor = "grab";
-                            sunDiv.style.backgroundColor = "black"
+                            sunDiv.classList.remove('hidden');
+                            sunDiv.style.animation = "anim-lineUp 2s";
                             break;
 
                         case "lightBlue":
                             lightBlue.scale.set(20.3, 20.3, 20.3);
                             document.body.style.cursor = "grab";
-                            lightBlueDiv.style.backgroundColor = "black"
+                            lightBlueDiv.classList.remove('hidden');
+                            lightBlueDiv.style.animation = "anim-lineUp 2s";
                             break;
 
                         case "darkBrown":
                             darkBrown.scale.set(20.3, 20.3, 20.3);
                             document.body.style.cursor = "grab";
-                            darkBrownDiv.style.backgroundColor = "black"
+                            darkBrownDiv.classList.remove('hidden');
+                            darkBrownDiv.style.animation = "anim-lineUp 2s";
                             break;
 
                         case "redMesh":
                             red.scale.set(40.3, 40.3, 40.3);
                             document.body.style.cursor = "grab";
-                            redDiv.style.backgroundColor = "black"
+                            redDiv.classList.remove('hidden');
+                            redDiv.style.animation = "anim-lineUp 2s";
                             break;
 
                         case "redMesh_1":
                             red.scale.set(40.3, 40.3, 40.3);
                             document.body.style.cursor = "grab";
-                            redDiv.style.backgroundColor = "black"
+                            redDiv.classList.remove('hidden');
+                            redDiv.style.animation = "anim-lineUp 2s";
                             break;
 
                         case "blackWhiteMesh":
                             blackWhite.scale.set(20.3, 20.3, 20.3);
                             document.body.style.cursor = "grab";
-                            blackWhiteDiv.style.backgroundColor = "black"
+                            blackWhiteDiv.classList.remove('hidden');
+                            blackWhiteDiv.style.animation = "anim-lineUp 2s";
                             break;
 
                         case "blackWhiteMesh_1":
                             blackWhite.scale.set(20.3, 20.3, 20.3);
                             document.body.style.cursor = "grab";
-                            blackWhiteDiv.style.backgroundColor = "black"
+                            blackWhiteDiv.classList.remove('hidden');
+                            blackWhiteDiv.style.animation = "anim-lineUp 2s";
                             break;
 
                         default:
@@ -716,47 +728,47 @@
             if (brown)
                 brown.scale.set(20, 20, 20);
             document.body.style.cursor = "default";
-            brownDiv.style.backgroundColor = ""
+            brownDiv.classList.add('hidden');
 
             if (orange)
                 orange.scale.set(40, 40, 40);
             document.body.style.cursor = "default";
-            orangeDiv.style.backgroundColor = ""
+            orangeDiv.classList.add('hidden');
 
             if (whiteBlue)
                 whiteBlue.scale.set(20, 20, 20);
             document.body.style.cursor = "default";
-            whiteBlueDiv.style.backgroundColor = ""
+            whiteBlueDiv.classList.add('hidden');
 
             if (darkBlue)
                 darkBlue.scale.set(20, 20, 20);
             document.body.style.cursor = "default";
-            darkBlueDiv.style.backgroundColor = ""
+            darkBlueDiv.classList.add('hidden');
 
             if (sun)
                 sun.scale.set(60, 60, 60);
             document.body.style.cursor = "default";
-            sunDiv.style.backgroundColor = ""
+            sunDiv.classList.add('hidden');
 
             if (lightBlue)
                 lightBlue.scale.set(20, 20, 20);
             document.body.style.cursor = "default";
-            lightBlueDiv.style.backgroundColor = ""
+            lightBlueDiv.classList.add('hidden');
 
             if (darkBrown)
                 darkBrown.scale.set(20, 20, 20);
             document.body.style.cursor = "default";
-            darkBrownDiv.style.backgroundColor = ""
+            darkBrownDiv.classList.add('hidden');
 
             if (red)
                 red.scale.set(40, 40, 40);
             document.body.style.cursor = "default";
-            redDiv.style.backgroundColor = ""
+            redDiv.classList.add('hidden');
 
             if (blackWhite)
                 blackWhite.scale.set(20, 20, 20);
             document.body.style.cursor = "default";
-            blackWhiteDiv.style.backgroundColor = ""
+            blackWhiteDiv.classList.add('hidden');
         }
 
         //Viewport mouse movement 
@@ -783,13 +795,19 @@
 
         //Render the scene
         const animate = () => {
+            count++;
             //Clock
             if (mixer)
                 mixer.update(clock.getDelta());
             //Raycaster setup
             raycaster.setFromCamera(mouse, camera);
             //Reset hover new frame
-            resetHover();
+            if (count < 100)
+                setTimeout(() => {
+                    resetHover();
+                }, 3000);
+            else
+                resetHover();
             //Hover new frame
             onHover();
             //Update controls
