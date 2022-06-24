@@ -58,15 +58,21 @@
             },
             "mesh" : 1,
             "name" : "pink",
+            "rotation" : [
+                0,
+                0.5356517434120178,
+                0,
+                0.8444389700889587
+            ],
             "scale" : [
                 20,
                 20,
                 20
             ],
             "translation" : [
-                813.6475830078125,
+                -12304.111328125,
                 0,
-                1983.2054443359375
+                -2948.54541015625
             ]
         },
         {
@@ -85,9 +91,9 @@
             "name" : "green",
             "rotation" : [
                 0,
-                -0.7071065902709961,
+                -0.9758710861206055,
                 0,
-                -0.7071069478988647
+                -0.218347430229187
             ],
             "scale" : [
                 20,
@@ -95,9 +101,9 @@
                 20
             ],
             "translation" : [
-                -3640.51171875,
+                12236.9619140625,
                 0,
-                -1957.158935546875
+                6799.07958984375
             ]
         },
         {
@@ -114,15 +120,21 @@
             },
             "mesh" : 3,
             "name" : "brownBlack",
+            "rotation" : [
+                0,
+                -0.9851456880569458,
+                0,
+                0.17172060906887054
+            ],
             "scale" : [
                 40,
                 40,
                 40
             ],
             "translation" : [
-                -2476.62109375,
+                13039.12890625,
                 0,
-                -2152.76171875
+                4894.97265625
             ]
         },
         {
@@ -141,9 +153,9 @@
             "name" : "purple",
             "rotation" : [
                 0,
-                -0.7071065902709961,
+                -0.9758710861206055,
                 0,
-                -0.7071069478988647
+                -0.218347430229187
             ],
             "scale" : [
                 20,
@@ -151,9 +163,9 @@
                 20
             ],
             "translation" : [
-                -1748.8306884765625,
+                15226.2587890625,
                 0,
-                -1196.92529296875
+                4461.6513671875
             ]
         },
         {
@@ -172,9 +184,9 @@
             "name" : "brown",
             "rotation" : [
                 0,
-                -1,
+                -0.8444398641586304,
                 0,
-                -5.205485535952903e-07
+                0.535650372505188
             ],
             "scale" : [
                 20,
@@ -182,9 +194,9 @@
                 20
             ],
             "translation" : [
-                -1979.7635498046875,
+                11720.9033203125,
                 0,
-                -3240.6279296875
+                3155.353515625
             ]
         },
         {
@@ -201,15 +213,21 @@
             },
             "mesh" : 6,
             "name" : "darkBlue",
+            "rotation" : [
+                0,
+                -0.9851456880569458,
+                0,
+                0.17172060906887054
+            ],
             "scale" : [
                 40,
                 40,
                 40
             ],
             "translation" : [
-                1984.64453125,
+                -11502.947265625,
                 0,
-                1934.5306396484375
+                -4686.22607421875
             ]
         },
         {
@@ -226,15 +244,21 @@
             },
             "mesh" : 7,
             "name" : "gray",
+            "rotation" : [
+                0,
+                0.5356517434120178,
+                0,
+                0.8444389700889587
+            ],
             "scale" : [
                 20,
                 20,
                 20
             ],
             "translation" : [
-                1993.6513671875,
+                -9801.6611328125,
                 0,
-                3109.02587890625
+                -3901.00390625
             ]
         },
         {
@@ -251,15 +275,21 @@
             },
             "mesh" : 8,
             "name" : "purpleBack",
+            "rotation" : [
+                0,
+                0.5356517434120178,
+                0,
+                0.8444389700889587
+            ],
             "scale" : [
                 20,
                 20,
                 20
             ],
             "translation" : [
-                1986.820556640625,
+                -13255.345703125,
                 0,
-                766.59765625
+                -5575.74609375
             ]
         },
         {
@@ -276,15 +306,21 @@
             },
             "mesh" : 9,
             "name" : "brownWhite",
+            "rotation" : [
+                0,
+                0.5356517434120178,
+                0,
+                0.8444389700889587
+            ],
             "scale" : [
                 20,
                 20,
                 20
             ],
             "translation" : [
-                3123.49267578125,
+                -10723.8916015625,
                 0,
-                1954.5887451171875
+                -6297.943359375
             ]
         },
         {
@@ -303,9 +339,9 @@
             "name" : "greenGray",
             "rotation" : [
                 0,
-                0.7071068286895752,
+                0.9851455688476562,
                 0,
-                0.7071068286895752
+                -0.17172189056873322
             ],
             "scale" : [
                 40,
@@ -313,9 +349,9 @@
                 40
             ],
             "translation" : [
-                -1810.570068359375,
+                2356.82666015625,
                 0,
-                1962.171875
+                -8700.31640625
             ]
         },
         {
@@ -332,15 +368,21 @@
             },
             "mesh" : 11,
             "name" : "darkGreen",
+            "rotation" : [
+                0,
+                -0.9851456880569458,
+                0,
+                0.17172060906887054
+            ],
             "scale" : [
                 40,
                 40,
                 40
             ],
             "translation" : [
-                1782.8465576171875,
+                -5805.2705078125,
                 0,
-                -1748.9371337890625
+                4649.8642578125
             ]
         }
     ],
@@ -369,7 +411,7 @@
                     }
                 }
             ],
-            "name" : "pinkAction.001",
+            "name" : "pinkAction.002",
             "samplers" : [
                 {
                     "input" : 50,
@@ -412,7 +454,7 @@
                     }
                 }
             ],
-            "name" : "greenAction",
+            "name" : "greenAction.002",
             "samplers" : [
                 {
                     "input" : 50,
@@ -455,10 +497,10 @@
                     }
                 }
             ],
-            "name" : "brownBlackAction",
+            "name" : "brownBlackAction.001",
             "samplers" : [
                 {
-                    "input" : 53,
+                    "input" : 50,
                     "interpolation" : "LINEAR",
                     "output" : 58
                 },
@@ -498,7 +540,7 @@
                     }
                 }
             ],
-            "name" : "purpleAction",
+            "name" : "purpleAction.002",
             "samplers" : [
                 {
                     "input" : 50,
@@ -541,7 +583,7 @@
                     }
                 }
             ],
-            "name" : "brownAction",
+            "name" : "brownAction.001",
             "samplers" : [
                 {
                     "input" : 50,
@@ -584,10 +626,10 @@
                     }
                 }
             ],
-            "name" : "darkBlueAction.001",
+            "name" : "darkBlueAction.002",
             "samplers" : [
                 {
-                    "input" : 53,
+                    "input" : 50,
                     "interpolation" : "LINEAR",
                     "output" : 67
                 },
@@ -627,7 +669,7 @@
                     }
                 }
             ],
-            "name" : "grayAction.001",
+            "name" : "grayAction.002",
             "samplers" : [
                 {
                     "input" : 50,
@@ -670,7 +712,7 @@
                     }
                 }
             ],
-            "name" : "purpleBackAction.001",
+            "name" : "purpleBackAction.002",
             "samplers" : [
                 {
                     "input" : 50,
@@ -713,7 +755,7 @@
                     }
                 }
             ],
-            "name" : "brownWhiteAction.001",
+            "name" : "brownWhiteAction.002",
             "samplers" : [
                 {
                     "input" : 50,
@@ -1969,7 +2011,7 @@
         {
             "bufferView" : 58,
             "componentType" : 5126,
-            "count" : 2,
+            "count" : 40,
             "type" : "VEC3"
         },
         {
@@ -2023,7 +2065,7 @@
         {
             "bufferView" : 67,
             "componentType" : 5126,
-            "count" : 2,
+            "count" : 40,
             "type" : "VEC3"
         },
         {
@@ -2422,138 +2464,138 @@
         },
         {
             "buffer" : 0,
-            "byteLength" : 24,
+            "byteLength" : 480,
             "byteOffset" : 6144920
         },
         {
             "buffer" : 0,
             "byteLength" : 640,
-            "byteOffset" : 6144944
+            "byteOffset" : 6145400
         },
         {
             "buffer" : 0,
             "byteLength" : 24,
-            "byteOffset" : 6145584
+            "byteOffset" : 6146040
         },
         {
             "buffer" : 0,
             "byteLength" : 480,
-            "byteOffset" : 6145608
+            "byteOffset" : 6146064
         },
         {
             "buffer" : 0,
             "byteLength" : 640,
-            "byteOffset" : 6146088
+            "byteOffset" : 6146544
         },
         {
             "buffer" : 0,
             "byteLength" : 24,
-            "byteOffset" : 6146728
+            "byteOffset" : 6147184
         },
         {
             "buffer" : 0,
             "byteLength" : 480,
-            "byteOffset" : 6146752
+            "byteOffset" : 6147208
         },
         {
             "buffer" : 0,
             "byteLength" : 640,
-            "byteOffset" : 6147232
+            "byteOffset" : 6147688
         },
         {
             "buffer" : 0,
             "byteLength" : 24,
-            "byteOffset" : 6147872
-        },
-        {
-            "buffer" : 0,
-            "byteLength" : 24,
-            "byteOffset" : 6147896
-        },
-        {
-            "buffer" : 0,
-            "byteLength" : 640,
-            "byteOffset" : 6147920
-        },
-        {
-            "buffer" : 0,
-            "byteLength" : 24,
-            "byteOffset" : 6148560
+            "byteOffset" : 6148328
         },
         {
             "buffer" : 0,
             "byteLength" : 480,
-            "byteOffset" : 6148584
+            "byteOffset" : 6148352
         },
         {
             "buffer" : 0,
             "byteLength" : 640,
-            "byteOffset" : 6149064
+            "byteOffset" : 6148832
         },
         {
             "buffer" : 0,
             "byteLength" : 24,
-            "byteOffset" : 6149704
+            "byteOffset" : 6149472
         },
         {
             "buffer" : 0,
             "byteLength" : 480,
-            "byteOffset" : 6149728
+            "byteOffset" : 6149496
         },
         {
             "buffer" : 0,
             "byteLength" : 640,
-            "byteOffset" : 6150208
+            "byteOffset" : 6149976
         },
         {
             "buffer" : 0,
             "byteLength" : 24,
-            "byteOffset" : 6150848
+            "byteOffset" : 6150616
         },
         {
             "buffer" : 0,
             "byteLength" : 480,
-            "byteOffset" : 6150872
+            "byteOffset" : 6150640
         },
         {
             "buffer" : 0,
             "byteLength" : 640,
-            "byteOffset" : 6151352
+            "byteOffset" : 6151120
         },
         {
             "buffer" : 0,
             "byteLength" : 24,
-            "byteOffset" : 6151992
+            "byteOffset" : 6151760
         },
         {
             "buffer" : 0,
-            "byteLength" : 24,
-            "byteOffset" : 6152016
+            "byteLength" : 480,
+            "byteOffset" : 6151784
         },
         {
             "buffer" : 0,
             "byteLength" : 640,
-            "byteOffset" : 6152040
+            "byteOffset" : 6152264
         },
         {
             "buffer" : 0,
             "byteLength" : 24,
-            "byteOffset" : 6152680
+            "byteOffset" : 6152904
         },
         {
             "buffer" : 0,
             "byteLength" : 24,
-            "byteOffset" : 6152704
+            "byteOffset" : 6152928
         },
         {
             "buffer" : 0,
             "byteLength" : 640,
-            "byteOffset" : 6152728
+            "byteOffset" : 6152952
         },
         {
             "buffer" : 0,
             "byteLength" : 24,
-            "byteOffset" : 6153368
+            "byteOffset" : 6153592
+        },
+        {
+            "buffer" : 0,
+            "byteLength" : 24,
+            "byteOffset" : 6153616
+        },
+        {
+            "buffer" : 0,
+            "byteLength" : 640,
+            "byteOffset" : 6153640
+        },
+        {
+            "buffer" : 0,
+            "byteLength" : 24,
+            "byteOffset" : 6154280
         }
     ],
     "samplers" : [
@@ -2564,7 +2606,7 @@
     ],
     "buffers" : [
         {
-            "byteLength" : 6153392,
+            "byteLength" : 6154304,
             "uri" : "Planets.bin"
         }
     ]

@@ -22,24 +22,13 @@
     ],
     "nodes" : [
         {
-            "extras" : {
-                "mr displacement use global settings" : 1,
-                "mr displacement view dependent" : 1,
-                "mr displacement method" : 6,
-                "mr displacement smoothing on" : 1,
-                "mr displacement edge length" : 2.0,
-                "mr displacement max displace" : 20.0,
-                "mr displacement parametric subdivision level" : 5,
-                "MapChannel:1" : "UVChannel_1",
-                "MaxHandle" : 11
-            },
             "mesh" : 0,
             "name" : "red",
             "rotation" : [
                 0,
-                0.17364783585071564,
+                -0.09584521502256393,
                 0,
-                -0.9848079085350037
+                0.9953962564468384
             ],
             "scale" : [
                 40,
@@ -47,30 +36,19 @@
                 40
             ],
             "translation" : [
-                3417.9755859375,
-                135,
-                -723.1882934570312
+                10037.44921875,
+                0,
+                -3597.4755859375
             ]
         },
         {
-            "extras" : {
-                "mr displacement use global settings" : 1,
-                "mr displacement view dependent" : 1,
-                "mr displacement method" : 6,
-                "mr displacement smoothing on" : 1,
-                "mr displacement edge length" : 2.0,
-                "mr displacement max displace" : 20.0,
-                "mr displacement parametric subdivision level" : 5,
-                "MapChannel:1" : "UVChannel_1",
-                "MaxHandle" : 11
-            },
             "mesh" : 1,
             "name" : "darkBrown",
             "rotation" : [
                 0,
-                -0.19509011507034302,
+                0.11753692477941513,
                 0,
-                -0.9807854294776917
+                0.993068516254425
             ],
             "scale" : [
                 20,
@@ -78,30 +56,19 @@
                 20
             ],
             "translation" : [
-                4511.01513671875,
-                193.79684448242188,
-                -282.4984436035156
+                11774.3212890625,
+                0,
+                -2264.398681640625
             ]
         },
         {
-            "extras" : {
-                "mr displacement use global settings" : 1,
-                "mr displacement view dependent" : 1,
-                "mr displacement method" : 6,
-                "mr displacement smoothing on" : 1,
-                "mr displacement edge length" : 2.0,
-                "mr displacement max displace" : 20.0,
-                "mr displacement parametric subdivision level" : 5,
-                "MapChannel:1" : "UVChannel_1",
-                "MaxHandle" : 15
-            },
             "mesh" : 2,
             "name" : "orange",
             "rotation" : [
                 0,
+                0.07845960557460785,
                 0,
-                0,
-                -1
+                0.9969173073768616
             ],
             "scale" : [
                 40,
@@ -109,30 +76,19 @@
                 40
             ],
             "translation" : [
-                -2253.574951171875,
-                135.3581085205078,
-                1602.2293701171875
+                -13367.611328125,
+                0,
+                7083.48974609375
             ]
         },
         {
-            "extras" : {
-                "mr displacement use global settings" : 1,
-                "mr displacement view dependent" : 1,
-                "mr displacement method" : 6,
-                "mr displacement smoothing on" : 1,
-                "mr displacement edge length" : 2.0,
-                "mr displacement max displace" : 20.0,
-                "mr displacement parametric subdivision level" : 5,
-                "MapChannel:1" : "UVChannel_1",
-                "MaxHandle" : 11
-            },
             "mesh" : 3,
             "name" : "brown",
             "rotation" : [
                 0,
-                -0.7467693090438843,
+                0.6922839283943176,
                 0,
-                -0.6650831699371338
+                0.7216252684593201
             ],
             "scale" : [
                 20,
@@ -140,30 +96,19 @@
                 20
             ],
             "translation" : [
-                -3362.3798828125,
-                153.5028839111328,
-                1713.5531005859375
+                -15341.572265625,
+                0,
+                6948.5830078125
             ]
         },
         {
-            "extras" : {
-                "mr displacement use global settings" : 1,
-                "mr displacement view dependent" : 1,
-                "mr displacement method" : 6,
-                "mr displacement smoothing on" : 1,
-                "mr displacement edge length" : 2.0,
-                "mr displacement max displace" : 20.0,
-                "mr displacement parametric subdivision level" : 5,
-                "MapChannel:1" : "UVChannel_1",
-                "MaxHandle" : 11
-            },
             "mesh" : 4,
             "name" : "darkBlue",
             "rotation" : [
                 0,
-                -0.7467690706253052,
+                0.6929891109466553,
                 0,
-                -0.6650834083557129
+                0.7209480404853821
             ],
             "scale" : [
                 20,
@@ -171,23 +116,12 @@
                 20
             ],
             "translation" : [
-                -2100.40673828125,
-                167.78358459472656,
-                2742.53076171875
+                -13439.640625,
+                0,
+                9422.154296875
             ]
         },
         {
-            "extras" : {
-                "mr displacement use global settings" : 1,
-                "mr displacement view dependent" : 1,
-                "mr displacement method" : 6,
-                "mr displacement smoothing on" : 1,
-                "mr displacement edge length" : 2.0,
-                "mr displacement max displace" : 20.0,
-                "mr displacement parametric subdivision level" : 5,
-                "MapChannel:1" : "UVChannel_1",
-                "MaxHandle" : 11
-            },
             "mesh" : 5,
             "name" : "sun",
             "scale" : [
@@ -197,24 +131,13 @@
             ]
         },
         {
-            "extras" : {
-                "mr displacement use global settings" : 1,
-                "mr displacement view dependent" : 1,
-                "mr displacement method" : 6,
-                "mr displacement smoothing on" : 1,
-                "mr displacement edge length" : 2.0,
-                "mr displacement max displace" : 20.0,
-                "mr displacement parametric subdivision level" : 5,
-                "MapChannel:1" : "UVChannel_1",
-                "MaxHandle" : 11
-            },
             "mesh" : 6,
             "name" : "lightBlue",
             "rotation" : [
                 0,
-                -0.7467693090438843,
+                0.6922839283943176,
                 0,
-                -0.6650831699371338
+                0.7216252684593201
             ],
             "scale" : [
                 20,
@@ -222,30 +145,19 @@
                 20
             ],
             "translation" : [
-                -1115.0023193359375,
-                117.33476257324219,
-                1481.0142822265625
+                -11158.9775390625,
+                0,
+                7173.453125
             ]
         },
         {
-            "extras" : {
-                "mr displacement use global settings" : 1,
-                "mr displacement view dependent" : 1,
-                "mr displacement method" : 6,
-                "mr displacement smoothing on" : 1,
-                "mr displacement edge length" : 2.0,
-                "mr displacement max displace" : 20.0,
-                "mr displacement parametric subdivision level" : 5,
-                "MapChannel:1" : "UVChannel_1",
-                "MaxHandle" : 11
-            },
             "mesh" : 7,
             "name" : "whiteBlue",
             "rotation" : [
                 0,
-                -0.19509011507034302,
+                0.11753692477941513,
                 0,
-                -0.9807854294776917
+                0.993068516254425
             ],
             "scale" : [
                 20,
@@ -253,30 +165,19 @@
                 20
             ],
             "translation" : [
-                2305.2939453125,
-                171.8451690673828,
-                -1173.3460693359375
+                8055.3125,
+                0,
+                -4869.91015625
             ]
         },
         {
-            "extras" : {
-                "mr displacement use global settings" : 1,
-                "mr displacement view dependent" : 1,
-                "mr displacement method" : 6,
-                "mr displacement smoothing on" : 1,
-                "mr displacement edge length" : 2.0,
-                "mr displacement max displace" : 20.0,
-                "mr displacement parametric subdivision level" : 5,
-                "MapChannel:1" : "UVChannel_1",
-                "MaxHandle" : 15
-            },
             "mesh" : 8,
             "name" : "blackWhite",
             "rotation" : [
                 0,
-                -0.7467690706253052,
+                0.6929891109466553,
                 0,
-                -0.6650834083557129
+                0.7209480404853821
             ],
             "scale" : [
                 20,
@@ -284,9 +185,9 @@
                 20
             ],
             "translation" : [
-                -2349.4560546875,
-                57.044837951660156,
-                449.258544921875
+                -13364.91015625,
+                0,
+                4748.67919921875
             ]
         }
     ],
@@ -323,12 +224,12 @@
                     "output" : 40
                 },
                 {
-                    "input" : 41,
+                    "input" : 39,
                     "interpolation" : "LINEAR",
-                    "output" : 42
+                    "output" : 41
                 },
                 {
-                    "input" : 39,
+                    "input" : 42,
                     "interpolation" : "LINEAR",
                     "output" : 43
                 }
@@ -361,17 +262,17 @@
             "name" : "darkBrownAction",
             "samplers" : [
                 {
-                    "input" : 41,
+                    "input" : 39,
                     "interpolation" : "LINEAR",
                     "output" : 44
                 },
                 {
-                    "input" : 41,
+                    "input" : 39,
                     "interpolation" : "LINEAR",
                     "output" : 45
                 },
                 {
-                    "input" : 39,
+                    "input" : 42,
                     "interpolation" : "LINEAR",
                     "output" : 46
                 }
@@ -401,7 +302,7 @@
                     }
                 }
             ],
-            "name" : "orangeAction.001",
+            "name" : "orangeAction",
             "samplers" : [
                 {
                     "input" : 39,
@@ -409,12 +310,12 @@
                     "output" : 47
                 },
                 {
-                    "input" : 41,
+                    "input" : 39,
                     "interpolation" : "LINEAR",
                     "output" : 48
                 },
                 {
-                    "input" : 39,
+                    "input" : 42,
                     "interpolation" : "LINEAR",
                     "output" : 49
                 }
@@ -444,20 +345,20 @@
                     }
                 }
             ],
-            "name" : "brownAction.007",
+            "name" : "brownAction",
             "samplers" : [
                 {
-                    "input" : 41,
+                    "input" : 39,
                     "interpolation" : "LINEAR",
                     "output" : 50
                 },
                 {
-                    "input" : 41,
+                    "input" : 39,
                     "interpolation" : "LINEAR",
                     "output" : 51
                 },
                 {
-                    "input" : 39,
+                    "input" : 42,
                     "interpolation" : "LINEAR",
                     "output" : 52
                 }
@@ -487,20 +388,20 @@
                     }
                 }
             ],
-            "name" : "darkBlueAction.007",
+            "name" : "darkBlueAction",
             "samplers" : [
                 {
-                    "input" : 41,
+                    "input" : 39,
                     "interpolation" : "LINEAR",
                     "output" : 53
                 },
                 {
-                    "input" : 41,
+                    "input" : 39,
                     "interpolation" : "LINEAR",
                     "output" : 54
                 },
                 {
-                    "input" : 39,
+                    "input" : 42,
                     "interpolation" : "LINEAR",
                     "output" : 55
                 }
@@ -530,20 +431,20 @@
                     }
                 }
             ],
-            "name" : "lightBlueAction.008",
+            "name" : "lightBlueAction",
             "samplers" : [
                 {
-                    "input" : 41,
+                    "input" : 39,
                     "interpolation" : "LINEAR",
                     "output" : 56
                 },
                 {
-                    "input" : 41,
+                    "input" : 39,
                     "interpolation" : "LINEAR",
                     "output" : 57
                 },
                 {
-                    "input" : 39,
+                    "input" : 42,
                     "interpolation" : "LINEAR",
                     "output" : 58
                 }
@@ -576,17 +477,17 @@
             "name" : "whiteBlueAction",
             "samplers" : [
                 {
-                    "input" : 41,
+                    "input" : 39,
                     "interpolation" : "LINEAR",
                     "output" : 59
                 },
                 {
-                    "input" : 41,
+                    "input" : 39,
                     "interpolation" : "LINEAR",
                     "output" : 60
                 },
                 {
-                    "input" : 39,
+                    "input" : 42,
                     "interpolation" : "LINEAR",
                     "output" : 61
                 }
@@ -616,20 +517,20 @@
                     }
                 }
             ],
-            "name" : "blackWhiteAction.008",
+            "name" : "blackWhiteAction",
             "samplers" : [
                 {
-                    "input" : 41,
+                    "input" : 39,
                     "interpolation" : "LINEAR",
                     "output" : 62
                 },
                 {
-                    "input" : 41,
+                    "input" : 39,
                     "interpolation" : "LINEAR",
                     "output" : 63
                 },
                 {
-                    "input" : 39,
+                    "input" : 42,
                     "interpolation" : "LINEAR",
                     "output" : 64
                 }
@@ -1517,7 +1418,7 @@
         {
             "bufferView" : 39,
             "componentType" : 5126,
-            "count" : 2,
+            "count" : 40,
             "max" : [
                 1.3333333333333333
             ],
@@ -1529,13 +1430,19 @@
         {
             "bufferView" : 40,
             "componentType" : 5126,
-            "count" : 2,
+            "count" : 40,
             "type" : "VEC3"
         },
         {
             "bufferView" : 41,
             "componentType" : 5126,
             "count" : 40,
+            "type" : "VEC4"
+        },
+        {
+            "bufferView" : 42,
+            "componentType" : 5126,
+            "count" : 2,
             "max" : [
                 1.3333333333333333
             ],
@@ -1543,12 +1450,6 @@
                 0.03333333333333333
             ],
             "type" : "SCALAR"
-        },
-        {
-            "bufferView" : 42,
-            "componentType" : 5126,
-            "count" : 40,
-            "type" : "VEC4"
         },
         {
             "bufferView" : 43,
@@ -1577,7 +1478,7 @@
         {
             "bufferView" : 47,
             "componentType" : 5126,
-            "count" : 2,
+            "count" : 40,
             "type" : "VEC3"
         },
         {
@@ -1881,133 +1782,133 @@
         },
         {
             "buffer" : 0,
-            "byteLength" : 8,
+            "byteLength" : 160,
             "byteOffset" : 5047296
         },
         {
             "buffer" : 0,
-            "byteLength" : 24,
-            "byteOffset" : 5047304
-        },
-        {
-            "buffer" : 0,
-            "byteLength" : 160,
-            "byteOffset" : 5047328
+            "byteLength" : 480,
+            "byteOffset" : 5047456
         },
         {
             "buffer" : 0,
             "byteLength" : 640,
-            "byteOffset" : 5047488
+            "byteOffset" : 5047936
+        },
+        {
+            "buffer" : 0,
+            "byteLength" : 8,
+            "byteOffset" : 5048576
         },
         {
             "buffer" : 0,
             "byteLength" : 24,
-            "byteOffset" : 5048128
+            "byteOffset" : 5048584
         },
         {
             "buffer" : 0,
             "byteLength" : 480,
-            "byteOffset" : 5048152
+            "byteOffset" : 5048608
         },
         {
             "buffer" : 0,
             "byteLength" : 640,
-            "byteOffset" : 5048632
+            "byteOffset" : 5049088
         },
         {
             "buffer" : 0,
             "byteLength" : 24,
-            "byteOffset" : 5049272
-        },
-        {
-            "buffer" : 0,
-            "byteLength" : 24,
-            "byteOffset" : 5049296
-        },
-        {
-            "buffer" : 0,
-            "byteLength" : 640,
-            "byteOffset" : 5049320
-        },
-        {
-            "buffer" : 0,
-            "byteLength" : 24,
-            "byteOffset" : 5049960
+            "byteOffset" : 5049728
         },
         {
             "buffer" : 0,
             "byteLength" : 480,
-            "byteOffset" : 5049984
+            "byteOffset" : 5049752
         },
         {
             "buffer" : 0,
             "byteLength" : 640,
-            "byteOffset" : 5050464
+            "byteOffset" : 5050232
         },
         {
             "buffer" : 0,
             "byteLength" : 24,
-            "byteOffset" : 5051104
+            "byteOffset" : 5050872
         },
         {
             "buffer" : 0,
             "byteLength" : 480,
-            "byteOffset" : 5051128
+            "byteOffset" : 5050896
         },
         {
             "buffer" : 0,
             "byteLength" : 640,
-            "byteOffset" : 5051608
+            "byteOffset" : 5051376
         },
         {
             "buffer" : 0,
             "byteLength" : 24,
-            "byteOffset" : 5052248
+            "byteOffset" : 5052016
         },
         {
             "buffer" : 0,
             "byteLength" : 480,
-            "byteOffset" : 5052272
+            "byteOffset" : 5052040
         },
         {
             "buffer" : 0,
             "byteLength" : 640,
-            "byteOffset" : 5052752
+            "byteOffset" : 5052520
         },
         {
             "buffer" : 0,
             "byteLength" : 24,
-            "byteOffset" : 5053392
+            "byteOffset" : 5053160
         },
         {
             "buffer" : 0,
             "byteLength" : 480,
-            "byteOffset" : 5053416
+            "byteOffset" : 5053184
         },
         {
             "buffer" : 0,
             "byteLength" : 640,
-            "byteOffset" : 5053896
+            "byteOffset" : 5053664
         },
         {
             "buffer" : 0,
             "byteLength" : 24,
-            "byteOffset" : 5054536
+            "byteOffset" : 5054304
         },
         {
             "buffer" : 0,
             "byteLength" : 480,
-            "byteOffset" : 5054560
+            "byteOffset" : 5054328
         },
         {
             "buffer" : 0,
             "byteLength" : 640,
-            "byteOffset" : 5055040
+            "byteOffset" : 5054808
         },
         {
             "buffer" : 0,
             "byteLength" : 24,
-            "byteOffset" : 5055680
+            "byteOffset" : 5055448
+        },
+        {
+            "buffer" : 0,
+            "byteLength" : 480,
+            "byteOffset" : 5055472
+        },
+        {
+            "buffer" : 0,
+            "byteLength" : 640,
+            "byteOffset" : 5055952
+        },
+        {
+            "buffer" : 0,
+            "byteLength" : 24,
+            "byteOffset" : 5056592
         }
     ],
     "samplers" : [
@@ -2018,7 +1919,7 @@
     ],
     "buffers" : [
         {
-            "byteLength" : 5055704,
+            "byteLength" : 5056616,
             "uri" : "Planets_organized.bin"
         }
     ]

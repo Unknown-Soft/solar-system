@@ -204,12 +204,12 @@
             count = 0;
 
         const parameters = {};
-        parameters.branches = 3;
-        parameters.count = 6000;
+        parameters.branches = 4;
+        parameters.count = 4500;
         parameters.insideColor = "#cf6523"
         parameters.outsideColor = "#f7340c";
         parameters.radius = 15;
-        parameters.randomness = 0.2;
+        parameters.randomness = 0.1;
         parameters.randomnessPower = 1;
         parameters.size = 0.1;
         parameters.spin = 2;
@@ -293,7 +293,7 @@
             //Scene
             scene = new THREE.Scene();
             camera = new THREE.PerspectiveCamera(60, window.innerWidth / window.innerHeight, 0.5, 20000);
-            camera.position.set(700, 8500, -5000);
+            camera.position.set(0, 0, -6000);
             scene.add(camera);
 
             //Renderer
@@ -310,7 +310,6 @@
 
             //Controls
             controls = new OrbitControls(camera, labelRenderer.domElement);
-            controls.maxDistance = 5500;
             controls.listenToKeyEvents(document.body)
             controls.keys = {
                 LEFT: "ArrowLeft", //left arrow
@@ -335,8 +334,8 @@
             controls.autoRotateSpeed = 1;
             // controls.maxPolarAngle = Math.PI / 1;
             // controls.minPolarAngle = Math.PI / 1;
-            controls.minDistance = 1500;
-            controls.maxDistance = 8500;
+            // controls.minDistance = 1500;
+            // controls.maxDistance = 8500;
 
             //Loading manager
             loadingManager = new THREE.LoadingManager(() => {
@@ -445,7 +444,7 @@
 
             geometry.setAttribute('position', new THREE.Float32BufferAttribute(vertices, 3));
 
-            material = new THREE.PointsMaterial({ color: 0xDBD81A, size: 35, sizeAttenuation: true, map: sprite, alphaTest: 0.5, transparent: true });
+            material = new THREE.PointsMaterial({ color: 0xDBD81A, size: 55, sizeAttenuation: true, map: sprite, alphaTest: 0.5, transparent: true });
 
             particles = new THREE.Points(geometry, material);
 
@@ -624,6 +623,12 @@
             raycaster.setFromCamera(mouse, camera);
             let intersects = raycaster.intersectObjects(scene.children);
             if (intersects.length > 0) {
+                if (clips)
+                    clips.forEach(function (clip) {
+                        action = mixer.clipAction(clip);
+
+                        action.paused = true;
+                    });
                 controls.autoRotate = false;
                 controls.dampingFactor = 0.01;
                 for (let i = 0; i < intersects.length; i++) {
@@ -718,6 +723,12 @@
                     }
                 }
             } else {
+                if (clips)
+                    clips.forEach(function (clip) {
+                        action = mixer.clipAction(clip);
+
+                        action.paused = false;
+                    });
                 controls.autoRotate = true;
                 controls.dampingFactor = 0.095;
             }
@@ -805,7 +816,7 @@
             if (count < 100)
                 setTimeout(() => {
                     resetHover();
-                }, 3000);
+                }, 4000);
             else
                 resetHover();
             //Hover new frame
@@ -825,7 +836,7 @@
 
         window.addEventListener("load", onResize, false);
         window.addEventListener("resize", onResize, false);
-        window.addEventListener("click", onClick, false);
+        //window.addEventListener("click", onClick, false);
         window.addEventListener("mousemove", onMouseMove, false);
 
         init();

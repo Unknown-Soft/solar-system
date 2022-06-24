@@ -209,12 +209,12 @@
             count = 0;
 
         const parameters = {};
-        parameters.branches = 3;
-        parameters.count = 6000;
+        parameters.branches = 4;
+        parameters.count = 5000;
         parameters.insideColor = "#cf6523"
         parameters.outsideColor = "#f7340c";
         parameters.radius = 15;
-        parameters.randomness = 0.2;
+        parameters.randomness = 0.1;
         parameters.randomnessPower = 1;
         parameters.size = 0.1;
         parameters.spin = 2;
@@ -262,7 +262,7 @@
             divGreen.textContent = 'Express';
             divGreen.style.marginTop = '-1em';
             const greenLabel = new CSS2DObject(divGreen);
-            greenLabel.position.set(-28, 11, 0);
+            greenLabel.position.set(0, 11, 0);
 
             divBrownBlack = document.createElement('div');
             divBrownBlack.className = 'label';
@@ -318,7 +318,7 @@
             //Scene
             scene = new THREE.Scene();
             camera = new THREE.PerspectiveCamera(60, window.innerWidth / window.innerHeight, 0.5, 20000);
-            camera.position.set(700, 8500, -5000);
+            camera.position.set(0, 0, -6000);
             scene.add(camera);
 
             //Renderer
@@ -333,7 +333,6 @@
 
 
             //Controls 
-
             controls = new OrbitControls(camera, labelRenderer.domElement);
             controls.listenToKeyEvents(document.body)
             controls.keys = {
@@ -356,9 +355,6 @@
             controls.enabled = true;
             controls.enableDamping = true;
             controls.autoRotateSpeed = 1;
-            controls.minDistance = 1500;
-            controls.maxDistance = 8500;
-
 
             //Loading manager
             loadingManager = new THREE.LoadingManager(() => {
@@ -450,12 +446,8 @@
             hemiLightDown = new THREE.HemisphereLight(0xffffff, 0xffffff, 0.2);
             hemiLightDown.color.setHSL(0.2, 0.2, 0.2);
             hemiLightDown.groundColor.setHSL(0.095, 1, 0.75);
-            hemiLightDown.position.set(0, -70, 0);
+            hemiLightDown.position.set(0, -20, 0);
             scene.add(hemiLightDown);
-
-            let probeLight = new THREE.LightProbe();
-            probeLight.intensity = 1;
-            // scene.add(probeLight);
 
             //Mouse coors
             mouse = new THREE.Vector2();
@@ -663,10 +655,22 @@
             raycaster.setFromCamera(mouse, camera);
             let intersects = raycaster.intersectObjects(scene.children);
             if (intersects.length > 0) {
+                if (clips)
+                    clips.forEach(function (clip) {
+                        action = mixer.clipAction(clip);
+
+                        action.paused = true;
+                    });
                 controls.autoRotate = false;
                 controls.dampingFactor = 0.01;
                 for (let i = 0; i < intersects.length; i++) {
                     switch (intersects[i].object.name) {
+
+                        case "points":
+                            document.body.style.cursor = "grab";
+                            divSun.classList.remove('hidden');
+                            divSun.style.animation = "anim-lineUp 2s";
+                            break;
                         case "sun":
                             sun.scale.set(60.5, 60.5, 60.5);
                             document.body.style.cursor = "grab";
@@ -769,6 +773,13 @@
                     }
                 }
             } else {
+                if (clips)
+                    clips.forEach(function (clip) {
+                        action = mixer.clipAction(clip);
+
+                        action.paused = false;
+                    });
+
                 controls.autoRotate = true;
                 controls.dampingFactor = 0.095;
             }
@@ -860,7 +871,7 @@
             if (count < 100)
                 setTimeout(() => {
                     resetHover();
-                }, 3000);
+                }, 4000);
             else
                 resetHover();
             //Hover new frame
@@ -880,7 +891,7 @@
 
         window.addEventListener("load", onResize, false);
         window.addEventListener("resize", onResize, false);
-        window.addEventListener("click", onClick, false);
+        //window.addEventListener("click", onClick, false);
         window.addEventListener("mousemove", onMouseMove, false);
 
         init();
