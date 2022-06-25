@@ -788,24 +788,6 @@ a {
   display: none !important;
 }
 
-#galaxy {
-  box-shadow: inset 0px 0px 20px 20px black;
-  position: absolute;
-  margin: auto;
-  left: 0;
-  right: 0;
-  top: 0;
-  bottom: 0;
-  text-align: center;
-  width: 670px;
-  height: 670px;
-  border-radius: 100%;
-  background-image: url(../images/1760.jpg);
-  background-size: cover;
-  animation: spin 120s infinite linear;
-  pointer-events: none;
-}
-
 @keyframes spin {
   0% {
     transform: rotateX(70deg) rotate(360deg);
