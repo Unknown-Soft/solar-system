@@ -318,7 +318,8 @@
             //Scene
             scene = new THREE.Scene();
             camera = new THREE.PerspectiveCamera(60, window.innerWidth / window.innerHeight, 0.5, 20000);
-            camera.position.set(0, 0, -6000);
+            // camera.position.set(0, 0, -6000);
+            camera.position.set(19000, 0, -6000);
             scene.add(camera);
 
             //Renderer
@@ -351,7 +352,8 @@
                 TWO: THREE.TOUCH.DOLLY_PAN
 
             }
-            controls.target.y = -1;
+            // controls.target.y = -1;
+            // controls.target.set(20000, 0, -6000);;
             controls.enabled = true;
             controls.enableDamping = true;
             controls.autoRotateSpeed = 1;
@@ -410,6 +412,7 @@
                     brown.add(brownLabel);
                     brownWhite.add(brownWhiteLabel);
                     darkBlue.add(darkBlueLabel);
+                    console.log(brownBlack);
 
 
                     labelRenderer.render(scene, camera);
