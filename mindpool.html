@@ -769,11 +769,6 @@
                 for (let i = 0; i < intersects.length; i++) {
                     switch (intersects[i].object.name) {
 
-                        case "points":
-                            document.body.style.cursor = "grab";
-                            divSun.classList.remove('hidden');
-                            divSun.style.animation = "anim-lineUp 2s";
-                            break;
                         case "sun":
                             sun.scale.set(60.5, 60.5, 60.5);
                             document.body.style.cursor = "grab";
@@ -890,54 +885,71 @@
 
         //Reset planet hover
         const resetHover = () => {
-            if (sun)
-                sun.scale.set(60, 60, 60);
-            document.body.style.cursor = "default";
-            divSun.classList.add('hidden');
-            if (pink)
-                pink.scale.set(20, 20, 20);
-            document.body.style.cursor = "default";
-            divPink.classList.add('hidden');
-            if (purpleBack)
-                purpleBack.scale.set(20, 20, 20);
-            document.body.style.cursor = "default";
-            divPurpleBack.classList.add('hidden');
-            if (greenGray)
-                greenGray.scale.set(40, 40, 40);
-            document.body.style.cursor = "default";
-            divGreenGray.classList.add('hidden');
-            if (darkGreen)
-                darkGreen.scale.set(40, 40, 40);
-            document.body.style.cursor = "default";
-            divDarkGreen.classList.add('hidden');
-            if (green)
-                green.scale.set(20, 20, 20);
-            document.body.style.cursor = "default";
-            divGreen.classList.add('hidden');
-            if (brownBlack)
-                brownBlack.scale.set(40, 40, 40);
-            document.body.style.cursor = "default";
-            divBrownBlack.classList.add('hidden');
-            if (gray)
-                gray.scale.set(20, 20, 20);
-            document.body.style.cursor = "default";
-            divGray.classList.add('hidden');
-            if (purple)
-                purple.scale.set(20, 20, 20);
-            document.body.style.cursor = "default";
-            divPurple.classList.add('hidden');
-            if (brown)
-                brown.scale.set(20, 20, 20);
-            document.body.style.cursor = "default";
-            divBrown.classList.add('hidden');
-            if (brownWhite)
-                brownWhite.scale.set(20, 20, 20);
-            document.body.style.cursor = "default";
-            divBrownWhite.classList.add('hidden');
-            if (darkBlue)
-                darkBlue.scale.set(40, 40, 40);
-            document.body.style.cursor = "default";
-            divDarkBlue.classList.add('hidden');
+
+            if (detectMobile()) {
+                divSun.classList.remove('hidden');
+                divPink.classList.remove('hidden')
+                divPurpleBack.classList.remove('hidden');
+                divGreenGray.classList.remove('hidden');
+                divDarkGreen.classList.remove('hidden');
+                divGreen.classList.remove('hidden');
+                divBrownBlack.classList.remove('hidden');
+                divGray.classList.remove('hidden');
+                divPurple.classList.remove('hidden');
+                divBrown.classList.remove('hidden');
+                divBrownWhite.classList.remove('hidden');
+                divDarkBlue.classList.remove('hidden');
+            }
+            else {
+                if (sun)
+                    sun.scale.set(60, 60, 60);
+                document.body.style.cursor = "default";
+                divSun.classList.add('hidden');
+                if (pink)
+                    pink.scale.set(20, 20, 20);
+                document.body.style.cursor = "default";
+                divPink.classList.add('hidden');
+                if (purpleBack)
+                    purpleBack.scale.set(20, 20, 20);
+                document.body.style.cursor = "default";
+                divPurpleBack.classList.add('hidden');
+                if (greenGray)
+                    greenGray.scale.set(40, 40, 40);
+                document.body.style.cursor = "default";
+                divGreenGray.classList.add('hidden');
+                if (darkGreen)
+                    darkGreen.scale.set(40, 40, 40);
+                document.body.style.cursor = "default";
+                divDarkGreen.classList.add('hidden');
+                if (green)
+                    green.scale.set(20, 20, 20);
+                document.body.style.cursor = "default";
+                divGreen.classList.add('hidden');
+                if (brownBlack)
+                    brownBlack.scale.set(40, 40, 40);
+                document.body.style.cursor = "default";
+                divBrownBlack.classList.add('hidden');
+                if (gray)
+                    gray.scale.set(20, 20, 20);
+                document.body.style.cursor = "default";
+                divGray.classList.add('hidden');
+                if (purple)
+                    purple.scale.set(20, 20, 20);
+                document.body.style.cursor = "default";
+                divPurple.classList.add('hidden');
+                if (brown)
+                    brown.scale.set(20, 20, 20);
+                document.body.style.cursor = "default";
+                divBrown.classList.add('hidden');
+                if (brownWhite)
+                    brownWhite.scale.set(20, 20, 20);
+                document.body.style.cursor = "default";
+                divBrownWhite.classList.add('hidden');
+                if (darkBlue)
+                    darkBlue.scale.set(40, 40, 40);
+                document.body.style.cursor = "default";
+                divDarkBlue.classList.add('hidden');
+            }
         }
 
         //Viewport mouse movement 
