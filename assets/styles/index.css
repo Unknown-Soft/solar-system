@@ -134,7 +134,7 @@ canvas {
 
 .title {
   font-family: "Cocogoose", Sans-serif;
-  font-size: 55px;
+  font-size: 50px;
   text-transform: uppercase;
   letter-spacing: 2px;
   animation: 3s anim-lineUp ease-out, glow 2s ease-in-out infinite alternate;
@@ -160,7 +160,7 @@ canvas {
 }
 
 .title:hover {
-  font-size: 56px !important;
+  font-size: 51px !important;
 }
 
 #axon {
@@ -630,7 +630,6 @@ h4:hover {
 
 .plus {
   margin-left: 10px;
-  width: 18px;
 }
 
 .menu .element {
