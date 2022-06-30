@@ -207,7 +207,7 @@
 
         const parameters = {};
         parameters.branches = 4;
-        parameters.count = 4500;
+        parameters.count = 100;
         parameters.insideColor = "#cf6523"
         parameters.outsideColor = "#f7340c";
         parameters.radius = 15;
@@ -337,8 +337,8 @@
             controls.autoRotateSpeed = 1;
             // controls.maxPolarAngle = Math.PI / 1;
             // controls.minPolarAngle = Math.PI / 1;
-            // controls.minDistance = 1500;
-            // controls.maxDistance = 8500;
+            controls.minDistance = 3000;
+            controls.maxDistance = 18000;
 
             //Loading manager
             loadingManager = new THREE.LoadingManager(() => {

@@ -212,7 +212,8 @@
 
         const parameters = {};
         parameters.branches = 4;
-        parameters.count = 5000;
+        parameters.count = 100;
+        // parameters.count = 5000;
         parameters.insideColor = "#cf6523"
         parameters.outsideColor = "#f7340c";
         parameters.radius = 15;
@@ -354,11 +355,12 @@
                 TWO: THREE.TOUCH.DOLLY_PAN
 
             }
-            // controls.target.y = -1;
-            // controls.target.set(20000, 0, -6000);;
+
             controls.enabled = true;
             controls.enableDamping = true;
             controls.autoRotateSpeed = 1;
+            controls.minDistance = 3000;
+            controls.maxDistance = 18000;
 
             //Loading manager
             loadingManager = new THREE.LoadingManager(() => {

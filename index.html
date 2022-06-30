@@ -21,10 +21,10 @@
     <div id="container"></div>
     <img id="logo-text" src="assets/images/logo-text.png" />
     <button id="menu-toggle" class="menu-toggle"></button>
-    <div id="navigation">
+    <!-- <div id="navigation">
         <h1 id="axon" class="title">Mind Axón</h1>
         <h1 id="pool" class="title">Mind Pool</h1>
-    </div>
+    </div> -->
     <nav>
         <div class="menu">
             <div id="column-one" class="element">
@@ -143,20 +143,20 @@
             new_scroll_position = last_scroll_position;
         });
 
-        let axon = document.getElementById("axon");
-        let mindPool = document.getElementById("pool");
-        axon.addEventListener('click', () => {
-            window.location.href = "./axon.html";
-        });
-        axon.addEventListener('mouseover', () => {
-            axon.style.cursor = "pointer";
-        });
-        mindPool.addEventListener('click', () => {
-            window.location.href = "./mindpool.html";
-        });
-        mindPool.addEventListener('mouseover', () => {
-            mindPool.style.cursor = "pointer";
-        });
+        // let axon = document.getElementById("axon");
+        // let mindPool = document.getElementById("pool");
+        // axon.addEventListener('click', () => {
+        //     window.location.href = "./axon.html";
+        // });
+        // axon.addEventListener('mouseover', () => {
+        //     axon.style.cursor = "pointer";
+        // });
+        // mindPool.addEventListener('click', () => {
+        //     window.location.href = "./mindpool.html";
+        // });
+        // mindPool.addEventListener('mouseover', () => {
+        //     mindPool.style.cursor = "pointer";
+        // });
     </script>
 
     <script type="module">
@@ -169,6 +169,8 @@
 
         let
             ambientLight,
+            asteroid1,
+            asteroid2,
             bufferGeometry,
             camera,
             container,
@@ -177,17 +179,16 @@
             labelRenderer,
             mouse,
             particles,
-            pointLight,
             pointsMaterial,
             raycaster,
             renderer,
-            sunLight,
             scene,
             sprite,
             galaxy2Div,
             galaxy2Label,
             galaxy1Div,
             galaxy1Label,
+            gltfLoader,
             vertices,
             x,
             y,
@@ -206,6 +207,33 @@
 
         const init = () => {
 
+            // Css2d Renderer
+
+            galaxy2Div = document.createElement('div');
+            galaxy2Div.className = 'label';
+            galaxy2Div.id = 'galaxy1';
+            galaxy2Div.textContent = 'Mind Pool';
+            galaxy2Div.style.marginTop = '-1em';
+            galaxy2Label = new CSS2DObject(galaxy2Div);
+            galaxy2Div.addEventListener('pointerdown', () => {
+                window.location.href = './mindpool.html';
+            });
+
+            galaxy1Div = document.createElement('div');
+            galaxy1Div.className = 'label';
+            galaxy1Div.textContent = 'Mind Axón';
+            galaxy1Div.style.marginTop = '-1em';
+            galaxy1Label = new CSS2DObject(galaxy1Div);
+            galaxy1Div.addEventListener('pointerdown', () => {
+                window.location.href = "./axon.html";
+            });
+
+            labelRenderer = new CSS2DRenderer();
+            labelRenderer.setSize(window.innerWidth, window.innerHeight);
+            labelRenderer.domElement.style.position = 'fixed';
+            labelRenderer.domElement.style.top = '0px';
+            document.body.appendChild(labelRenderer.domElement);
+
             //Scene
             scene = new THREE.Scene();
             camera = new THREE.PerspectiveCamera(55, window.innerWidth / window.innerHeight, 0.5, 10000);
@@ -222,8 +250,8 @@
             document.body.appendChild(renderer.domElement);
 
             //Controls
-            controls = new OrbitControls(camera, renderer.domElement);
-            controls.maxDistance = 5500;
+            controls = new OrbitControls(camera, labelRenderer.domElement);
+            // controls.maxDistance = 5500;
             controls.listenToKeyEvents(document.body)
             controls.keys = {
                 LEFT: "ArrowLeft", //left arrow
@@ -242,29 +270,36 @@
 
             }
 
+            controls.target.y = -1;
+            controls.enabled = true;
             controls.enableDamping = true;
             controls.autoRotateSpeed = 1;
             controls.autoRotate = true;
 
-            //Pointlight
-            pointLight = new THREE.PointLight(0x8f2bed, 1, 0);
-            pointLight.position.set(0, 250, 0);
-            pointLight.castShadow = true;
-            pointLight.shadow.mapSize.width = 2048;
-            pointLight.shadow.mapSize.height = 2048;
-            pointLight.shadow.camera.near = 0.5;
-            pointLight.shadow.camera.far = 1000;
-            scene.add(pointLight);
+            // GLTFLoader
+            gltfLoader = new GLTFLoader();
+            gltfLoader.load('./assets/model/Asteroids/Asteroides.gltf',
+                (gltf) => {
+                    scene.add(gltf.scene);
+                    asteroid1 = gltf.scene.getObjectByName('Asteroid1');
+                    asteroid2 = gltf.scene.getObjectByName('Asteroid2');
+                    asteroid1.add(galaxy1Label);
+                    asteroid2.add(galaxy2Label);
+                    galaxy1Label.position.set(0, 0, -200);
+                    galaxy2Label.position.set(0, 0, -200);
 
-            //sunlight
-            sunLight = new THREE.PointLight(0x8f2bed, 1, 0);
-            sunLight.position.set(300, -1900, -300);
-            sunLight.castShadow = true;
-            sunLight.shadow.mapSize.width = 2048;
-            sunLight.shadow.mapSize.height = 2048;
-            sunLight.shadow.camera.near = 0.5;
-            sunLight.shadow.camera.far = 1000;
-            scene.add(sunLight);
+                    labelRenderer.render(scene, camera);
+                },
+                (xhr) => {
+                    console.log((xhr.loaded / xhr.total * 100) + '% loaded');
+                },
+                (error) => {
+                    console.log('An error happened');
+                }
+            );
+
+            ambientLight = new THREE.AmbientLight(0x404040, 1.5); // soft white light
+            scene.add(ambientLight);
 
             //Mouse coors
             mouse = new THREE.Vector2();
@@ -389,8 +424,64 @@
                 camera.near = 0.5
             }
             camera.updateProjectionMatrix();
+            labelRenderer.setSize(window.innerWidth, window.innerHeight);
             render();
         };
+
+        //Events
+        const onClick = () => {
+            raycaster.setFromCamera(mouse, camera);
+            let intersects = raycaster.intersectObjects(scene.children);
+            if (intersects.length > 0) {
+                for (let i = 0; i < intersects.length; i++) {
+                    switch (intersects[i].object.name) {
+                        case "Asteroid1":
+                            window.location.href = "./axon.html";
+                            break;
+                        case "Asteroid2":
+                            window.location.href = './mindpool.html';
+                            break;
+
+                        default:
+                            break;
+                    }
+                }
+            }
+        }
+
+        //Hover planet
+        const onHover = () => {
+            raycaster.setFromCamera(mouse, camera);
+            let intersects = raycaster.intersectObjects(scene.children);
+            if (intersects.length > 0) {
+                for (let i = 0; i < intersects.length; i++) {
+                    switch (intersects[i].object.name) {
+
+                        case "Asteroid1":
+                            asteroid1.scale.set(0.6, 0.6, 0.6);
+                            document.body.style.cursor = "grab";
+                            break;
+                        case "Asteroid2":
+                            asteroid2.scale.set(0.6, 0.6, 0.6);
+                            document.body.style.cursor = "grab";
+                            break;
+
+                        default:
+                            break;
+                    }
+                }
+            }
+        }
+
+        //Reset planet hover
+        const resetHover = () => {
+            if (asteroid1)
+                asteroid1.scale.set(0.5, 0.5, 0.5);
+            document.body.style.cursor = "default";
+            if (asteroid2)
+                asteroid2.scale.set(0.5, 0.5, 0.5);
+            document.body.style.cursor = "default";
+        }
 
         //Render the scene
         const animate = () => {
@@ -401,8 +492,12 @@
             controls.update();
             //Render scene
             render();
+            resetHover();
+            //Hover new frame
+            onHover();
             //Request new frame
             requestAnimationFrame(animate);
+            labelRenderer.render(scene, camera);
         };
 
         const render = () => {
@@ -411,6 +506,7 @@
 
         window.addEventListener("load", onResize, false);
         window.addEventListener("resize", onResize, false);
+        window.addEventListener("click", onClick, false);
         window.addEventListener("mousemove", onMouseMove, false);
 
         init();
