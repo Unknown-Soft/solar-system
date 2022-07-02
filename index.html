@@ -281,12 +281,13 @@
             gltfLoader.load('./assets/model/Asteroids/Asteroides.gltf',
                 (gltf) => {
                     scene.add(gltf.scene);
+                    console.log(gltf.scene);
                     asteroid1 = gltf.scene.getObjectByName('Asteroid1');
                     asteroid2 = gltf.scene.getObjectByName('Asteroid2');
                     asteroid1.add(galaxy1Label);
                     asteroid2.add(galaxy2Label);
-                    galaxy1Label.position.set(0, 0, -200);
-                    galaxy2Label.position.set(0, 0, -200);
+                    galaxy1Label.position.set(0, 10, 0);
+                    galaxy2Label.position.set(0, 10, 0);
 
                     labelRenderer.render(scene, camera);
                 },
@@ -458,11 +459,11 @@
                     switch (intersects[i].object.name) {
 
                         case "Asteroid1":
-                            asteroid1.scale.set(0.6, 0.6, 0.6);
+                            asteroid1.scale.set(7.3, 7.3, 7.3);
                             document.body.style.cursor = "grab";
                             break;
                         case "Asteroid2":
-                            asteroid2.scale.set(0.6, 0.6, 0.6);
+                            asteroid2.scale.set(7.3, 7.3, 7.3);
                             document.body.style.cursor = "grab";
                             break;
 
@@ -476,10 +477,10 @@
         //Reset planet hover
         const resetHover = () => {
             if (asteroid1)
-                asteroid1.scale.set(0.5, 0.5, 0.5);
+                asteroid1.scale.set(7, 7, 7);
             document.body.style.cursor = "default";
             if (asteroid2)
-                asteroid2.scale.set(0.5, 0.5, 0.5);
+                asteroid2.scale.set(7, 7, 7);
             document.body.style.cursor = "default";
         }
 
