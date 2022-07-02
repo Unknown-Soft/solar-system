@@ -158,13 +158,11 @@
         //     mindPool.style.cursor = "pointer";
         // });
     </script>
-
     <script type="module">
         import * as THREE from './js/three.module.js';
         import { OrbitControls } from './js/OrbitControls.min.js';
         import { GLTFLoader } from "./js/GLTFLoader.min.js";
         import { CSS2DRenderer, CSS2DObject } from "./js/CSS2DRenderer.min.js";
-
         THREE.Cache.enabled = true;
 
         let
@@ -206,7 +204,6 @@
         parameters.spin = 2;
 
         const init = () => {
-
             // Css2d Renderer
 
             galaxy2Div = document.createElement('div');
@@ -240,6 +237,10 @@
             camera.position.set(300, -1900, -300);
             scene.add(camera);
 
+            setTimeout(()=>{
+                //createjs move camera position to
+                createjs.Tween.get(camera.position).to({x: 3000, y: 1000, z: 0}, 2000, createjs.Ease.linear);
+            }, 1000);
             //Renderer
             renderer = new THREE.WebGLRenderer({ antialias: true });
             renderer.setPixelRatio(window.devicePixelRatio);
@@ -514,6 +515,7 @@
         generateGalaxy();
 
     </script>
+    <script src="https://code.createjs.com/1.0.0/tweenjs.min.js"></script>
 </body>
 
 </html>
