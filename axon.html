@@ -295,8 +295,7 @@
             //Scene
             scene = new THREE.Scene();
             camera = new THREE.PerspectiveCamera(60, window.innerWidth / window.innerHeight, 0.5, 25000);
-            // camera.position.set(0, 0, -6000);
-            camera.position.set(19000, 4000, -3000);
+            camera.position.set(0, 18000, 0);
             scene.add(camera);
 
             //Renderer
@@ -335,8 +334,6 @@
             controls.enabled = true;
             controls.enableDamping = true;
             controls.autoRotateSpeed = 1;
-            // controls.maxPolarAngle = Math.PI / 1;
-            // controls.minPolarAngle = Math.PI / 1;
             controls.minDistance = 3000;
             controls.maxDistance = 18000;
 
@@ -370,12 +367,7 @@
                     clips = gltf.animations;
                     clips.forEach(function (clip) {
                         action = mixer.clipAction(clip);
-                        if (clip.name === "sunAction") {
-                            action.timeScale = 1 / 10;
-                        }
-                        else {
-                            action.timeScale = 1 / 70;
-                        }
+                        action.timeScale = 1 / 70;
                         action.time = 100;
                         action.play();
                     });
