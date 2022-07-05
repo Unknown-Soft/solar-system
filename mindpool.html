@@ -883,6 +883,13 @@
         const resetHover = () => {
 
             if (detectMobile()) {
+
+                var labels = document.getElementsByClassName("label");
+
+                Array.prototype.forEach.call(labels, function (label) {
+                    label.className = "labelMobile";
+                });
+
                 divSun.classList.remove('hidden');
                 divPink.classList.remove('hidden')
                 divPurpleBack.classList.remove('hidden');
@@ -979,7 +986,7 @@
             //Raycaster setup
             raycaster.setFromCamera(mouse, camera);
             //Reset hover new frame
-            if (count < 100)
+            if (count < 100 && (!detectMobile()))
                 setTimeout(() => {
                     resetHover();
                 }, 4000);
