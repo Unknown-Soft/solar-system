@@ -18,9 +18,9 @@
             "mesh" : 0,
             "name" : "Asteroid1",
             "scale" : [
-                7,
-                7,
-                7
+                3.5,
+                3.5,
+                3.5
             ],
             "translation" : [
                 -1290,
@@ -32,9 +32,9 @@
             "mesh" : 1,
             "name" : "Asteroid2",
             "scale" : [
-                7,
-                7,
-                7
+                3.5,
+                3.5,
+                3.5
             ],
             "translation" : [
                 1290,

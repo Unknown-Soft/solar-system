@@ -147,6 +147,8 @@
         import { OrbitControls } from './js/OrbitControls.min.js';
         import { GLTFLoader } from "./js/GLTFLoader.min.js";
         import { CSS2DRenderer, CSS2DObject } from "./js/CSS2DRenderer.min.js";
+        import { Lensflare, LensflareElement } from "./js/Lensflare.min.js";
+
         THREE.Cache.enabled = true;
 
         let
@@ -221,9 +223,9 @@
             camera.position.set(300, -1900, -300);
             scene.add(camera);
 
-            setTimeout(()=>{
+            setTimeout(() => {
                 //createjs move camera position to
-                createjs.Tween.get(camera.position).to({x: 3000, y: 1000, z: 0}, 2000, createjs.Ease.linear);
+                createjs.Tween.get(camera.position).to({ x: 3000, y: 1000, z: 0 }, 2000, createjs.Ease.linear);
             }, 1000);
             //Renderer
             renderer = new THREE.WebGLRenderer({ antialias: true });
@@ -266,14 +268,14 @@
             gltfLoader.load('./assets/model/Asteroids/Asteroides.gltf',
                 (gltf) => {
                     scene.add(gltf.scene);
-                    console.log(gltf.scene);
                     asteroid1 = gltf.scene.getObjectByName('Asteroid1');
                     asteroid2 = gltf.scene.getObjectByName('Asteroid2');
                     asteroid1.add(galaxy1Label);
                     asteroid2.add(galaxy2Label);
                     galaxy1Label.position.set(0, 10, 0);
                     galaxy2Label.position.set(0, 10, 0);
-
+                    console.log(asteroid1);
+                    console.log(asteroid2);
                     labelRenderer.render(scene, camera);
                 },
                 (xhr) => {
@@ -284,7 +286,7 @@
                 }
             );
 
-            ambientLight = new THREE.AmbientLight(0x404040, 1.5); // soft white light
+            ambientLight = new THREE.AmbientLight(0xfcfafa, 0.2);
             scene.add(ambientLight);
 
             //Mouse coors
@@ -308,19 +310,44 @@
             }
 
             bufferGeometry.setAttribute('position', new THREE.Float32BufferAttribute(vertices, 3));
-            pointsMaterial = new THREE.PointsMaterial({
-                color: 0xDBD81A,
-                size: 35,
-                sizeAttenuation: true,
-                map: sprite,
-                alphaTest: 0.5,
-                transparent: true
-            });
+
+            pointsMaterial = new THREE.PointsMaterial({ color: 0xDBD81A, size: 35, sizeAttenuation: true, map: sprite, alphaTest: 0.5, transparent: true });
+
             particles = new THREE.Points(bufferGeometry, pointsMaterial);
 
             scene.add(particles);
 
             animate();
+
+            // lensflares
+            const textureLoader = new THREE.TextureLoader();
+
+            const textureFlare0 = textureLoader.load('assets/images/lensflare0.png');
+            const textureFlare3 = textureLoader.load('assets/images/lensflare3.png');
+
+            addLight(0.08, 0.8, 0.5, -1290, 150, 0);
+            addLight(0.08, 0.8, 0.5, -1290, 50, 0);
+            addLight(0.08, 0.8, 0.5, 1290, 150, 0);
+            addLight(0.08, 0.8, 0.5, 1290, 50, 0);
+
+
+            function addLight(h, s, l, x, y, z) {
+
+                const light = new THREE.PointLight(0xffffff, 1.5, 2000);
+                light.color.setHSL(h, s, l);
+                light.position.set(x, y, z);
+                scene.add(light);
+
+                const lensflare = new Lensflare();
+                lensflare.addElement(new LensflareElement(textureFlare0, 700, 0, light.color));
+                lensflare.addElement(new LensflareElement(textureFlare3, 60, 0.6));
+                lensflare.addElement(new LensflareElement(textureFlare3, 70, 0.7));
+                lensflare.addElement(new LensflareElement(textureFlare3, 120, 0.9));
+                lensflare.addElement(new LensflareElement(textureFlare3, 70, 1));
+                light.add(lensflare);
+
+
+            }
         }
 
         const generateGalaxy = () => {
@@ -444,11 +471,11 @@
                     switch (intersects[i].object.name) {
 
                         case "Asteroid1":
-                            asteroid1.scale.set(7.3, 7.3, 7.3);
+                            asteroid1.scale.set(3.8, 3.8, 3.8);
                             document.body.style.cursor = "grab";
                             break;
                         case "Asteroid2":
-                            asteroid2.scale.set(7.3, 7.3, 7.3);
+                            asteroid2.scale.set(3.8, 3.8, 3.8);
                             document.body.style.cursor = "grab";
                             break;
 
@@ -462,10 +489,10 @@
         //Reset planet hover
         const resetHover = () => {
             if (asteroid1)
-                asteroid1.scale.set(7, 7, 7);
+                asteroid1.scale.set(3.5, 3.5, 3.5);
             document.body.style.cursor = "default";
             if (asteroid2)
-                asteroid2.scale.set(7, 7, 7);
+                asteroid2.scale.set(3.5, 3.5, 3.5);
             document.body.style.cursor = "default";
         }
 
