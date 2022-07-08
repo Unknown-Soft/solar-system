@@ -233,7 +233,7 @@ p span:after {
   border-color: transparent transparent white transparent;
 }
 
-button {
+.button {
   cursor: pointer;
   position: absolute;
   opacity: 0.6;
@@ -249,7 +249,7 @@ button {
   transition: opacity 0.2s ease-out;
 }
 
-button:before {
+.button:before {
   content: "";
   position: absolute;
   top: 0;
@@ -273,7 +273,7 @@ button:before {
   transition: opacity 0.2s ease-out, width 0.2s 0.2s ease-out;
 }
 
-button:after {
+.button:after {
   opacity: 0;
   content: "×";
   color: #d9b073;
@@ -286,24 +286,100 @@ button:after {
   transition: opacity 0.4s ease-out;
 }
 
-button:active {
+.button:active {
   transform: translateY(2px);
 }
 
-button:hover {
+.button:hover {
   opacity: 1;
 }
 
-.open button {
+.open .button {
   opacity: 1;
 }
 
-.open button:before {
+.open .button:before {
   opacity: 0;
   width: 0;
 }
 
-.open button:after {
+.open .button:after {
+  opacity: 1;
+  transform: translate3d(0, 0, 0) rotate(360deg);
+  transition: transform 0.4s 1s ease-out, opacity 0.4s 1s ease-out;
+}
+
+.button2 {
+  cursor: pointer;
+  position: absolute;
+  opacity: 0.6;
+  background-color: transparent;
+  position: fixed;
+  z-index: 2;
+  top: 24px;
+  right: 80px;
+  border: none;
+  width: 36px;
+  height: 30px;
+  outline: none;
+  transition: opacity 0.2s ease-out;
+}
+
+.button2:before {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  margin: auto;
+  right: auto;
+  width: 100%;
+  background: linear-gradient(to bottom,
+      #d9b073,
+      #d9b073 20%,
+      transparent 20%,
+      transparent 40%,
+      #d9b073 40%,
+      #d9b073 60%,
+      transparent 60%,
+      transparent 80%,
+      #d9b073 80%,
+      #d9b073 100%);
+  transition: opacity 0.2s ease-out, width 0.2s 0.2s ease-out;
+}
+
+.button2:after {
+  opacity: 0;
+  content: "×";
+  color: #d9b073;
+  position: absolute;
+  top: 16px;
+  left: -4px;
+  font-family: Arial, sans-serif;
+  font-size: 76px;
+  line-height: 0;
+  transition: opacity 0.4s ease-out;
+}
+
+.button2:active {
+  transform: translateY(2px);
+}
+
+.button2:hover {
+  opacity: 1;
+}
+
+.open2 .button2 {
+  opacity: 1;
+}
+
+.open2 .button2:before {
+  opacity: 0;
+  width: 0;
+}
+
+.open2 .button2:after {
   opacity: 1;
   transform: translate3d(0, 0, 0) rotate(360deg);
   transition: transform 0.4s 1s ease-out, opacity 0.4s 1s ease-out;

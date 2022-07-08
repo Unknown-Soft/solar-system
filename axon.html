@@ -24,7 +24,8 @@
     </section>
 
     <img id="logo-text" src="assets/images/logo-text.png" alt="Mind World logo text" />
-    <button id="menu-toggle" class="menu-toggle"></button>
+    <button id="menu-toggle" class="menu-toggle button"></button>
+    <button id="help-toggle" class="help-toggle button2"></button>
     <nav>
         <div class="menu">
             <div id="column-one" class="element">
@@ -139,6 +140,41 @@
                 logo.classList.add("slideDown");
                 menu.classList.remove("slideUp");
                 menu.classList.add("slideDown");
+            }
+            new_scroll_position = last_scroll_position;
+        });
+    </script>
+    <script>
+        //open and close menu help
+        const button2 = document.getElementById('help-toggle');
+        const body2 = document.getElementById('body');
+        button2.addEventListener('click', () => {
+            body2.classList.toggle('open2');
+        }, false);
+
+        //Menu: manage scroll on mobile devices
+        var last_scroll_position, new_scroll_position = 0;
+        const logo2 = document.getElementById("logo-text");
+
+        const menu2 = document.getElementById("help-toggle");
+        const menuContainer2 = document.querySelector(".menu");
+
+        menuContainer2.addEventListener('scroll', function (e) {
+            last_scroll_position = menuContainer.scrollTop;
+
+            // Scrolling down icons
+            if (new_scroll_position < last_scroll_position && last_scroll_position > 60) {
+                logo2.classList.remove("slideDown");
+                logo2.classList.add("slideUp");
+                menu2.classList.remove("slideDown");
+                menu2.classList.add("slideUp");
+
+                // Scrolling up icons
+            } else if (new_scroll_position > last_scroll_position) {
+                logo2.classList.remove("slideUp");
+                logo2.classList.add("slideDown");
+                menu2.classList.remove("slideUp");
+                menu2.classList.add("slideDown");
             }
             new_scroll_position = last_scroll_position;
         });
