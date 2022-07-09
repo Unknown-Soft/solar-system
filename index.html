@@ -23,7 +23,7 @@
     <button id="menu-toggle" class="menu-toggle button"></button>
     <button id="help-toggle" class="help-toggle button2"></button>
 
-    <nav>
+    <nav class="nav-menu">
         <div class="menu">
             <div id="column-one" class="element">
                 <h2>Soluciones de negocio</h2>
@@ -106,6 +106,38 @@
             </div>
         </div>
     </nav>
+
+    <nav class="nav-menu-help">
+        <div class="menu-help">
+            <div id="column-two" class="element">
+                <div class="m-15">
+                    <img class="" src="./assets/images/pc-icons/left.png" alt="left click image" width="36"
+                        height="36" />
+                    Puedes girar la escena con clik derecho
+                </div>
+                <div class="m-15">
+                    <img class="" src="./assets/images/pc-icons/right.png" alt="left click image" width="36"
+                        height="36" />
+                    Puedes moverte con clik derecho
+                </div>
+                <div class="m-15">
+                    <img class="" src="./assets/images/pc-icons/cursor.png" alt="left click image" width="36"
+                        height="36" />
+                    Pasa el cursor por encima de un planeta para ver su nombre
+                </div>
+                <div class="m-15">
+                    <img class="" src="./assets/images/pc-icons/scroll.png" alt="left click image" width="36"
+                        height="36" />
+                    Tepuede acercar y alejar con el scroll del mouse
+                </div>
+                <div class="ml-15">
+                    <img class="" src="./assets/images/pc-icons/left.png" alt="left click image" width="36"
+                        height="36" />
+                    Hacer clik en un planeta para ir a la pagina web
+                </div>
+            </div>
+        </div>
+    </nav>
     <script>
         //open and close menu
         const button = document.getElementById('menu-toggle');
@@ -154,7 +186,7 @@
         const logo2 = document.getElementById("logo-text");
 
         const menu2 = document.getElementById("help-toggle");
-        const menuContainer2 = document.querySelector(".menu");
+        const menuContainer2 = document.querySelector(".menu-help");
 
         menuContainer2.addEventListener('scroll', function (e) {
             last_scroll_position = menuContainer.scrollTop;
@@ -308,8 +340,6 @@
                     asteroid2.add(galaxy2Label);
                     galaxy1Label.position.set(0, 10, 0);
                     galaxy2Label.position.set(0, 10, 0);
-                    console.log(asteroid1);
-                    console.log(asteroid2);
                     labelRenderer.render(scene, camera);
                 },
                 (xhr) => {
