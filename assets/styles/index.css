@@ -102,7 +102,6 @@ canvas {
 }
 
 @-webkit-keyframes load7 {
-
   0%,
   80%,
   100% {
@@ -115,7 +114,6 @@ canvas {
 }
 
 @keyframes load7 {
-
   0%,
   80%,
   100% {
@@ -191,54 +189,107 @@ canvas {
   position: absolute;
   z-index: 11;
   height: 100%;
-  width: 100%;
+  width: 650px;
   /* This part is important for centering the content */
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   justify-content: center;
   flex-direction: column;
   -webkit-animation: 1s ease 0s normal forwards 1 fadein;
-    animation: 1s ease 0s normal forwards 1 fadein;
+  animation: 1s ease 0s normal forwards 1 fadein;
+}
+
+.wrapper h1 {
+  text-align: center;
+}
+
+.wrapper span {
+  -webkit-touch-callout: none; /* iOS Safari */
+  -webkit-user-select: none; /* Safari */
+  -khtml-user-select: none; /* Konqueror HTML */
+  -moz-user-select: none; /* Old versions of Firefox */
+  -ms-user-select: none; /* Internet Explorer/Edge */
+  user-select: none; /* Non-prefixed version, currently supported by Chrome, Edge, Opera and Firefox */
+  text-decoration: none !important;
+}
+
+.wrapper span:hover {
+  font-size: 18px;
+}
+
+.wrapper span img {
+  filter: invert(71%) sepia(26%) saturate(591%) hue-rotate(357deg) brightness(98%) contrast(88%);
+  margin-right: 20px;
 }
 
 @keyframes fadein {
-  0% { opacity:0; }
-  66% { opacity:0; }
-  100% { opacity:1; }
+  0% {
+    opacity: 0;
+  }
+  66% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
 }
 
 /* Firefox < 16 */
 @-moz-keyframes fadein {
-  0% { opacity:0; }
-  66% { opacity:0; }
-  100% { opacity:1; }
+  0% {
+    opacity: 0;
+  }
+  66% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
 }
 
 /* Safari, Chrome and Opera > 12.1 */
 @-webkit-keyframes fadein {
-  0% { opacity:0; }
-  66% { opacity:0; }
-  100% { opacity:1; }
+  0% {
+    opacity: 0;
+  }
+  66% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
 }
 
 /* Internet Explorer */
 @-ms-keyframes fadein {
-  0% { opacity:0; }
-  66% { opacity:0; }
-  100% { opacity:1; }
+  0% {
+    opacity: 0;
+  }
+  66% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
 }
 
 /* Opera < 12.1 */
 @-o-keyframes fadein {
-  0% { opacity:0; }
-  66% { opacity:0; }
-  100% { opacity:1; }
+  0% {
+    opacity: 0;
+  }
+  66% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
 }
 
 #help-button {
-  background-color: #d9b073 ;
-  -webkit-mask: url('../images/help.svg') center;
-  mask: url('../images/help.svg') center;
+  background-color: #d9b073;
+  -webkit-mask: url("../images/help.svg") center;
+  mask: url("../images/help.svg") center;
   top: 16px;
   right: 80px;
   width: 50px;
@@ -317,17 +368,19 @@ p span:after {
   margin: auto;
   right: auto;
   width: 100%;
-  background: linear-gradient(to bottom,
-      #d9b073,
-      #d9b073 20%,
-      transparent 20%,
-      transparent 40%,
-      #d9b073 40%,
-      #d9b073 60%,
-      transparent 60%,
-      transparent 80%,
-      #d9b073 80%,
-      #d9b073 100%);
+  background: linear-gradient(
+    to bottom,
+    #d9b073,
+    #d9b073 20%,
+    transparent 20%,
+    transparent 40%,
+    #d9b073 40%,
+    #d9b073 60%,
+    transparent 60%,
+    transparent 80%,
+    #d9b073 80%,
+    #d9b073 100%
+  );
   transition: opacity 0.2s ease-out, width 0.2s 0.2s ease-out;
 }
 
@@ -830,7 +883,6 @@ h4:hover {
   border-width: 0.125rem;
   border-color: #d9b073;
   background-color: #000000;
-
 }
 
 .labelMobile {
