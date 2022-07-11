@@ -22,7 +22,7 @@
     <img id="logo-text" src="assets/images/logo-text.png" />
     <button id="menu-toggle" class="menu-toggle button"></button>
     <button id="help-button" class="button"></button>
- 
+
     <nav class="nav-menu">
         <div id="menu" class="menu">
 
@@ -367,7 +367,11 @@
             vertices = [];
             sprite = new THREE.TextureLoader().load('assets/images/disc.png');
 
-            for (let i = 0; i < 10000; i++) {
+            let particlesCount = 10000;
+            if (detectMobile())
+                particlesCount = 2000;
+
+            for (let i = 0; i < particlesCount; i++) {
 
                 x = 30000 * Math.random() - 15000;
                 y = 20000 * Math.random() - 10000;
