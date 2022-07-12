@@ -526,10 +526,13 @@
             //stars
 
             geometry = new THREE.BufferGeometry();
-            const particlesCount = 10000;
             vertices = [];
 
             sprite = new THREE.TextureLoader().load('assets/images/disc.png');
+
+            let particlesCount = 10000;
+            if (detectMobile())
+                particlesCount = 2000;
 
             for (let i = 0; i < particlesCount; i++) {
 
