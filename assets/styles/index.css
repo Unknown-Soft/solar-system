@@ -192,7 +192,7 @@ canvas {
   position: absolute;
   z-index: 11;
   height: 100%;
-  width: 650px;
+  min-width: 640px;
   /* This part is important for centering the content */
   display: flex;
   align-items: flex-start;
@@ -202,11 +202,9 @@ canvas {
   animation: 1s ease 0s normal forwards 1 fadein;
 }
 
-.wrapper h1 {
-  text-align: center;
-}
-
 .wrapper span {
+  width: 100%;
+  word-break: break-all;
   -webkit-touch-callout: none; /* iOS Safari */
   -webkit-user-select: none; /* Safari */
   -khtml-user-select: none; /* Konqueror HTML */
@@ -217,7 +215,7 @@ canvas {
 }
 
 .wrapper span:hover {
-  font-size: 18px;
+  font-size: 18px !important;
 }
 
 .wrapper span img {
@@ -289,6 +287,9 @@ canvas {
   }
 }
 
+h5 {
+  font-size: 20px;
+}
 #help-button {
   background-color: #d9b073;
   -webkit-mask: url("../images/help.svg") center;
@@ -515,6 +516,11 @@ p span:after {
 }
 
 @media screen and (max-width: 768px) {
+
+  h5 {
+    font-size: 18px;
+  }
+
   .m-15 {
     margin-bottom: 15px;
     margin-top: 15px;
@@ -538,6 +544,10 @@ p span:after {
   }
 
   span {
+    font-size: 16px !important;
+  }
+
+  .wrapper span:hover {
     font-size: 16px !important;
   }
 
@@ -616,6 +626,11 @@ p span:after {
 }
 
 @media screen and (min-width: 1800px) {
+
+  h5 {
+    font-size: 25px;
+  }
+
   .menu {
     margin-top: 60px;
   }
@@ -632,6 +647,10 @@ p span:after {
   span {
     font-size: 28px !important;
     margin-bottom: 24px !important;
+  }
+
+  .wrapper span:hover {
+    font-size: 28px !important;
   }
 
   span:hover {
