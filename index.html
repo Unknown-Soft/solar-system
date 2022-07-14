@@ -297,7 +297,12 @@
             setTimeout(() => {
                 //createjs move camera position to
                 createjs.Tween.get(camera.position).to({ x: 3000, y: 1000, z: 0 }, 2000, createjs.Ease.linear);
+                setTimeout(() => {
+                    const helpButton = document.getElementById('help-button');
+                    helpButton.click();
+                }, 2500);
             }, 1000);
+            
             //Renderer
             renderer = new THREE.WebGLRenderer({ antialias: true });
             renderer.setPixelRatio(window.devicePixelRatio);

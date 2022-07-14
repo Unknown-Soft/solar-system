@@ -27,6 +27,7 @@
     <button id="menu-toggle" class="menu-toggle button"></button>
     <button id="help-button" class="button"></button>
     <img id="show-label" class="hidden" src="./assets/images/eye_visible.png" alt="show labels" />
+    <img id="twod-icon" class="hidden" src="./assets/images/2d.png" alt="open 2D website" />
     <nav class="nav-menu">
         <div id="menu" class="menu">
 
@@ -41,13 +42,23 @@
             return check;
         }
 
+        //open tab with Minworld website
+        const logoText = document.getElementById('logo-text');
+        logoText.addEventListener('click', () => {
+            window.open('https://mindworld.io/', '_blank');
+        });
+
         //open and close menu
         const button = document.getElementById('menu-toggle');
         const helpButton = document.getElementById('help-button');
+        const showLabelButton = document.getElementById('show-label');
         const menuDiv = document.getElementById('menu');
+        const twoIcon = document.getElementById('twod-icon');
 
         const body = document.getElementById('body');
         button.addEventListener('click', () => {
+            showLabelButton.classList.toggle('hidden');
+            twoIcon.classList.toggle('hidden');
             menuDiv.innerHTML = `<div id="column-one" class="element">
                 <h2>Soluciones de negocio</h2>
                 <span><a href="https://mindworld.io/axon-tokenomics/" target="_blank">Sol: Axon</a></span>
@@ -136,6 +147,8 @@
         helpButton.addEventListener('click', () => {
             body.classList.toggle('open');
             button.classList.toggle('hidden');
+            showLabelButton.classList.toggle('hidden');
+            twoIcon.classList.toggle('hidden');
 
             if (detectMobile()) {
                 menuDiv.innerHTML =
@@ -277,6 +290,7 @@
             whiteBlueDiv,
             blackDiv,
             count = 0,
+            twodIcon,
             showLabel,
             isShowingLabels = false;
 
@@ -363,6 +377,12 @@
             labelRenderer.domElement.style.position = 'fixed';
             labelRenderer.domElement.style.top = '0px';
             document.body.appendChild(labelRenderer.domElement);
+
+            //toggle 2D icon
+            twodIcon = document.getElementById('twod-icon');
+            twodIcon.addEventListener('click', () => {
+                window.open('https://mindworld.io/', '_blank');
+            });
 
             //toggle show labels
             showLabel = document.getElementById('show-label');
@@ -640,6 +660,7 @@
             const element = event.target;
             element.remove();
             showLabel.classList.remove("hidden");
+            twodIcon.classList.remove("hidden");
         }
 
         //Open new tab
