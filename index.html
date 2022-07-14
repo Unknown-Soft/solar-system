@@ -302,7 +302,7 @@
                     helpButton.click();
                 }, 2500);
             }, 1000);
-            
+
             //Renderer
             renderer = new THREE.WebGLRenderer({ antialias: true });
             renderer.setPixelRatio(window.devicePixelRatio);
@@ -341,7 +341,7 @@
 
             // GLTFLoader
             gltfLoader = new GLTFLoader();
-            gltfLoader.load('./assets/model/Asteroids/Asteroides.gltf',
+            gltfLoader.load('./assets/model/Asteroids/Asteroids.gltf',
                 (gltf) => {
                     scene.add(gltf.scene);
                     asteroid1 = gltf.scene.getObjectByName('Asteroid1');
@@ -400,13 +400,13 @@
             // lensflares
             const textureLoader = new THREE.TextureLoader();
 
-            const textureFlare0 = textureLoader.load('assets/images/lensflare0.png');
+            const textureFlare0 = textureLoader.load('assets/images/lensflare0.jpg');
             const textureFlare3 = textureLoader.load('assets/images/lensflare3.png');
 
-            addLight(0.08, 0.8, 0.5, -1290, 150, 0);
-            addLight(0.08, 0.8, 0.5, -1290, 50, 0);
-            addLight(0.08, 0.8, 0.5, 1290, 150, 0);
-            addLight(0.08, 0.8, 0.5, 1290, 50, 0);
+            addLight(360, 100, 100, -1290, 128, 0);
+            addLight(360, 100, 100, -1290, 72, 0);
+            addLight(360, 100, 100, 1290, 128, 0);
+            addLight(360, 100, 100, 1290, 72, 0);
 
 
             function addLight(h, s, l, x, y, z) {
@@ -538,15 +538,25 @@
             raycaster.setFromCamera(mouse, camera);
             let intersects = raycaster.intersectObjects(scene.children);
             if (intersects.length > 0) {
+                controls.autoRotate = false;
                 for (let i = 0; i < intersects.length; i++) {
+
                     switch (intersects[i].object.name) {
 
-                        case "Asteroid1":
-                            asteroid1.scale.set(3.8, 3.8, 3.8);
+                        case "Mesh041":
+                            asteroid2.scale.set(2.3, 2.3, 2.3);
                             document.body.style.cursor = "grab";
                             break;
-                        case "Asteroid2":
-                            asteroid2.scale.set(3.8, 3.8, 3.8);
+                        case "Mesh008":
+                            asteroid1.scale.set(2.3, 2.3, 2.3);
+                            document.body.style.cursor = "grab";
+                            break;
+                        case "Mesh041_1":
+                            asteroid2.scale.set(2.3, 2.3, 2.3);
+                            document.body.style.cursor = "grab";
+                            break;
+                        case "Mesh008_1":
+                            asteroid1.scale.set(2.3, 2.3, 2.3);
                             document.body.style.cursor = "grab";
                             break;
 
@@ -559,11 +569,12 @@
 
         //Reset planet hover
         const resetHover = () => {
+            controls.autoRotate = false;
             if (asteroid1)
-                asteroid1.scale.set(3.5, 3.5, 3.5);
+                asteroid1.scale.set(2, 2, 2);
             document.body.style.cursor = "default";
             if (asteroid2)
-                asteroid2.scale.set(3.5, 3.5, 3.5);
+                asteroid2.scale.set(2, 2, 2);
             document.body.style.cursor = "default";
         }
 
