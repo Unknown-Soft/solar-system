@@ -475,7 +475,7 @@
 
             // Material
             const material = new THREE.PointsMaterial({
-                size: parameters.size,
+                size: window.devicePixelRatio/* parameters.size */,
                 sizeAttenuation: true,
                 depthWrite: false,
                 blending: THREE.AdditiveBlending,
