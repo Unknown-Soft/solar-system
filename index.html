@@ -257,7 +257,7 @@
         parameters.radius = 15;
         parameters.randomness = 0.2;
         parameters.randomnessPower = 1;
-        parameters.size = 0.1;
+        parameters.size = window.devicePixelRatio;
         parameters.spin = 2;
 
         const init = () => {
@@ -475,7 +475,7 @@
 
             // Material
             const material = new THREE.PointsMaterial({
-                size: parameters.size,
+                size: parameters.size * window.devicePixelRatio,
                 sizeAttenuation: true,
                 depthWrite: false,
                 blending: THREE.AdditiveBlending,
