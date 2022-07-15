@@ -232,6 +232,7 @@
             controls,
             geometry,
             labelRenderer,
+            isMac,
             mouse,
             particles,
             pointsMaterial,
@@ -257,8 +258,15 @@
         parameters.radius = 15;
         parameters.randomness = 0.2;
         parameters.randomnessPower = 1;
-        parameters.size = window.devicePixelRatio;
-        parameters.spin = 2;
+        isMac = /(Mac|iPhone|iPod|iPad)/i.test(navigator.platform);
+        if (isMac) {
+                parameters.size = 2;
+                parameters.spin = 0.85;
+            } else {
+                parameters.size = 0.1;
+                parameters.spin = 2;
+            }
+
 
         const init = () => {
             // Css2d Renderer
@@ -475,7 +483,7 @@
 
             // Material
             const material = new THREE.PointsMaterial({
-                size: window.devicePixelRatio/* parameters.size */,
+                size: parameters.size,
                 sizeAttenuation: true,
                 depthWrite: false,
                 blending: THREE.AdditiveBlending,
