@@ -312,6 +312,9 @@
             brownDiv.className = 'label';
             brownDiv.textContent = 'Mind Pos';
             brownDiv.style.marginTop = '-1em';
+            brownDiv.addEventListener('pointerdown', () => {
+                openNewTabAndFocus("https://mindworld.io/");
+            });
             const brownLabel = new CSS2DObject(brownDiv);
             brownLabel.position.set(16, 11, 0);
 
@@ -319,6 +322,9 @@
             orangeDiv.className = 'label';
             orangeDiv.textContent = 'Mind Solutions';
             orangeDiv.style.marginTop = '-1em';
+            orangeDiv.addEventListener('pointerdown', () => {
+                openNewTabAndFocus("https://cdepaz.com/mindsolutions/");
+            });
             const orangeLabel = new CSS2DObject(orangeDiv);
             orangeLabel.position.set(0, 10.5, 0);
 
@@ -326,6 +332,9 @@
             redDiv.className = 'label';
             redDiv.textContent = 'Mind Club';
             redDiv.style.marginTop = '-1em';
+            redDiv.addEventListener('pointerdown', () => {
+                openNewTabAndFocus("https://cdepaz.com/mindsolutions/fidelizacion/");
+            });
             const redDLabel = new CSS2DObject(redDiv);
             redDLabel.position.set(0, 13, 0);
 
@@ -333,6 +342,9 @@
             darkBlueDiv.className = 'label';
             darkBlueDiv.textContent = 'Mind Orders';
             darkBlueDiv.style.marginTop = '-1em';
+            darkBlueDiv.addEventListener('pointerdown', () => {
+                openNewTabAndFocus("https://cdepaz.com/mindsolutions/ecommerce/");
+            });
             const darkblueLabel = new CSS2DObject(darkBlueDiv);
             darkblueLabel.position.set(-16, 12, 0);
 
@@ -340,6 +352,9 @@
             darkBrownDiv.className = 'label';
             darkBrownDiv.textContent = 'Mind Card';
             darkBrownDiv.style.marginTop = '-1em';
+            darkBrownDiv.addEventListener('pointerdown', () => {
+                openNewTabAndFocus("https://mindworld.io/mind-card/");
+            });
             const darkBrownLabel = new CSS2DObject(darkBrownDiv);
             darkBrownLabel.position.set(16, 12, 0);
 
@@ -347,6 +362,9 @@
             sunDiv.className = 'label';
             sunDiv.textContent = 'Axon';
             sunDiv.style.marginTop = '-1em';
+            sunDiv.addEventListener('pointerdown', () => {
+                openNewTabAndFocus("https://mindworld.io/axon-tokenomics/");
+            });
             const sunLabel = new CSS2DObject(sunDiv);
             sunLabel.position.set(0, 11, 0);
 
@@ -354,6 +372,9 @@
             whiteBlueDiv.className = 'label';
             whiteBlueDiv.textContent = 'Mind App';
             whiteBlueDiv.style.marginTop = '-1em';
+            whiteBlueDiv.addEventListener('pointerdown', () => {
+                openNewTabAndFocus("https://cdepaz.com/mindsolutions/soluciones-integrales/");
+            });
             const whiteBlueLabel = new CSS2DObject(whiteBlueDiv);
             whiteBlueLabel.position.set(0, 11, 0);
 
@@ -361,6 +382,9 @@
             blackWhiteDiv.className = 'label';
             blackWhiteDiv.textContent = 'Mind Store';
             blackWhiteDiv.style.marginTop = '-1em';
+            blackWhiteDiv.addEventListener('pointerdown', () => {
+                openNewTabAndFocus("https://mindworld.io/mind-store/");
+            });
             const blackWhiteLabel = new CSS2DObject(blackWhiteDiv);
             blackWhiteLabel.position.set(19, 11, 0);
 
@@ -368,6 +392,9 @@
             lightBlueDiv.className = 'label';
             lightBlueDiv.textContent = 'Mind Pay';
             lightBlueDiv.style.marginTop = '-1em';
+            lightBlueDiv.addEventListener('pointerdown', () => {
+                openNewTabAndFocus("https://mindworld.io/mindpagos-crypto-store/");
+            });
             const lightBlueLabel = new CSS2DObject(lightBlueDiv);
             lightBlueLabel.position.set(0, 11, 0);
 
@@ -567,7 +594,7 @@
             // lensflares
             const textureLoader = new THREE.TextureLoader();
 
-            const textureFlare0 = textureLoader.load('assets/images/lensflare0.png');
+            const textureFlare0 = textureLoader.load('assets/images/lensflare1.png');
             const textureFlare3 = textureLoader.load('assets/images/lensflare3.png');
 
             addLight(0.08, 0.8, 0.5, 0, -750, 0);
