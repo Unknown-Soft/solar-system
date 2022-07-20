@@ -43,6 +43,10 @@
             return check;
         }
 
+        document.addEventListener('gesturestart', function (e) {
+            e.preventDefault();
+        });
+
         //open tab with Minworld website
         const logoText = document.getElementById('logo-text');
         logoText.addEventListener('click', () => {
