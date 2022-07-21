@@ -37,6 +37,10 @@
             return check;
         }
 
+        document.addEventListener('gesturestart', function (e) {
+            e.preventDefault();
+        });
+
         //open and close menu
         const button = document.getElementById('menu-toggle');
         const helpButton = document.getElementById('help-button');
@@ -260,12 +264,12 @@
         parameters.randomnessPower = 1;
         isMac = /(Mac|iPhone|iPod|iPad)/i.test(navigator.platform);
         if (isMac) {
-                parameters.size = 2;
-                parameters.spin = 0.85;
-            } else {
-                parameters.size = 0.1;
-                parameters.spin = 2;
-            }
+            parameters.size = 2;
+            parameters.spin = 0.85;
+        } else {
+            parameters.size = 0.1;
+            parameters.spin = 2;
+        }
 
 
         const init = () => {
