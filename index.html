@@ -30,6 +30,8 @@
     </nav>
 
     <script>
+        let isHelpButtonPressed = false;
+
         //Detecting mobile devices with Regex
         const detectMobile = () => {
             let check = false;
@@ -48,7 +50,8 @@
 
         const body = document.getElementById('body');
         button.addEventListener('click', () => {
-            menuDiv.innerHTML = `<div id="column-one" class="element">
+            if (!isHelpButtonPressed) {
+                menuDiv.innerHTML = `<div id="column-one" class="element">
                 <h2>Soluciones de negocio</h2>
                 <span><a href="https://mindworld.io/axon-tokenomics/" target="_blank">Sol: Axon</a></span>
                 <div class="m-15">
@@ -127,15 +130,18 @@
                     </h4>
                 </div>
             </div>`;
+            }
             setTimeout(() => {
+                isHelpButtonPressed = false;
                 body.classList.toggle('open');
                 helpButton.classList.toggle('hidden');
             }, 200)
         }, false);
 
         helpButton.addEventListener('click', () => {
+            isHelpButtonPressed = true;
             body.classList.toggle('open');
-            button.classList.toggle('hidden');
+            helpButton.classList.toggle('hidden');
 
             if (detectMobile()) {
                 menuDiv.innerHTML =
