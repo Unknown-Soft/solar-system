@@ -536,6 +536,15 @@ p span:after {
   cursor: auto;
 }
 
+@media not all and (min-resolution: 0.001dpcm) {
+  .menu  {
+    margin-top: 70px;
+  }
+  .wrapper{
+    margin-top: 400px;
+  }
+}
+
 @media screen and (max-width: 300px) {
   #galaxy {
     top: 50% !important;
