@@ -303,7 +303,8 @@
             count = 0,
             twodIcon,
             showLabel,
-            isShowingLabels = false;
+            isShowingLabels = false,
+            imageBackGround;
 
         const parameters = {};
         parameters.branches = 4;
@@ -579,6 +580,10 @@
             vertices = [];
 
             sprite = new THREE.TextureLoader().load('assets/images/disc.png');
+
+            imageBackGround = new THREE.TextureLoader().load('assets/images/background.svg');
+            scene.background = imageBackGround;
+
             let particlesCount = 10000;
             if (detectMobile())
                 particlesCount = 2000;

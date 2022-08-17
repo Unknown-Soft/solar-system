@@ -14,7 +14,7 @@ body {
 }
 
 #galaxy {
-  background-image: url("../images/background.svg");
+  /* background-image: url("../images/background.svg"); */
   background-size: cover;
   position: absolute;
   margin: auto;

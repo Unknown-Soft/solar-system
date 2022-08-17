@@ -259,7 +259,8 @@
             vertices,
             x,
             y,
-            z
+            z,
+            imageBackGround
 
         const parameters = {};
         parameters.branches = 3;
@@ -392,6 +393,9 @@
             bufferGeometry = new THREE.BufferGeometry();
             vertices = [];
             sprite = new THREE.TextureLoader().load('assets/images/disc.png');
+
+            imageBackGround = new THREE.TextureLoader().load('assets/images/background.svg');
+            scene.background = imageBackGround;
 
             let particlesCount = 10000;
             if (detectMobile())
