@@ -251,7 +251,7 @@
         THREE.Cache.enabled = true;
 
         let action,
-            ambientLight,
+            aL,
             blackWhite,
             blackWhiteDiv,
             brown,
@@ -447,7 +447,7 @@
 
             //Scene
             scene = new THREE.Scene();
-            camera = new THREE.PerspectiveCamera(60, window.innerWidth / window.innerHeight, 0.5, 25000);
+            camera = new THREE.PerspectiveCamera(60, window.innerWidth / window.innerHeight, 0.5, 30000);
             camera.position.set(0, 18000, 0);
             scene.add(camera);
 
@@ -568,6 +568,9 @@
             hemiLightDown.position.set(0, -70, 0);
             scene.add(hemiLightDown);
 
+            aL = new THREE.AmbientLight(0x404040, 3.5);
+            scene.add(aL);
+
             //Mouse coors
             mouse = new THREE.Vector2();
 
@@ -581,8 +584,11 @@
 
             sprite = new THREE.TextureLoader().load('assets/images/disc.png');
 
-            imageBackGround = new THREE.TextureLoader().load('assets/images/background.svg');
+            imageBackGround = new THREE.TextureLoader().load('assets/images/space.jpg');
             scene.background = imageBackGround;
+
+            renderer.outputEncoding = THREE.LinearEncoding;
+            renderer.gammaOutput = true;
 
             let particlesCount = 10000;
             if (detectMobile())

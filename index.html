@@ -22,7 +22,6 @@
     <img id="logo-text" src="assets/images/logo-text.png" />
     <button id="menu-toggle" class="menu-toggle button"></button>
     <button id="help-button" class="button"></button>
-    <div id="galaxy"></div>
     <nav class="nav-menu">
         <div id="menu" class="menu">
 
@@ -380,7 +379,7 @@
                 }
             );
 
-            ambientLight = new THREE.AmbientLight(0xfcfafa, 0.2);
+            ambientLight = new THREE.AmbientLight(0xfcfafa, 2.5);
             scene.add(ambientLight);
 
             //Mouse coors
@@ -394,8 +393,9 @@
             vertices = [];
             sprite = new THREE.TextureLoader().load('assets/images/disc.png');
 
-            imageBackGround = new THREE.TextureLoader().load('assets/images/background.svg');
+            imageBackGround = new THREE.TextureLoader().load('assets/images/space.jpg');
             scene.background = imageBackGround;
+            renderer.outputEncoding = THREE.LinearEncoding;
 
             let particlesCount = 10000;
             if (detectMobile())
