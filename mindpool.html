@@ -630,15 +630,15 @@
             renderer.outputEncoding = THREE.LinearEncoding;
             renderer.gammaOutput = true;
 
-            let particlesCount = 10000;
+            let particlesCount = 20000;
             if (detectMobile())
                 particlesCount = 2000;
 
             for (let i = 0; i < particlesCount; i++) {
 
-                x = 30000 * Math.random() - 15000;
-                y = 20000 * Math.random() - 10000;
-                z = 30000 * Math.random() - 15000;
+                x = 50000 * Math.random() - 15000;
+                y = 40000 * Math.random() - 10000;
+                z = 50000 * Math.random() - 15000;
 
                 vertices.push(x, y, z);
 
