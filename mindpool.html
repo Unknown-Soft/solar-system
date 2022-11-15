@@ -624,8 +624,19 @@
 
             sprite = new THREE.TextureLoader().load('assets/images/disc.png');
 
-            imageBackGround = new THREE.TextureLoader().load('assets/images/space.jpg');
-            scene.background = imageBackGround;
+            const enviromentMap = new THREE.CubeTextureLoader()
+            const envMap = enviromentMap.load([
+                'assets/images/envMap/px.png',
+                'assets/images/envMap/py.png',
+                'assets/images/envMap/ny.png',
+                'assets/images/envMap/nx.png',
+                'assets/images/envMap/pz.png',
+                'assets/images/envMap/nz.png',
+            ]);
+            scene.background = envMap;
+
+            //imageBackGround = new THREE.TextureLoader().load('assets/images/ungaro.jpeg');
+            //scene.background = imageBackGround;
 
             renderer.outputEncoding = THREE.LinearEncoding;
             renderer.gammaOutput = true;
